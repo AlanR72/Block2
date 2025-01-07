@@ -1,0 +1,7 @@
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\ExcerciseVAT\ExcerciseVAT\ExcerciseVAT\bin\Debug\ExcerciseVAT.exe.config
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\ExcerciseVAT\ExcerciseVAT\ExcerciseVAT\bin\Debug\ExcerciseVAT.exe
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\ExcerciseVAT\ExcerciseVAT\ExcerciseVAT\bin\Debug\ExcerciseVAT.pdb
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\ExcerciseVAT\ExcerciseVAT\ExcerciseVAT\obj\Debug\ExcerciseVAT.csproj.AssemblyReference.cache
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\ExcerciseVAT\ExcerciseVAT\ExcerciseVAT\obj\Debug\ExcerciseVAT.csproj.CoreCompileInputs.cache
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\ExcerciseVAT\ExcerciseVAT\ExcerciseVAT\obj\Debug\ExcerciseVAT.exe
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\ExcerciseVAT\ExcerciseVAT\ExcerciseVAT\obj\Debug\ExcerciseVAT.pdb

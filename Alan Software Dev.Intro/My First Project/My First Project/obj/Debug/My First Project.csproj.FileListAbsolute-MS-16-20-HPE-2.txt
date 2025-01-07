@@ -1,0 +1,11 @@
+C:\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.csproj.AssemblyReference.cache
+C:\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.csproj.CoreCompileInputs.cache
+C:\Alan Software Dev.Intro\My First Project\My First Project\bin\Debug\My First Project.exe.config
+C:\Alan Software Dev.Intro\My First Project\My First Project\bin\Debug\My First Project.exe
+C:\Alan Software Dev.Intro\My First Project\My First Project\bin\Debug\My First Project.pdb
+C:\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.exe
+C:\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.pdb
+C:\Users\Alan\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.csproj.AssemblyReference.cache
+C:\Users\Alan\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.csproj.CoreCompileInputs.cache
+C:\Users\Alan\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.exe
+C:\Users\Alan\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\My First Project\My First Project\obj\Debug\My First Project.pdb

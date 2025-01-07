@@ -1,0 +1,7 @@
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\Variables_3\Variables_3\Variables_3\obj\Debug\Variables_3.csproj.AssemblyReference.cache
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\Variables_3\Variables_3\Variables_3\obj\Debug\Variables_3.csproj.CoreCompileInputs.cache
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\Variables_3\Variables_3\Variables_3\bin\Debug\Variables_3.exe.config
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\Variables_3\Variables_3\Variables_3\bin\Debug\Variables_3.exe
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\Variables_3\Variables_3\Variables_3\bin\Debug\Variables_3.pdb
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\Variables_3\Variables_3\Variables_3\obj\Debug\Variables_3.exe
+C:\Users\20377732\OneDrive - Glasgow Clyde College\Block2\Alan Software Dev.Intro\Variables_3\Variables_3\Variables_3\obj\Debug\Variables_3.pdb
