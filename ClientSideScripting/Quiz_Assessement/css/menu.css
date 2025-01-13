@@ -8,7 +8,6 @@ main{
     flex-direction: row;
 }
 .welcome_back_message{
-    flex-direction: ;
     margin-top: 10%;
     position: relative;
     animation-name: message;
@@ -16,22 +15,22 @@ main{
     animation-timing-function: linear;
 }
 /* Animations for heading and 5 menu selections fading in every 1s */
-.quiz_heading{
+.menu_heading{
     animation: fadeIn 1s;
 }
-.question1_label, .question1_box{
+.numeracy_heading{
     animation: fadeIn 2s;
 }
-.question2_label, .question2_box{
+.literacy_heading{
     animation: fadeIn 3s;
 }
-.question3_label, .question3_box{
+.history_heading{
     animation: fadeIn 4s;
 }
-.question4_label, .question4_box{
+.social_heading{
     animation: fadeIn 5s;
 }
-.question5_label, .question5_box{
+.wellbeing_heading{
     animation: fadeIn 6s;
 }
 section{
@@ -51,7 +50,20 @@ section{
     justify-content: center;
     
 }
+ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    text-align: center;
 
+}
+li{
+    
+    padding: 3%;
+    background-color: green;
+    border-radius: 5%;
+    margin-top: 10%;
+}
 @keyframes message{
     from{left:50px;}
     to{left:0px}
