@@ -39,7 +39,7 @@ section{
 .right_side{
     width: 100%;
     height: 75vh;
-    border: solid 5px red;
+    border: solid 3px red;
 }
 .left_side{
     width: 100%;
@@ -71,4 +71,27 @@ li{
 @keyframes fadeIn{
     0%{opacity:0;}
     100%{opacity:1;}
+}
+
+.speech_bubble{
+    max-width: 200px; /* Option for limiting bubble size */
+    background: blue;;
+    color: white;
+    display: inline-block;
+    position: relative;
+    border-radius: 10px;
+    top: 20%;
+    left: -40%;
+    padding: 3%;
+}
+.speech_bubble:before{
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Position the tail below the bubble */
+    right: 20px; /* Adjust to position the tail */
+    width: 0;
+    height: 0;
+    border-top: 10px solid blue;/* Tail color, matching the bubble */
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
 }
