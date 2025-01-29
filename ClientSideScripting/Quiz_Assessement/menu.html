@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/menu.css">
 </head>
-<body>
+<body onload="typeWriter()">
     
     <main>
+        
         <section>
             <div class="welcome_back_message">
                 <h2>Welcome to Space Academy Freddy.</h2>
+                <p>Chief Astronaut David is here to start your training.</p>
                 </div>
             <div class="left_side">
                 <h3 class="menu_heading">Quiz Subjects</h3>
                 <ul>
-                    <li class="numeracy_heading">Numeracy</li>
-                    <li class="literacy_heading">Literacy</li>
-                    <li class="history_heading">History</li>
-                    <li class="social_heading">Social Awareness</li>
-                    <li class="wellbeing_heading">Health and Wellbeing</li>
+                    <a href="numeracy.html"><li class="numeracy_heading">Numeracy</li></a>
+                    <a href="literacy.html"><li class="literacy_heading">Literacy</li></a>
+                    <a href="history.html"><li class="history_heading">History</li></a>
+                    <a href="awareness.html"><li class="social_heading">Social Awareness</li></a>
+                    <a href="wellbeing.html"><li class="wellbeing_heading">Health and Wellbeing</li></a>
                 </ul>
             </div>
         </section>
@@ -29,8 +31,9 @@
             <div class="right_side">
                 <div class="speech_bubble">
                        <p id="welcome_txt"></p>
+                       <button onclick="quiz_instruction()">What's next Chief David?</button>
                 </div>
-                <button onclick="typeWriter()">Click Here</button>
+                
             
             </div>
         </section>

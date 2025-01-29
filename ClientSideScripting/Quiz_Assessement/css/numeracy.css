@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.right_side{
+    background-image: url(/media/numeracy.png);
+    width: 100%;
+    
+    margin-top: 20%;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 60% 100%;
+    border: red 5px solid;
+}

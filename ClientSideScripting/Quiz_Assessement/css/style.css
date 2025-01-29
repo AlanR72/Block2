@@ -3,17 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-image: url(/media/space-background.jpg);
+}
 main{
     display: flex;
     flex-direction: row;
 }
 .welcome_back_message{
-    flex-direction: ;
+    font-size: 2em;
+    color: #EBE9C3;
     margin-top: 10%;
     position: relative;
     animation-name: message;
     animation-duration: 1s;
     animation-timing-function: linear;
+    
 }
 /* Animations for heading and 5 menu selections fading in every 1s */
 .quiz_heading{
@@ -40,7 +45,7 @@ section{
 .right_side{
     width: 100%;
     height: 75vh;
-    border: solid 5px red;
+    
 }
 .left_side{
     width: 100%;
@@ -53,7 +58,7 @@ section{
 }
 
 @keyframes message{
-    from{left:50px;}
+    from{left:200px;}
     to{left:0px}
 }
 @keyframes fadeIn{
