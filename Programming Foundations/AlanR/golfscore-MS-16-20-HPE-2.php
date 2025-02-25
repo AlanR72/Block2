@@ -25,4 +25,4 @@ for ($i = 0; $i < count($scores); $i++){
 
     }
 }
-echo "The maximum score in Davids round was $max <br>";
+echo "The minimum score in Davids round was $max <br>";

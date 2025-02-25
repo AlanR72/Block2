@@ -1,6 +1,6 @@
 <?php
 
-$scores = [6, 5, 4, 5, 4, 5, 4, 5, 5, 5, 5, 5, 3, 5, 4, 5, 7, 4];
+$scores = [6, 5,  4,  5,  4,  5,  4,  5,  5,  5 , 5,  5, 3, 5,  4,  5,  7,  4];
 
 for ($i = 0; $i < count($scores); $i++)
 {
@@ -25,4 +25,4 @@ for ($i = 0; $i < count($scores); $i++){
 
     }
 }
-echo "The maximum score in Davids round was $max <br>";
+echo "The minimum score in Davids round was $max <br>";
