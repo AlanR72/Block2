@@ -5,14 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awareness Quiz Page</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/quiz.css">
 </head>
 <body>
     <main>
         <section>
             <div class="welcome_back_message">
-                <h2>Welcome to Social Awareness Class Freddy.</h2>
+                <h2>Welcome the Social Awareness Quiz Freddy.</h2>
+                <p class="heading_para">Astronaut Joseph will guide you through the Literacy Quiz! </p>
+                <div class="starDate"></div>
+            </div>
+            <div class="top">
+                <div class="speech_bubble">
+                    <p id="welcome_txt"></p>
+                    
+                    <button onclick="quiz_instruction()">What's next Chief David?</button>
                 </div>
-            <div class="left_side">
+             <img class="astro1" src="/media/literacy.png" alt="Picture of an astronaut">
+            </div>
+        
+        </section>
+        <section>
+            
+            <div class="bottom">
                 <h3 class="quiz_heading">Social Awareness Quiz</h3>
                 <label class="question1_label" for="">Question 1:</label>
                 <input class="question1_box" type="text">
@@ -26,11 +41,7 @@
                 <input class="question5_box" type="text">
             </div>
         </section>
-        <section>
-            <div class="right_side">
-                    <img src="" alt="">
-            </div>
-        </section>
+        
     </main>
 </body>
 </html>

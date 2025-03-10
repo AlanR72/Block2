@@ -7,7 +7,6 @@ main{
     display: flex;
     flex-direction: column;
 }
-
 .welcome_back_message{
     margin-left: 5%;
     margin-top: 1%;
@@ -20,89 +19,45 @@ main{
     font-size: .8em;
     margin-right: 10%;
 }
-/* Animations for heading and 5 menu selections fading in every 1s */
-.menu_heading{
-    color: #EBE9C3;
-    animation: fadeIn 1s;
-    
-}
-.numeracy_heading{
-    animation: fadeIn 2s;
-}
-.literacy_heading{
-    animation: fadeIn 3s;
-}
-.history_heading{
-    animation: fadeIn 4s;
-}
-.social_heading{
-    animation: fadeIn 5s;
-}
-.wellbeing_heading{
-    animation: fadeIn 6s;
-}
-.starDate{
-    width: 40%;
-    height: 50px;
-    background-color: #EBE9C3;
-    border: black solid 5px;
-    float: right;
-    margin-right: 5%;
-    margin-top: 5%;
-}
 .top{
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 30vh;
     display: flex;
+    
 }
-
 .bottom{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     align-items: center;
     justify-content: center;
 }
-
 .astro1{
-    width: 40%;
-    margin-top: 5%;
-    top: 200px;
+    width: 55%;
+    position: absolute;
+    top: 250px;
     right: 30px;
 }
-ul{
-    list-style: none;
-    text-align: center;
-    width: 60%;
+.quiz_heading{
+    color: #EBE9C3;
+    animation: fadeIn 1s;
+    margin-bottom: 5%;
+    margin-top: 10%;;
 }
-li{
-    color: black;
-    padding: 3%;
-    background-color: #EBE9C3;
-    border-radius: 5%;
-    margin-top: 10%;
-}
-a{
-    text-decoration: none;
-}
-a:visited{
-    color: blue;
-    text-decoration: none;
-}
-a:hover li{
-    background-color: brown;
+
+.question_label{
     color: #EBE9C3;
 }
-button{
-    color: black;
-    background-color: white;
-    padding: 3%;
-    font-size: 0.8em;
-    border-radius: 5%;
-    
+input{
+    padding: 1%;
+    margin: 2%;
+    width: 50%;
+}
+.question{
+    color:#EBE9C3
 }
 @keyframes message{
     from{left:50px;}
@@ -112,7 +67,6 @@ button{
     0%{opacity:0;}
     100%{opacity:1;}
 }
-
 .speech_bubble{
     max-width: 100px; 
     background: #EBE9C3;
@@ -120,8 +74,8 @@ button{
     display: inline-block;
     position: relative;
     border-radius: 10px;
-    top: -45%;
-    left: 0;
+    top: -10%;
+    left: -25%;
     padding: 3%;
     font-size: .7em;
 }
@@ -141,8 +95,3 @@ button{
     transform-origin: center center;
     
 }
-.welcome_txt{
-    margin-bottom: 50px;
-}
-
-/* https://www.freepik.com/vectors/cosmonaut */

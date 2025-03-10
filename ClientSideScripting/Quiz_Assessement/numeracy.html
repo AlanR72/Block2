@@ -5,19 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Numeracy Quiz Page</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/numeracy.css">
+    <link rel="stylesheet" href="/css/quiz.css">
 </head>
-<body>
+<body onload="typeWriter()">
     
     <main>
-        
         <section>
             <div class="welcome_back_message">
                 <h2>Welcome the Numeracy Quiz Freddy.</h2>
-                <p>Astronaut Bella will guide you through this! </p>
+                <p class="heading_para">Astronaut Bella will guide you through the Numeracy Quiz! </p>
+                <div class="starDate"></div>
+            </div>
+            <div class="top">
+                <div class="speech_bubble">
+                    <p id="welcome_txt"></p>
+                    
+                    <button onclick="quiz_instruction()">What's next Chief David?</button>
                 </div>
+             <img class="astro1" src="/media/numeracy.png" alt="Picture of an astronaut">
+            </div>
+        </section>
+        
+        <section>
+               
             
-            <div class="left_side">
+            <div class="bottom">
                 <h3 class="quiz_heading">Numeracy Quiz</h3>
                 <label class="question_label" for="">Question 1:</label>
                 <label class="question" for="">What is 5 + 5?</label>
@@ -36,13 +48,9 @@
                 <input class="question5_box" type="text">
             </div>
         </section>
-        <section>
-            <div class="right_side">
-                    <img src="" alt="">
-            </div>
-        </section>
+       
     </main>
-
+    <script src="/js/main.js"></script>
 
 </body>
 </html>
