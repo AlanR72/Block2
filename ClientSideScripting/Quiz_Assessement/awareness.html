@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <title>Awareness Quiz Page</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/quiz.css">
 </head>
-<body>
+<body onload="awarenessBubble()">
     <main>
         <section>
             <div class="welcome_back_message">
-                <h2>Welcome the Social Awareness Quiz Freddy.</h2>
-                <p class="heading_para">Astronaut Joseph will guide you through the Literacy Quiz! </p>
-                <div class="starDate"></div>
+                <h3 id="loginName">Hello Guest!</h3>
+                <p class="heading_para">Astronaut Joseph will guide you through the Social Awareness Quiz! </p>
+                <div class="starDate" id="starDate"></div>
             </div>
             <div class="top">
                 <div class="speech_bubble">
                     <p id="welcome_txt"></p>
                     
-                    <button onclick="quiz_instruction()">What's next Chief David?</button>
+                    <button id="numeracyButton" class="bubbleButton" onclick="awarenessClick()">What's next Chief David?</button>
                 </div>
-             <img class="astro1" src="/media/literacy.png" alt="Picture of an astronaut">
+             <img class="astro" src="/media/tweetastronaut.png" alt="Picture of an astronaut">
             </div>
         
         </section>
@@ -29,19 +31,32 @@
             
             <div class="bottom">
                 <h3 class="quiz_heading">Social Awareness Quiz</h3>
+                <div id="awarenessQ1">
                 <label class="question1_label" for="">Question 1:</label>
                 <input class="question1_box" type="text">
+                </div>
+                <div id="awarenessQ2">
                 <label class="question2_label" for="">Question 2:</label>
                 <input class="question2_box" type="text">
+                </div>
+                <div id="awarenessQ3">
                 <label class="question3_label" for="">Question 3:</label>
                 <input class="question3_box" type="text">
+                </div>
+                <div id="awarenessQ4">
                 <label class="question4_label" for="">Question 4:</label>
                 <input class="question4_box" type="text">
+                </div>
+                <div id="awarenessQ5">
                 <label class="question5_label" for="">Question 5:</label>
                 <input class="question5_box" type="text">
+                </div>
+                <a id="returnMenu" class="returnMenu" onclick="returnMenu()">Return to Menu Page</a>
             </div>
+            
         </section>
         
     </main>
+    <script src="/js/main.js"></script>
 </body>
 </html>

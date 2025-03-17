@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <title>Welcome Log In Page</title>
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
+    <main>
+    <div class="starDate" id="starDate"></div>
+    <form action="" id="loginForm" onsubmit="return validateLogin()">
     <h1>Welcome Quizzers</h1>
     <p>Enter your name and email to proceed..</p>
-    <label>Name:</label>
-    <input type="text">
-    <label>Email:</label>
-    <input type="text">
-    <script src="js/login.js"></script>
+    <label for="userName">Name:</label>
+    <input type="text" id="userName" name="userName" placeholder="Please enter your name">
+    <span id="nameError" class="error"></span>
+    <label for="userEmail">Email:</label>
+    <input type="text" id="userEmail" placeholder="Please enter your email">
+    <span id="emailError" class="error"></span>
+    
+    <button type="submit">Submit</button>
+    </form>
+    </main>
+    
+    <script src="/js/main.js"></script>
 </body>
+
 </html>
