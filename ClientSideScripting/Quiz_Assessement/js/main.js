@@ -41,9 +41,9 @@ function welcomeBubble(){
     var welcomeTxtElement = document.getElementById('welcome_txt');
     
     var j = 0;
-
+    var username = getCookie('username');
     if (localStorage.getItem('hasReturned') === 'true') {
-        var altText = "Welcome back to the Main menu, cadet!";
+        var altText = "Welcome back to the Main menu, " + username +"!";
         
         localStorage.removeItem('hasReturned');  // Clear the flag after use
 
@@ -62,7 +62,7 @@ function welcomeBubble(){
     } else {
         
         // Regular welcome message for first-time visitors
-        var defaultText = "Hey There Cadet ! Welcome to the Space Academy!";
+        var defaultText = "Hey There " + username + "! Welcome to the Space Academy!";
         var j = 0;
         // Display text letter by letter for default message
         function typeDefaultText() {
@@ -82,7 +82,8 @@ function welcomeBubble(){
 
 // Function to handle click and show alternative text one character at a time
 function welcomeClick() {
-    var altText = "Let's continue your training by clicking a subject from the list below!";
+    var username = getCookie('username');
+    var altText = "Let's continue your training " + username + " by clicking a subject from the list below!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -106,7 +107,8 @@ var i = 0; // Initialize the counter variable
 
 // Function to handle typing text
 function numeracyBubble() {
-    var txt = "Hey There Cadet! Let's test your counting skills";
+    var username = getCookie('username');
+    var txt = "Hey There " + username +"! Let's test your counting skills";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -120,7 +122,8 @@ function numeracyBubble() {
 
 // Function to handle click and show alternative text one character at a time
 function numeracyClick() {
-    var altText = "Ok Cadet! Let's work through the quiz!";
+    var username = getCookie('username');
+    var altText = "Start the quiz by working your way through the questions below " + username + "!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -280,39 +283,99 @@ function awarenessClick() {
     document.getElementById("awarenessButton").style.display = "none";
 }
 
-function validateLogin(){
-
+function validateLogin() {
     document.getElementById('nameError').textContent = "";
     document.getElementById('emailError').textContent = "";
-    
+
     var name = document.getElementById('userName').value.trim();
     var email = document.getElementById('userEmail').value.trim();
-    
-    
-    //Validate email
+
+    // Validate email
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if(name === ''){
+
+    if (name === '') {
         document.getElementById('nameError').textContent = 'Name is required!';
         document.getElementById('nameError').style.color = 'red';
         document.getElementById('nameError').style.fontSize = '2em';
         return false;
     }
-        
-    if(!emailRegex.test(email)){
+
+    if (!emailRegex.test(email)) {
         document.getElementById('emailError').innerHTML = 'Invalid email address';
         document.getElementById('emailError').style.color = 'red';
         document.getElementById('emailError').style.fontSize = '2em';
         return false;
     }
-    
-    setTimeout(()=>{
+
+    // Cookie and welcome message update
+    setCookie('username', name, 7);  // Cookie expires in 7 days
+    updateWelcomeMessage();          // Update the welcome message
+
+    // Redirect to another page after validation
+    setTimeout(() => {
         window.location.href = 'menu.html';
-        },1500);
-        
-        return false;
-        
+    }, 1500);
+
+    return false;  // Prevent form submission
+}
+
+
+// Function to create a cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Cookie expiry time
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Function to get the value of a cookie by name
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length, c.length);
+        }
     }
+    return null;
+}
+
+// Function to update the welcome message with the username
+function updateWelcomeMessage() {
+    const loginNameElement = document.getElementById('loginName');
+    
+    // Ensure the element exists before updating
+    if (loginNameElement) {
+        const username = getCookie('username');
+        if (username) {
+            loginNameElement.innerText = `Welcome ${username}!`;
+        } else {
+            loginNameElement.innerText = 'Welcome Guest!';
+        }
+    }
+}
+
+// Wrap everything inside DOMContentLoaded as loginForm was throwing error when loading
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure the form is available before adding the onsubmit event
+    const form = document.getElementById('loginForm');
+    if (form) {
+        form.onsubmit = function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+
+            // Call the validateLogin function to perform validation
+            if (validateLogin()) {
+                // If the form is valid, update the welcome message
+                updateWelcomeMessage();
+            }
+        };
+    }
+
+    // Run the welcome message update on page load
+    updateWelcomeMessage();
+});
+
 
     // let questions = [
         
