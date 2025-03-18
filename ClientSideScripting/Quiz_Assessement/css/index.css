@@ -18,7 +18,7 @@ main{
 }
 .starDate{
     color: black;
-    width: 40%;
+    width: 60%;
     background-color: #EBE9C3;
     border: brown solid 5px;
     font-family: "Orbitron", sans-serif;
@@ -40,17 +40,33 @@ label{
     padding: 3%;
 }
 input{
-    height: 30px;
+    padding: 2%;
 }
 button{
     background-color: #EBE9C3;
-    height: 30px;
+    padding: 2%;
     width: 40%;
     margin-top: 5%;
+    cursor: pointer;
 }
 .error{
     margin-top: 3%;
 }
 h1{
     margin-bottom: 5%;
+}
+@media only screen and (min-width: 740px){
+    .starDate{
+        width: 35%;
+    }
+    body{
+        font-size: 2em;
+    }
+    button{
+        font-size: 1em;
+    }
+    input{
+        width: 50%;
+        font-size: .6em;
+    }
 }

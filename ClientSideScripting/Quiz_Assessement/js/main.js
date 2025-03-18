@@ -83,7 +83,7 @@ function welcomeBubble(){
 // Function to handle click and show alternative text one character at a time
 function welcomeClick() {
     var username = getCookie('username');
-    var altText = "Let's continue your training " + username + " by clicking a subject from the list below!";
+    var altText = "Let's continue your training " + username + " by clicking a subject from the list!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -144,7 +144,8 @@ function numeracyClick() {
 }
 
 function literacyBubble() {
-    var txt = "Hey There Cadet! Let's test your literacy skills";
+    var username = getCookie('username');
+    var txt = "Oops! Sorry " + username + "! I was at an exciting bit of my book there!";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -158,7 +159,8 @@ function literacyBubble() {
 
 // Function to handle click and show alternative text one character at a time
 function literacyClick() {
-    var altText = "Ok Cadet! Let's work through the quiz!";
+    var username = getCookie('username');
+    var altText = "Let's work through the quiz " + username + "! and see how good you are with words!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -179,7 +181,8 @@ function literacyClick() {
 }
 
 function historyBubble() {
-    var txt = "Hey There Cadet! Let's test your counting skills";
+    var username = getCookie('username');
+    var txt = "Och aye the noo " + username + "! How's your knowledge of my fair homeland of Scotland!";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -193,7 +196,8 @@ function historyBubble() {
 
 // Function to handle click and show alternative text one character at a time
 function historyClick() {
-    var altText = "Ok Cadet! Let's work through the quiz!";
+    var username = getCookie('username');
+    var altText = "Ok " + username + "! Take yer time wi these noo as there might be more than one right answer!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -214,7 +218,8 @@ function historyClick() {
 }
 
 function wellbeingBubble() {
-    var txt = "Hey There Cadet! How good is your Health and Wellbeing knowledge";
+    var username = getCookie('username');
+    var txt = "Hey There " + username + "! My name is Astronaut Hercules. Let's see how good your Health and Wellbeing knowledge is!";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -228,7 +233,8 @@ function wellbeingBubble() {
 
 // Function to handle click and show alternative text one character at a time
 function wellbeingClick() {
-    var altText = "Ok Cadet! Let's work through the quiz!";
+    username = getCookie('username');
+    var altText = "Ok " + username + "! Drag the correct answers across to the correct box!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -249,7 +255,8 @@ function wellbeingClick() {
 }
 
 function awarenessBubble() {
-    var txt = "Let's find out how Socially Aware you are Cadet!";
+    var username = getCookie('username');
+    var txt = "Let's find out how Socially Aware you are " + username + "!";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -263,7 +270,8 @@ function awarenessBubble() {
 
 // Function to handle click and show alternative text one character at a time
 function awarenessClick() {
-    var altText = "Ok Cadet! Let's work through the quiz!";
+    var username = getCookie('username');
+    var altText = "Life lessons are important lessons for everyone to learn " + username + "! Every day's a school day!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text

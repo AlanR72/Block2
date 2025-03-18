@@ -14,7 +14,7 @@ main{
 }
 .welcome_back_message{
     margin-left: 5%;
-    font-size: 2em;
+    font-size: 1.7em;
     color: #EBE9C3;
     margin-top: 1%;
     /* position: relative;
@@ -28,7 +28,7 @@ main{
 }
 .starDate{
     color: black;
-    width: 40%;
+    width: 50%;
     background-color: #EBE9C3;
     border: brown solid 5px;
     float: right;
@@ -131,7 +131,9 @@ input{
     font-size: .7em;
     margin-top: 5%;
     background-color: brown;
-    color:#EBE9C3
+    color:#EBE9C3;
+    cursor: pointer;
+    padding: 3%;
 }
 .returnMenu{
     background-color: brown;
@@ -142,6 +144,7 @@ input{
     padding: 2%;
     text-align: center;
     border-radius: 5%;
+    cursor: pointer;
 }
 .returnMenu a{
     color:#EBE9C3;
@@ -159,10 +162,10 @@ a:hover {
 }
 button{
     margin-top: 10%;
-    height: 40px;
     width: 50%;
     background-color: #EBE9C3;
     font-size: 1.3em;
+    cursor: pointer;
 }
 .questionParagraph{
     margin-bottom: 10%;
@@ -177,4 +180,61 @@ h2{
 }
 #aq0{
     height: 30px;
+}
+@media only screen and (min-width: 740px){
+    .starDate{
+        width: 30%;
+        margin-right: 11%;
+    }
+    section{
+        display: flex;
+        flex-direction: row;
+    }
+    .top{
+        width: 50%;
+        height: 100vh;
+        
+    }
+    .bottom{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 100vh;
+        justify-content: start;
+        padding-top: 5%;
+        border: red solid 5px;
+    }
+    .welcome_back_message{
+        margin-left: 5%;
+        font-size: 3em;
+        color: #EBE9C3;
+        margin-top: 1%;
+        /* position: relative;
+        animation-name: message;
+        animation-duration: 1s;
+        animation-timing-function: linear; */
+    }
+    .menu_heading{
+        font-size: 3em;
+    }
+    a{
+        font-size: 2em;
+    }
+    .astro{
+        width: 70%;
+    }
+    .speech_bubble{
+        max-width: 300px; 
+        font-size: 2em;
+        top: -30%;
+        left: 10%;
+    }
+    .bubblebutton{
+        height: 20%;
+    }
+    .returnMenu{
+        font-size: 1.4em;
+        width: 60%;
+        height: 20%;
+    }
 }
