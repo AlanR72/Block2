@@ -75,9 +75,9 @@ function welcomeBubble(){
     
         // Start typing the default message
         typeDefaultText();
+        
     }
 
-    document.getElementById("menuButton").style.display = "none"; // Hide the button
 };
 
 // Function to handle click and show alternative text one character at a time
@@ -410,4 +410,4 @@ function validateLogin(){
     //     typeWriter();
     // };
 
-    
+   
