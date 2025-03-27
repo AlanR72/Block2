@@ -29,52 +29,27 @@
             </div>
             
             <div class="bottom">
-                <h3 class="quiz_heading">History Quiz</h3>
-                <label for="aq0" id="q0">Blah Blah Blah</label>
-                    <div  id="aq0">
-                        <input type="checkbox" name="q0" value="edinburgh">Edinburgh<br>
-                        <input type="checkbox" name="q0" value="glasgow">Glasgow<br>
-                        <input type="checkbox" name="q0" value="aberdeen">Aberdeen<br>
-                        <input type="checkbox" name="q0" value="dundee">Dundee<br>
+                <!-- History Quiz Section -->
+                <div id="history-quiz">
+                    <h1>History Quiz</h1>
+                    <div id="history-question-container"></div> <!-- Where the question will appear -->
+                    <div id="history-options-container"></div> <!-- Where options will appear -->
+                    <div id="history-feedback"></div> <!-- Feedback for each question -->
+                    <div class="button-container">
+                        <button id="history-submit-btn" onclick="submitHistoryAnswer()">Submit Answer</button>
+                        <button id="history-next-btn" onclick="nextHistoryQuestion()" style="display: none;">Next Question</button>
                     </div>
-
-                <label for="aq1" id="q1">Blah Blah Blah</label>
-                    <div  id="aq1">
-                        <input type="checkbox" name="q1" value="dublin">Dublin<br>
-                        <input type="checkbox" name="q1" value="cork">Cork<br>
-                        <input type="checkbox" name="q1" value="galway">Galway<br>
-                        <input type="checkbox" name="q1" value="limerick">Limerick<br>
+                    <div id="history-score-container" style="display: none;">
+                        <h2>Your Score: <span id="history-total-score"></span></h2>
+                        <button onclick="goToMenu()">Return to Menu</button>
                     </div>
-
-                <label for="aq2" id="q2">Blah Blah Blah</label>
-                    <div  id="aq2">
-                        <input type="checkbox" name="q2" value="lima">Lima<br>
-                        <input type="checkbox" name="q2" value="cusco">Cusco<br>
-                        <input type="checkbox" name="q2" value="arequipa">Arequipa<br>
-                        <input type="checkbox" name="q2" value="trujillo">Trujillo<br>
-                    </div>
-
-                <label for="aq3" id="q3">Blah Blah Blah</label>
-                    <div  id="aq3">
-                        <input type="checkbox" name="q3" value="lima">Lima<br>
-                        <input type="checkbox" name="q3" value="cusco">Cusco<br>
-                        <input type="checkbox" name="q3" value="arequipa">Arequipa<br>
-                        <input type="checkbox" name="q3" value="trujillo">Trujillo<br>
-                    </div>
-                <label for="aq4" id="q4">Blah Blah Blah</label>
-                    <div  id="aq4">
-                        <input type="checkbox" name="q4" value="lima">Lima<br>
-                        <input type="checkbox" name="q4" value="cusco">Cusco<br>
-                        <input type="checkbox" name="q4" value="arequipa">Arequipa<br>
-                        <input type="checkbox" name="q4" value="trujillo">Trujillo<br>
-                    </div>
-
-                    <a id="returnMenu" class="returnMenu" onclick="returnMenu()">Return to Menu Page</a>
+                </div>
             </div>
         
         </section>
         
     </main>
     <script src="/js/main.js"></script>
+    <script src="/js/history.js"></script>
 </body>
 </html>

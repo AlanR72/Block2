@@ -29,33 +29,38 @@
             </div>
         
             <div class="bottom">
-                <h3 class="quiz_heading">Social Awareness Quiz</h3>
-                <div id="awarenessQ1">
-                <label class="question1_label" for="">Question 1:</label>
-                <input class="question1_box" type="text">
+                <div id="drag-drop-quiz-container">
+                    <h1>Drag and Drop Quiz</h1>
+            
+                    <div id="drag-drop-question-container">
+                        <!-- Question will fade in here -->
+                        <div id="drag-drop-question"></div>
+                    </div>
+            
+                    <div id="drag-drop-items-container">
+                        <!-- Items to drag will be inserted here -->
+                    </div>
+            
+                    <div id="drag-drop-dropzone">
+                        <h3>Drop here:</h3>
+                    </div>
+            
+                    <div id="drag-drop-feedback"></div>
+            
+                    <button id="drag-drop-submit-btn" onclick="submitDragDropAnswer()">Submit Answer</button>
+                    <button id="drag-drop-next-btn" onclick="nextDragDropQuestion()" style="display: none;">Next Question</button>
+            
+                    <div id="drag-drop-score-container" style="display: none;">
+                        <h2>Your Score: <span id="drag-drop-total-score"></span></h2>
+                        <button onclick="goToDragDropMenu()">Return to Menu</button>
+                    </div>
                 </div>
-                <div id="awarenessQ2">
-                <label class="question2_label" for="">Question 2:</label>
-                <input class="question2_box" type="text">
-                </div>
-                <div id="awarenessQ3">
-                <label class="question3_label" for="">Question 3:</label>
-                <input class="question3_box" type="text">
-                </div>
-                <div id="awarenessQ4">
-                <label class="question4_label" for="">Question 4:</label>
-                <input class="question4_box" type="text">
-                </div>
-                <div id="awarenessQ5">
-                <label class="question5_label" for="">Question 5:</label>
-                <input class="question5_box" type="text">
-                </div>
-                <a id="returnMenu" class="returnMenu" onclick="returnMenu()">Return to Menu Page</a>
             </div>
             
         </section>
         
     </main>
     <script src="/js/main.js"></script>
+    <script src="/js/awareness.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
         
             <div class="welcome_back_message">
                 <h3 id="loginName">Hello Guest!</h3>
-                <p class="heading_para">Welcome to the Health and Wellbeing Quiz! </p>
+                <p class="heading_para">Finally the Health and Wellbeing Quiz! </p>
                 <div class="starDate" id="starDate"></div>
             </div>
             
@@ -29,23 +29,34 @@
             </div>
             
             <div class="bottom">
-                <h3 class="quiz_heading">Health and Wellbeing Quiz</h3>
-                <label class="question1_label" for="">Question 1:</label>
-                <input class="question1_box" type="text">
-                <label class="question2_label" for="">Question 2:</label>
-                <input class="question2_box" type="text">
-                <label class="question3_label" for="">Question 3:</label>
-                <input class="question3_box" type="text">
-                <label class="question4_label" for="">Question 4:</label>
-                <input class="question4_box" type="text">
-                <label class="question5_label" for="">Question 5:</label>
-                <input class="question5_box" type="text">
-                <a id="returnMenu" class="returnMenu" onclick="returnMenu()">Return to Menu Page</a>
+                <div id="health-wellbeing-quiz-container">
+                    <h1>Health and Wellbeing Quiz</h1>
+            
+                    <div id="health-wellbeing-question-container">
+                        <!-- Question will fade in here -->
+                        <div id="health-wellbeing-question"></div>
+                    </div>
+            
+                    <div id="health-wellbeing-options-container">
+                        <!-- Options will be inserted here -->
+                    </div>
+            
+                    <div id="health-wellbeing-feedback"></div>
+            
+                    <button id="health-wellbeing-submit-btn" onclick="submitHealthWellbeingAnswer()">Submit Answer</button>
+                    <button id="health-wellbeing-next-btn" onclick="nextHealthWellbeingQuestion()" style="display: none;">Next Question</button>
+            
+                    <div id="health-wellbeing-score-container" style="display: none;">
+                        <h2>Your Score: <span id="health-wellbeing-total-score"></span></h2>
+                        <button onclick="goToHealthWellbeingMenu()">Return to Menu</button>
+                    </div>
+                </div>
             </div>
             
         </section>
         
     </main>
     <script src="/js/main.js"></script>
+    <script src="/js/wellbeing.js"></script>
 </body>
 </html>

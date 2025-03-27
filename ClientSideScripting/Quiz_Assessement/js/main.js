@@ -219,7 +219,7 @@ function historyClick() {
 
 function wellbeingBubble() {
     var username = getCookie('username');
-    var txt = "Hey There " + username + "! My name is Astronaut Hercules. Let's see how good your Health and Wellbeing knowledge is!";
+    var txt = "Hey There " + username + "I am Astronaut Hercules. Let's see how Healthy you are!";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -385,100 +385,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-    // let questions = [
-        
-    //     'What is the capital city of Scotland?',
-    //     'What is the capital city of Ireland?',
-    //     'What is the capital city of Peru?',
-    //     'What is the capital city of France?'
-    // ];
-    
-    // let currentQuestion = 0;
-
-    // function setQuestions(){
-    //     for(var i=0; i < questions.length; i++)
-    //     {
-    //         document.getElementById('q'+ i).children[0].innerHTML = questions[i];
-    //     }
-    //     showQuestion(currentQuestion);
-    // }
-
-    // function showQuestion(index){
-    //     let allQuestions = document.getElementsByClassName('question');
-    //     for(let i = 0; i < allQuestions.length; i++){
-    //         allQuestions[i].style.display = 'none';
-    //     }
-
-    //     document.getElementById('q'+ index).style.display = 'block';
-    // }
-    
-    // function checkAnswers() {
-    //     let counter = 0;
-    
-    //     // Check the current question's answer based on the visible question
-    //     let currentAnswer = document.getElementById('aq' + currentQuestion);
-    
-    //     if (currentAnswer) {
-    //         let answer = currentAnswer.value.toLowerCase();
-    
-    //         if (currentQuestion === 0 && answer === 'edinburgh') {
-    //             counter++;
-    //             document.getElementById('aq0').style.display = 'none';
-    //             document.getElementById('q0').style.backgroundColor = 'green';
-    //             document.getElementById('q0').style.width = '75%';
-    //             document.getElementById('q0').style.textAlign = 'center';
-    //             document.getElementById('q0').style.height = '60px';
-    //             document.getElementById('q0').children[0].innerHTML = 'Correct, the capital city of Scotland is Edinburgh';
-    //         } else if (currentQuestion === 1 && answer === 'dublin') {
-    //             counter++;
-    //             document.getElementById('aq1').style.display = 'none';
-    //             document.getElementById('q1').style.backgroundColor = 'green';
-    //             document.getElementById('q1').style.width = '75%';
-    //             document.getElementById('q1').style.textAlign = 'center';
-    //             document.getElementById('q1').style.height = '60px';
-    //             document.getElementById('q1').style.fontSize = '1.3em';
-    //             document.getElementById('q1').children[0].innerHTML = 'Correct, the capital city of Ireland is Dublin';
-    //         } else if (currentQuestion === 2 && answer === 'lima') {
-    //             counter++;
-    //             document.getElementById('aq2').style.display = 'none';
-    //             document.getElementById('q2').style.backgroundColor = 'green';
-    //             document.getElementById('q2').children[0].innerHTML = 'Correct, the capital city of Peru is Lima';
-    //         } else if (currentQuestion === 3 && answer === 'paris') {
-    //             counter++;
-    //             document.getElementById('aq3').style.display = 'none';
-    //             document.getElementById('q3').style.backgroundColor = 'green';
-    //             document.getElementById('q3').children[0].innerHTML = 'Correct, the capital city of France is Paris';
-    //         } else {
-    //             document.getElementById('aq' + currentQuestion).style.display = 'none';
-    //             document.getElementById('q' + currentQuestion).style.backgroundColor = 'red';
-    //             document.getElementById('q' + currentQuestion).style.width = '75%';
-    //             document.getElementById('q' + currentQuestion).style.textAlign = 'center';
-    //             document.getElementById('q' + currentQuestion).style.height = '60px';
-    //             document.getElementById('q' + currentQuestion).children[0].innerHTML = 'Incorrect, the answer is ' + getCorrectAnswer(currentQuestion);
-    //         }
-    //     }
-    
-    //     document.getElementById('score').innerHTML = 'Score:' + counter;
-    
-    // }
-
-    // function getCorrectAnswer(index) {
-    //     // This function returns the correct answer for each question based on its index
-    //     const answers = ['Edinburgh', 'Dublin', 'Lima', 'Paris'];
-    //     return answers[index];
-    // }
-
-    // function nextQuestion(){
-    //     document.getElementById('q' + currentQuestion).style.display = 'none';
-    //     currentQuestion++;
-
-    //     if(currentQuestion < questions.length){
-    //         showQuestion(currentQuestion);
-    //     }
-    // }
-    // window.onload = function() {
-    //     setQuestions();
-    //     typeWriter();
-    // };
-
-   

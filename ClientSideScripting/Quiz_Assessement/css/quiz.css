@@ -53,22 +53,14 @@ main{
     display: flex;
     flex-direction: column;
     width: 100%;
-    
+    height: 60vh;
     align-items: center;
     justify-content: center;
-    border: red solid 5px;
+    
 }
 .astro{
     width: 70%;
     margin-right: -10%;
-}
-.quizContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #EBE9C3;
-    padding-top: 5%;
 }
 label{
     color:#EBE9C3;
@@ -135,20 +127,10 @@ input{
     cursor: pointer;
     padding: 3%;
 }
-.returnMenu{
-    background-color: brown;
-    height: 50px;
-    width: 40%;
-    margin-top: 10%;
-    margin-bottom: 50%;
-    padding: 2%;
-    text-align: center;
-    border-radius: 5%;
-    cursor: pointer;
-}
-.returnMenu a{
-    color:#EBE9C3;
-}
+
+    
+
+
 a{
     text-decoration: none;
 }
@@ -167,20 +149,12 @@ button{
     font-size: 1.3em;
     cursor: pointer;
 }
-.questionParagraph{
-    margin-bottom: 10%;
-    font-size: 1.3em;
-}
-h1{
-    margin-bottom: 10%;
-    font-size: 2em;
-}
+
 h2{
     margin-bottom: 5%;
 }
-#aq0{
-    height: 30px;
-}
+
+
 @media only screen and (min-width: 740px){
     .starDate{
         width: 30%;
@@ -198,9 +172,9 @@ h2{
     .bottom{
         display: flex;
         flex-direction: column;
-        width: 50%;
+       
         height: 100vh;
-        justify-content: start;
+        justify-content: center;
         padding-top: 5%;
         border: red solid 5px;
     }
@@ -238,3 +212,213 @@ h2{
         height: 20%;
     }
 }
+
+/* START OF QUESTIONS Styling */
+
+#quiz-container {
+    width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    margin-top: 20px;
+}
+
+#question {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* LITERACY CSS */
+
+#literacy-quiz-container {
+    width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    margin-top: 20px;
+}
+
+#literacy-question {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* CSS for history */
+#history-quiz-container {
+    width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    margin-top: 20px;
+}
+
+#history-question {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* DRAG AND DROP CSS */
+
+
+
+#drag-drop-quiz-container {
+    width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    margin-top: 20px;
+}
+
+#drag-drop-question {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#drag-drop-items-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#drag-drop-dropzone {
+    width: 100%;
+    height: 150px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#drag-drop-feedback {
+    margin-bottom: 20px;
+}
+
+.drag-item {
+    width: 100px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    cursor: grab;
+}
+
+.drag-item:hover {
+    background-color: #e0e0e0;
+}
+
+#drag-drop-submit-btn {
+    margin-top: 20px;
+}
+
+#drag-drop-next-btn {
+    display: none;
+}
+
+/* HEALTH AND WELLBEING QUIZ CSS */
+
+.bottom {
+    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+#health-wellbeing-quiz-container {
+    width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    margin-top: 20px;
+}
+
+#health-wellbeing-question {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#health-wellbeing-options-container {
+    margin-bottom: 20px;
+}
+
+#health-wellbeing-feedback {
+    margin-bottom: 20px;
+}
+
+#health-wellbeing-submit-btn {
+    margin-top: 20px;
+}
+
+#health-wellbeing-next-btn {
+    display: none;
+}
+
+

@@ -31,38 +31,19 @@
         
         
             <div class="bottom">
-                <div class="quizContainer">
+                <div id="numeracy-quiz">
                     <h1>Numeracy Quiz</h1>
-                    
-                    <div class="question" for="aq0" id="q0">
-                    <h2>Question 1:</h2>
-                    <p class="questionParagraph">What is the capital city of Scotland?</p>
-                    <input type="text" id="aq0" placeholder ="Type answer here">
+                    <div id="numeracy-question-container"></div> <!-- Question will appear here -->
+                    <div id="numeracy-options-container"></div> <!-- Answer input will appear here -->
+                    <div id="feedback"></div> <!-- Feedback will appear here -->
+                    <div class="button-container">
+                        <button id="numeracy-submit-btn" onclick="submitAnswer()">Submit Answer</button>
+                        <button id="numeracy-next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
                     </div>
-
-                    <div class="question" for="aq1" id="q1" style= "display:none;">
-                    <h2>Question 2:</h2>
-                    <p>What is the capital city of Ireland?</p>
-                    <input type="text" id="aq1">
+                    <div id="score-container">
+                        <h2>Your Score: <span id="total-score"></span></h2>
+                        <button onclick="goToMenu()">Return to Menu</button>
                     </div>
-            
-                    <div class="question" for="aq2" id="q2" style= "display:none;">
-                    <h2>Question 3:</h2>
-                    <p>What is the capital city of Peru?</p>
-                    <input type="text" id="aq2">
-                    </div>
-            
-                    <div class="question" for="aq3" id="q3" style= "display:none;">
-                    <p>What is the capital city of France?</p>
-                    <input type="text" id="aq3">
-                    </div>
-            
-                    <label for="" id="score"></label>
-                    <button onclick="checkAnswers()">Submit Answer</button>
-               
-                    <button class="nextButton" onclick="nextQuestion()">Next Question</button>
-                
-                    <a id="returnMenu" class="returnMenu" onclick="returnMenu()">Return to Menu Page</a>
                 </div>
             </div>
             
@@ -70,6 +51,7 @@
        
     </main>
     <script src="/js/main.js"></script>
-
+    <script src="/js/numeracy.js"></script>
+    
 </body>
 </html>
