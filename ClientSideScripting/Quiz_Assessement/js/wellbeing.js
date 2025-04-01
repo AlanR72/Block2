@@ -48,32 +48,38 @@ let healthWellbeingScore = 0;
 
 const healthWellbeingQuestions = [
     {
-        healthWellbeing_question: "What is the recommended amount of sleep for an adult?",
+        healthWellbeing_question: "What helps you stay hyrdated?",
         type: "text", // Text input
-        correctAnswer: "7-9 hours",
-        feedback: "Correct! Adults typically need 7 to 9 hours of sleep for optimal health."
+        correctAnswer: "Water",
+        feedback: "Correct! Water helps you stay hydrated."
     },
     {
-        healthWellbeing_question: "Which of the following are types of mental health disorders? (Select all that apply)",
+        healthWellbeing_question: "Which of these is a healthy snack?(Select all that apply)",
         type: "checkbox", // Multiple correct answers
-        options: ["Depression", "Anxiety", "Diabetes", "Schizophrenia"],
-        correctAnswer: ["Depression", "Anxiety", "Schizophrenia"],
-        feedback: "Correct! Depression, Anxiety, and Schizophrenia are mental health disorders."
+        options: ["Chocolate", "Fruit", "Crisps", "Porridge"],
+        correctAnswer: ["Fruit", "Porridge"],
+        feedback: "Correct! Fruit and Porridge."
     },
     {
-        healthWellbeing_question: "What is the most important nutrient for building and repairing muscles?",
+        healthWellbeing_question: "What is the best way to stay healthy?",
         type: "radio", // Multiple choice
-        options: ["Carbohydrates", "Proteins", "Fats", "Vitamins"],
-        correctAnswer: "Proteins",
-        feedback: "Correct! Proteins are essential for muscle repair and growth."
+        options: ["Eat candy every day", "Drink water and exercise regularly", "Stay up late and watch TV", "Skip meals"],
+        correctAnswer: "Drink water and exercise regularly",
+        feedback: "Correct! Drink water and exercise regularly."
     },
     {
-        healthWellbeing_question: "What are some common signs of dehydration? (Enter as many as you can, separated by commas)",
+        healthWellbeing_question: "Complete the phrase. An _____ a day keeps the doctor away?",
         type: "text", // Text input
-        correctAnswer: "Thirst, dry mouth, dark yellow urine, dizziness",
-        feedback: "Correct! Common signs of dehydration include thirst, dry mouth, dark yellow urine, and dizziness."
+        correctAnswer: "apple",
+        feedback: "Correct! An apple a day keeps the doctor away."
     },
-    // Add more questions as needed
+    {
+        healthWellbeing_question: "Which of these is bad for your health? (Choose all that apply)",
+        type: "checkbox",
+        options: ["Eating junk food", "Sleeping to little", "Too many fizzy drinks", "All of the above."],
+        correctAnswer: "All of the above.",
+        feedback: "Correct! All of the above."
+    }
 ];
 
 const healthWellbeingQuestionContainer = document.getElementById('health-wellbeing-question');
@@ -147,47 +153,98 @@ function submitHealthWellbeingAnswer() {
 
     if (!userAnswer) {
         healthWellbeingFeedbackContainer.textContent = 'Please provide an answer!';
+        healthWellbeingFeedbackContainer.style.color = 'red';
+        healthWellbeingFeedbackContainer.style.fontSize = '1.7em';
         return;
     }
 
     if (Array.isArray(question.correctAnswer)) {
-        const sortedUserAnswer = userAnswer.split(', ').sort().join(', ');
-        if (sortedUserAnswer === question.correctAnswer.sort().join(', ')) {
+        // Sort and join the user answer and correct answer for array type question
+        const sortedUserAnswer = userAnswer.split(', ').sort().join(', ').toLowerCase(); // Convert to lowercase
+        const sortedCorrectAnswer = question.correctAnswer.sort().join(', ').toLowerCase(); // Convert to lowercase
+
+        if (sortedUserAnswer === sortedCorrectAnswer) {
             healthWellbeingScore++;
             healthWellbeingFeedbackContainer.textContent = "Correct!";
+            healthWellbeingFeedbackContainer.style.fontSize = "2em";
+            healthWellbeingFeedbackContainer.style.color = "lightgreen";
         } else {
             healthWellbeingFeedbackContainer.textContent = `Incorrect. The correct answers are: ${question.correctAnswer.join(', ')}.`;
+            healthWellbeingFeedbackContainer.style.fontSize = "2em";
+            healthWellbeingFeedbackContainer.style.color = "red";
         }
-    } else if (userAnswer.toLowerCase() === question.correctAnswer.toLowerCase()) {
-        healthWellbeingScore++;
-        healthWellbeingFeedbackContainer.textContent = "Correct!";
     } else {
-        healthWellbeingFeedbackContainer.textContent = `Incorrect. The correct answer is: ${question.correctAnswer}.`;
+        // Compare text answers in a case-insensitive way by converting both to lowercase
+        if (userAnswer.toLowerCase() === question.correctAnswer.toLowerCase()) {
+            healthWellbeingScore++;
+            healthWellbeingFeedbackContainer.textContent = "Correct!";
+            healthWellbeingFeedbackContainer.style.fontSize = "2em";
+            healthWellbeingFeedbackContainer.style.color = "lightgreen";
+        } else {
+            healthWellbeingFeedbackContainer.textContent = `Incorrect. The correct answer is: ${question.correctAnswer}.`;
+            healthWellbeingFeedbackContainer.style.fontSize = "2em";
+            healthWellbeingFeedbackContainer.style.color = "red";
+        }
     }
 
     healthWellbeingSubmitButton.style.display = 'none'; // Hide submit button
     healthWellbeingNextButton.style.display = 'inline-block'; // Show next button
 }
 
+// function nextHealthWellbeingQuestion() {
+//     healthWellbeingCurrentQuestionIndex++;
+
+//     if (healthWellbeingCurrentQuestionIndex < healthWellbeingQuestions.length) {
+//         loadHealthWellbeingQuestion();
+//     } else {
+//         showHealthWellbeingFinalScore();
+//     }
+// }
 function nextHealthWellbeingQuestion() {
     healthWellbeingCurrentQuestionIndex++;
 
+    // If there are more questions, load the next question
     if (healthWellbeingCurrentQuestionIndex < healthWellbeingQuestions.length) {
         loadHealthWellbeingQuestion();
+
+        // Check if it's the last question (assuming there are 5 questions)
+        if (healthWellbeingCurrentQuestionIndex == 4) {
+            document.getElementById('health-wellbeing-next-btn').textContent = "Finish Quiz";
+        }
     } else {
         showHealthWellbeingFinalScore();
     }
 }
 
+// function showHealthWellbeingFinalScore() {
+//     healthWellbeingTotalScoreElement.textContent = `${healthWellbeingScore} out of ${healthWellbeingQuestions.length}`;
+//     healthWellbeingScoreContainer.style.display = 'block'; // Show the final score
+//     healthWellbeingNextButton.style.display = 'none'; // Hide next button at the end
+// }
 function showHealthWellbeingFinalScore() {
-    healthWellbeingTotalScoreElement.textContent = `${healthWellbeingScore} out of ${healthWellbeingQuestions.length}`;
-    healthWellbeingScoreContainer.style.display = 'block'; // Show the final score
-    healthWellbeingNextButton.style.display = 'none'; // Hide next button at the end
+    const questionContainer = document.getElementById('health-wellbeing-question-container');
+    const optionsContainer = document.getElementById('health-wellbeing-options-container');
+    const feedbackContainer = document.getElementById('health-wellbeing-feedback');
+    const scoreContainer = document.getElementById('health-wellbeing-score-container');
+    const totalScore = document.getElementById('health-wellbeing-total-score');
+
+    // Clear out the options and feedback
+    optionsContainer.innerHTML = '';
+    feedbackContainer.textContent = '';
+
+    questionContainer.textContent = `Quiz completed! Your score is ${healthWellbeingScore} out of ${healthWellbeingQuestions.length}.`;
+    questionContainer.style.textAlign = "center";
+
+    // Display the score
+    healthWellbeingTotalScoreElement.textContent = `${healthWellbeingScore} / ${healthWellbeingQuestions.length}`;
+
+    // Show the score container
+    scoreContainer.style.display = 'block';
+
+    // Hide "Next Question" button
+    document.getElementById('health-wellbeing-next-btn').style.display = 'none';
 }
 
-function goToHealthWellbeingMenu() {
-    window.location.href = 'menu.html'; // Assuming the menu is in 'menu.html'
-}
 
 // Initialize the health and wellbeing quiz
 loadHealthWellbeingQuestion();

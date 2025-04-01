@@ -30,31 +30,28 @@
         
             <div class="bottom">
                 <div id="drag-drop-quiz-container">
-                    <h1>Drag and Drop Quiz</h1>
-            
-                    <div id="drag-drop-question-container" class="text_style">
-                        <!-- Question will fade in here -->
+                    <h1>Social Awareness Quiz</h1>
+                    
+                    <div id="drag-drop-question-container">
                         <div id="drag-drop-question"></div>
                     </div>
-            
-                    <div id="drag-drop-items-container">
-                        <!-- Items to drag will be inserted here -->
-                    </div>
-            
+                    
+                    <div id="drag-drop-items-container"></div>
+                    
                     <div id="drag-drop-dropzone">
                         <h3>Drop here:</h3>
                     </div>
-            
-                    <div id="drag-drop-feedback"></div>
-            
-                    <button id="drag-drop-submit-btn" class="submit_button" onclick="submitDragDropAnswer()">Submit Answer</button>
-                    <button id="drag-drop-next-btn" onclick="nextDragDropQuestion()" class="next_button" style="display: none;">Next Question</button>
-            
-                    <div id="drag-drop-score-container" class="score_container" style="display: none;">
-                        <h2>Your Score: <span id="drag-drop-total-score"></span></h2>
                     
+                    <div id="drag-drop-feedback"></div>
+                    
+                    <button id="drag-drop-submit-btn" onclick="submitAnswer()">Submit Answer</button>
+                    <button id="drag-drop-next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
+                    
+                    <div id="drag-drop-score-container" style="display: none;">
+                        <h2>Your Score: <span id="drag-drop-total-score"></span></h2>
                     </div>
-                    <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
+                    
+                    <button id="returnMenu" onclick="returnToMenu()">Return to Menu</button>
                 </div>
             </div>
             

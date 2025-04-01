@@ -40,133 +40,135 @@ function awarenessClick() {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    loadDragDropQuestion();  // Load the first question when the page is ready
-});
-let dragDropCurrentQuestionIndex = 0;
-let dragDropScore = 0;
-const dragDropQuestions = [
+let currentQuestionIndex = 0;
+let score = 0;
+
+// List of simple social awareness questions and answers
+const questions = [
     {
-        dragDrop_question: "Match the social issues with their potential solutions:",
+        question: "Which of these is a way to help people who don’t have a home?",
         items: [
-            { text: "Homelessness", correctAnswer: "Affordable Housing" },
-            { text: "Poverty", correctAnswer: "Financial Support Programs" },
-            { text: "Environmental Pollution", correctAnswer: "Green Energy Solutions" },
+            { text: "Be stingy", correct: false },
+            { text: "Buy expensive jewellery", correct: false },
+            { text: "Donate to a Homeless Shelter", correct: true }  // Correct Answer
         ],
-        feedback: "Correct! You matched the social issues with their potential solutions."
+        feedback: "Great job! Donating to a Homeless Shelter is a great way to help people without a home."
     },
     {
-        dragDrop_question: "Match the human rights categories with their descriptions:",
+        question: "What is something you can do to help protect the Earth?",
         items: [
-            { text: "Freedom of Expression", correctAnswer: "The right to speak freely without fear of government censorship." },
-            { text: "Right to Education", correctAnswer: "The right to receive an education without discrimination." },
-            { text: "Right to Health", correctAnswer: "The right to access healthcare services." },
+            { text: "Plant trees", correct: true },  // Correct Answer
+            { text: "Burn tyres", correct: false },
+            { text: "Use more plastic", correct: false }
         ],
-        feedback: "Correct! You matched the human rights categories with their correct descriptions."
+        feedback: "Well done! Planting trees, recycling, and using less plastic are all ways to help protect the Earth."
     },
     {
-        dragDrop_question: "Match the social movements with their key goals:",
+        question: "Which of these is an example of kindness?",
         items: [
-            { text: "Civil Rights Movement", correctAnswer: "End racial segregation and discrimination." },
-            { text: "Women's Suffrage", correctAnswer: "Ensure voting rights for women." },
-            { text: "LGBTQ+ Rights Movement", correctAnswer: "Fight for equal rights and acceptance for LGBTQ+ individuals." },
+            { text: "Help a friend with homework", correct: false },  // Correct Answer
+            { text: "Share your toys", correct: true },
+            { text: "Be rude to others", correct: false }
         ],
-        feedback: "Correct! You matched the social movements with their key goals."
-    },
-    // Add more questions here if needed
+        feedback: "Awesome! Helping others is always an example of kindness."
+    }
 ];
 
-const dragDropQuestionContainer = document.getElementById('drag-drop-question');
-const dragDropItemsContainer = document.getElementById('drag-drop-items-container');
-const dragDropDropzone = document.getElementById('drag-drop-dropzone');
-const dragDropFeedbackContainer = document.getElementById('drag-drop-feedback');
-const dragDropSubmitButton = document.getElementById('drag-drop-submit-btn');
-const dragDropNextButton = document.getElementById('drag-drop-next-btn');
-const dragDropTotalScoreElement = document.getElementById('drag-drop-total-score');
-const dragDropScoreContainer = document.getElementById('drag-drop-score-container');
+document.addEventListener('DOMContentLoaded', function() {
+    loadQuestion();
+});
 
-function loadDragDropQuestion() {
-    const question = dragDropQuestions[dragDropCurrentQuestionIndex];
-    dragDropQuestionContainer.textContent = question.dragDrop_question;
-    dragDropItemsContainer.innerHTML = ''; // Clear previous items
-    dragDropDropzone.innerHTML = '<h3>Drop here:</h3>'; // Clear the drop zone
-
+// Load the current question and items to drag
+function loadQuestion() {
+    const question = questions[currentQuestionIndex];
+    
+    // Display the question
+    const questionContainer = document.getElementById('drag-drop-question');
+    questionContainer.textContent = question.question;
+    
+    // Clear previous items
+    const itemsContainer = document.getElementById('drag-drop-items-container');
+    itemsContainer.innerHTML = '';
+    
+    // Add draggable items
     question.items.forEach(item => {
         const div = document.createElement('div');
         div.textContent = item.text;
         div.classList.add('drag-item');
         div.setAttribute('draggable', 'true');
-        div.addEventListener('dragstart', (e) => onDragStart(e));
-        dragDropItemsContainer.appendChild(div);
+        div.addEventListener('dragstart', onDragStart);
+        itemsContainer.appendChild(div);
     });
-
-    dragDropQuestionContainer.style.opacity = 0; // Reset opacity for fade-in
-    setTimeout(() => {
-        dragDropQuestionContainer.style.animation = "fadeIn 1s forwards"; // Apply fade-in animation
-    }, 100);
-
-    dragDropFeedbackContainer.textContent = ''; // Clear previous feedback
-    dragDropSubmitButton.style.display = 'inline-block'; // Show submit button
-    dragDropNextButton.style.display = 'none'; // Hide next button
+    
+    // Reset drop zone
+    const dropzone = document.getElementById('drag-drop-dropzone');
+    dropzone.innerHTML = '<h3>Drop here:</h3>';
+    
+    // Reset feedback and buttons
+    document.getElementById('drag-drop-feedback').textContent = '';
+    document.getElementById('drag-drop-submit-btn').style.display = 'inline-block';
+    document.getElementById('drag-drop-next-btn').style.display = 'none';
 }
 
+// Handle when dragging starts
 function onDragStart(event) {
-    event.dataTransfer.setData("text", event.target.textContent); // Store the dragged item's text
+    event.dataTransfer.setData("text", event.target.textContent);
 }
 
-dragDropDropzone.addEventListener('dragover', (event) => {
-    event.preventDefault(); // Allow the drop
+// Allow dropping in the dropzone
+const dropzone = document.getElementById('drag-drop-dropzone');
+dropzone.addEventListener('dragover', (e) => {
+    e.preventDefault();
 });
 
-dragDropDropzone.addEventListener('drop', (event) => {
-    event.preventDefault();
-    const droppedText = event.dataTransfer.getData("text");
-    const item = dragDropQuestions[dragDropCurrentQuestionIndex].items.find(i => i.text === droppedText);
-    if (item) {
-        dragDropDropzone.innerHTML = `<h3>${droppedText} - ${item.correctAnswer}</h3>`;
-    }
+dropzone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const droppedText = e.dataTransfer.getData("text");
+    dropzone.innerHTML = `<h3>${droppedText}</h3>`;
 });
 
-function submitDragDropAnswer() {
-    const droppedItemText = dragDropDropzone.querySelector('h3')?.textContent;
+// Submit the answer
+function submitAnswer() {
+    const droppedText = dropzone.querySelector('h3')?.textContent;
 
-    if (!droppedItemText) {
-        dragDropFeedbackContainer.textContent = 'Please drag an item into the drop zone!';
+    if (!droppedText) {
+        document.getElementById('drag-drop-feedback').textContent = 'Please drag an item to the drop zone!';
         return;
     }
 
-    const correctAnswer = dragDropQuestions[dragDropCurrentQuestionIndex].items.map(item => item.correctAnswer).join(', ');
+    // Find the question and check if the dropped item matches the correct answer
+    const question = questions[currentQuestionIndex];
+    const correctItem = question.items.find(item => item.text === droppedText && item.correct);
 
-    if (droppedItemText.includes(correctAnswer)) {
-        dragDropScore++;
-        dragDropFeedbackContainer.textContent = "Correct!";
+    if (correctItem) {
+        score++;
+        document.getElementById('drag-drop-feedback').textContent = "Correct! Well done!";
     } else {
-        dragDropFeedbackContainer.textContent = `Incorrect. The correct answers are: ${correctAnswer}.`;
+        // Find the correct answer and show it
+        const correctAnswer = question.items.find(item => item.correct).text;
+        document.getElementById('drag-drop-feedback').textContent = `Oops, that's not right. The correct answer is: "${correctAnswer}".`;
     }
 
-    dragDropSubmitButton.style.display = 'none'; // Hide submit button
-    dragDropNextButton.style.display = 'inline-block'; // Show next button
+    // Hide submit button and show next button
+    document.getElementById('drag-drop-submit-btn').style.display = 'none';
+    document.getElementById('drag-drop-next-btn').style.display = 'inline-block';
 }
 
-function nextDragDropQuestion() {
-    dragDropCurrentQuestionIndex++;
-
-    if (dragDropCurrentQuestionIndex < dragDropQuestions.length) {
-        loadDragDropQuestion();
+// Go to next question
+function nextQuestion() {
+    currentQuestionIndex++;
+    
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
     } else {
-        showDragDropFinalScore();
+        showFinalScore();
     }
 }
 
-function showDragDropFinalScore() {
-    dragDropTotalScoreElement.textContent = `${dragDropScore} out of ${dragDropQuestions.length}`;
-    dragDropScoreContainer.style.display = 'block'; // Show the final score
-    dragDropNextButton.style.display = 'none'; // Hide next button at the end
+// Show the final score
+function showFinalScore() {
+    document.getElementById('drag-drop-total-score').textContent = `${score} out of ${questions.length}`;
+    document.getElementById('drag-drop-score-container').style.display = 'block';
+    document.getElementById('drag-drop-next-btn').style.display = 'none';
 }
 
-function goToDragDropMenu() {
-    window.location.href = 'menu.html'; // Assuming the menu is in 'menu.html'
-}
-
-// Initialize the social awareness drag-and-drop quiz
-loadDragDropQuestion();
