@@ -29,10 +29,10 @@
             </div>
             
             <div class="bottom">
-                <div id="literacy-quiz-container">
+                <div id="literacy-quiz-container" class="quiz_container">
                     <h1>Literacy Quiz</h1>
             
-                    <div id="literacy-question-container">
+                    <div id="literacy-question-container" class="text_style">
                         <!-- Question will fade in here -->
                         <div id="literacy-question"></div>
                     </div>
@@ -43,13 +43,14 @@
             
                     <div id="literacy-feedback"></div>
             
-                    <button id="literacy-submit-btn" onclick="submitLiteracyAnswer()">Submit Answer</button>
-                    <button id="literacy-next-btn" onclick="nextLiteracyQuestion()" style="display: none;">Next Question</button>
+                    <button id="literacy-submit-btn" class="submit_button" onclick="submitLiteracyAnswer()">Submit Answer</button>
+                    <button id="literacy-next-btn" onclick="nextLiteracyQuestion()" class="next_button" style="display: none;">Next Question</button>
             
-                    <div id="literacy-score-container" style="display: none;">
+                    <div id="literacy-score-container" class="score_container" style="display: none;">
                         <h2>Your Score: <span id="literacy-total-score"></span></h2>
-                        <button onclick="goToLiteracyMenu()">Return to Menu</button>
+                    
                     </div>
+                    <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
         </section>

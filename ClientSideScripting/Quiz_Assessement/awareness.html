@@ -32,7 +32,7 @@
                 <div id="drag-drop-quiz-container">
                     <h1>Drag and Drop Quiz</h1>
             
-                    <div id="drag-drop-question-container">
+                    <div id="drag-drop-question-container" class="text_style">
                         <!-- Question will fade in here -->
                         <div id="drag-drop-question"></div>
                     </div>
@@ -47,13 +47,14 @@
             
                     <div id="drag-drop-feedback"></div>
             
-                    <button id="drag-drop-submit-btn" onclick="submitDragDropAnswer()">Submit Answer</button>
-                    <button id="drag-drop-next-btn" onclick="nextDragDropQuestion()" style="display: none;">Next Question</button>
+                    <button id="drag-drop-submit-btn" class="submit_button" onclick="submitDragDropAnswer()">Submit Answer</button>
+                    <button id="drag-drop-next-btn" onclick="nextDragDropQuestion()" class="next_button" style="display: none;">Next Question</button>
             
-                    <div id="drag-drop-score-container" style="display: none;">
+                    <div id="drag-drop-score-container" class="score_container" style="display: none;">
                         <h2>Your Score: <span id="drag-drop-total-score"></span></h2>
-                        <button onclick="goToDragDropMenu()">Return to Menu</button>
+                    
                     </div>
+                    <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
             

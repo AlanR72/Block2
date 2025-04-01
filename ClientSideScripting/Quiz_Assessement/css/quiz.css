@@ -5,7 +5,7 @@
 }
 body{
     background-image: url(/media/space-background.jpg);
-    background-position: top;
+    background-position: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 main{
@@ -56,31 +56,33 @@ main{
     height: 60vh;
     align-items: center;
     justify-content: center;
-    
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+.numeracy_bottom{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+.history_bottom{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 75vh;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
 }
 .astro{
     width: 70%;
     margin-right: -10%;
 }
-label{
-    color:#EBE9C3;
-    width: 80%;
-    height: 50%;
-    margin-left: 5%;
-    vertical-align: center;
-    margin-top: 1%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-input{
-    width: 60%;
-    height: 20%;
-    margin-left: 20%;
-    margin-top: 1%
-}
-
 
 @keyframes message{
     from{left:50px;}
@@ -128,9 +130,6 @@ input{
     padding: 3%;
 }
 
-    
-
-
 a{
     text-decoration: none;
 }
@@ -142,18 +141,6 @@ a:hover {
     background-color: brown;
     color: #EBE9C3;
 }
-button{
-    margin-top: 10%;
-    width: 50%;
-    background-color: #EBE9C3;
-    font-size: 1.3em;
-    cursor: pointer;
-}
-
-h2{
-    margin-bottom: 5%;
-}
-
 
 @media only screen and (min-width: 740px){
     .starDate{
@@ -215,21 +202,54 @@ h2{
 
 /* START OF QUESTIONS Styling */
 
-#quiz-container {
-    width: 60%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+.quiz_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+h1{
+    color:#EBE9C3;
+    font-size: 2em;
+    padding-bottom: 10%;
+}
+.text_style{
+    color:#EBE9C3;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10%;
+    font-size: 1.7em;
+}
+.submit_button{
+    
+    background-color: #EBE9C3;
+    font-size: 1.3em;
+    cursor: pointer;
+    padding: 2%;
+    margin-bottom: 5%;
+}
+.next_button{
+    
+    background-color: #EBE9C3;
+    font-size: 1.3em;
+    cursor: pointer;
+    padding: 2%;
+    margin-bottom: 5%;
+}
+.return_button{
+    width: 70%;
+    background-color: brown;
+    color:#EBE9C3;
+    font-size: 1.3em;
+    cursor: pointer;
+    padding: 2%;
+    margin-bottom: 5%;
 }
 
-button {
-    margin-top: 20px;
-}
-
-#question {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+.score_container{
+    color:#EBE9C3;
 }
 
 @keyframes fadeIn {
@@ -252,21 +272,16 @@ input[type="text"]:focus {
 
 /* LITERACY CSS */
 
-#literacy-quiz-container {
-    width: 60%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-button {
-    margin-top: 20px;
-}
-
 #literacy-question {
     opacity: 0;
     animation: fadeIn 1s forwards;
+    text-align: center;
+    width: 90%;
+}
+#literacy-options{
+    color:#EBE9C3;
+    font-size: 1.5em;
+    
 }
 
 @keyframes fadeIn {
@@ -279,23 +294,29 @@ input[type="radio"] {
 }
 
 /* CSS for history */
-#history-quiz-container {
-    width: 60%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
-button {
-    margin-top: 20px;
-}
-
-#history-question {
+#history-question-container {
     opacity: 0;
     animation: fadeIn 1s forwards;
+    text-align: center;
+    width: 90%;
 }
+#history-options-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#history-options-container label {
+    color:#EBE9C3;
+    font-size: 1.7em;
+    display:flex; /* Use flexbox to arrange the checkbox and label horizontally */
+    gap: 20px; /* Adds space between the checkbox and label */
 
+}
+#history-options-container input[type="checkbox"] {
+    margin-right: 10%;
+    transform: scale(1.5);
+}
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -311,7 +332,6 @@ input[type="checkbox"] {
 
 #drag-drop-quiz-container {
     width: 60%;
-    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -385,7 +405,6 @@ button {
 
 #health-wellbeing-quiz-container {
     width: 60%;
-    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -416,9 +435,4 @@ button {
 #health-wellbeing-submit-btn {
     margin-top: 20px;
 }
-
-#health-wellbeing-next-btn {
-    display: none;
-}
-
 

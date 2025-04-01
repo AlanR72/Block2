@@ -1,4 +1,45 @@
 // Social Awareness Drag-and-Drop Quiz JavaScript
+
+var i = 0; // Initialize the counter variable
+
+function awarenessBubble() {
+    var username = getCookie('username');
+    var txt = "Let's find out how Socially Aware you are " + username + "!";
+    var speechspeed = 50;
+
+    // Display text letter by letter
+    if(i < txt.length){
+        document.getElementById('welcome_txt').innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(awarenessBubble, speechspeed);
+    }
+    
+}
+
+// Function to handle click and show alternative text one character at a time
+function awarenessClick() {
+    var username = getCookie('username');
+    var altText = "Life lessons are important lessons for everyone to learn " + username + "! Every day's a school day!";
+    var j = 0; // Initialize a new counter for the alternative text
+
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("awarenessButton").style.display = "none";
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     loadDragDropQuestion();  // Load the first question when the page is ready
 });

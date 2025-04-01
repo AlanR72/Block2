@@ -32,7 +32,7 @@
                 <div id="health-wellbeing-quiz-container">
                     <h1>Health and Wellbeing Quiz</h1>
             
-                    <div id="health-wellbeing-question-container">
+                    <div id="health-wellbeing-question-container" class="text_style">
                         <!-- Question will fade in here -->
                         <div id="health-wellbeing-question"></div>
                     </div>
@@ -43,13 +43,14 @@
             
                     <div id="health-wellbeing-feedback"></div>
             
-                    <button id="health-wellbeing-submit-btn" onclick="submitHealthWellbeingAnswer()">Submit Answer</button>
-                    <button id="health-wellbeing-next-btn" onclick="nextHealthWellbeingQuestion()" style="display: none;">Next Question</button>
+                    <button id="health-wellbeing-submit-btn" class="submit_button" onclick="submitHealthWellbeingAnswer()">Submit Answer</button>
+                    <button id="health-wellbeing-next-btn" onclick="nextHealthWellbeingQuestion()" class="next_button" style="display: none;">Next Question</button>
             
-                    <div id="health-wellbeing-score-container" style="display: none;">
+                    <div id="health-wellbeing-score-container" class="score_container" style="display: none;">
                         <h2>Your Score: <span id="health-wellbeing-total-score"></span></h2>
-                        <button onclick="goToHealthWellbeingMenu()">Return to Menu</button>
+                        
                     </div>
+                    <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
             

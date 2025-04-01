@@ -1,4 +1,45 @@
 // Health and Wellbeing Quiz JavaScript
+
+var i = 0; // Initialize the counter variable
+
+function wellbeingBubble() {
+    var username = getCookie('username');
+    var txt = "Hey There " + username + "I am Astronaut Hercules. Let's see how Healthy you are!";
+    var speechspeed = 50;
+
+    // Display text letter by letter
+    if(i < txt.length){
+        document.getElementById('welcome_txt').innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(wellbeingBubble, speechspeed);
+    }
+    
+}
+
+// Function to handle click and show alternative text one character at a time
+function wellbeingClick() {
+    username = getCookie('username');
+    var altText = "Ok " + username + "! Drag the correct answers across to the correct box!";
+    var j = 0; // Initialize a new counter for the alternative text
+
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("wellbeingButton").style.display = "none";
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     loadHealthWellbeingQuestion();  // Load the first question when the page is ready
 });

@@ -1,3 +1,47 @@
+var i = 0; // Initialize the counter variable
+
+// Function to handle typing text
+function numeracyBubble() {
+    var username = getCookie('username');
+    var txt = "Hey There " + username +"! Let's test your counting skills";
+    var speechspeed = 50;
+
+    // Display text letter by letter
+    if(i < txt.length){
+        document.getElementById('welcome_txt').innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(numeracyBubble, speechspeed);
+    }
+    
+}
+
+// Function to handle click and show alternative text one character at a time
+function numeracyClick() {
+    var username = getCookie('username');
+    var altText = "Start the quiz by working your way through the questions below " + username + "!";
+    var j = 0; // Initialize a new counter for the alternative text
+
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("numeracyButton").style.display = "none";
+}
+
+
+    
+
+
 document.addEventListener('DOMContentLoaded', function() {
     loadNumeracyQuestion();  // Load the first question when the page is ready
 });
@@ -68,8 +112,15 @@ function submitAnswer() {
     if (userAnswer === currentQuestion.correctAnswer) {
         score++;
         feedbackContainer.textContent = "Correct!";
+        feedbackContainer.style.color = "lightgreen";
+        feedbackContainer.style.fontSize = "2em";
+        
+
     } else {
-        feedbackContainer.textContent = `Incorrect. The correct answer is ${currentQuestion.correctAnswer}.`;
+        feedbackContainer.textContent = `Incorrect. The correct answer is ${currentQuestion.correctAnswer}!`;
+        feedbackContainer.style.color = "red";
+        feedbackContainer.style.fontSize = "2em";
+        feedbackContainer.style.textAlign = "center";
     }
 
     // Hide the "Submit Answer" button and show the "Next Question" button
@@ -83,6 +134,11 @@ function nextQuestion() {
     // If there are more questions, load the next question
     if (currentQuestionIndex < numeracyQuestions.length) {
         loadNumeracyQuestion();
+
+        // Check if it's the last question (assuming there are 5 questions)
+        if (currentQuestionIndex == 4) {
+            document.getElementById('numeracy-next-btn').textContent = "Finish Quiz";
+        }
     } else {
         showScore();
     }
@@ -100,6 +156,7 @@ function showScore() {
     feedbackContainer.textContent = '';
 
     questionContainer.textContent = `Quiz completed! Your score is ${score} out of ${numeracyQuestions.length}.`;
+    questionContainer.style.textAlign = "center";
 
     // Display the score
     totalScore.textContent = `${score} / ${numeracyQuestions.length}`;
@@ -111,9 +168,3 @@ function showScore() {
     document.getElementById('numeracy-next-btn').style.display = 'none';
 }
 
-// Function to return to the menu (or navigate to a different page)
-function goToMenu() {
-    
-    window.location.href = "menu.html";
-    
-}

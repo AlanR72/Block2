@@ -1,5 +1,44 @@
 // Literacy Quiz JavaScript
 
+var i = 0; // Initialize the counter variable
+
+function literacyBubble() {
+    var username = getCookie('username');
+    var txt = "Oops! Sorry " + username + "! I was at an exciting bit of my book there!";
+    var speechspeed = 50;
+
+    // Display text letter by letter
+    if(i < txt.length){
+        document.getElementById('welcome_txt').innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(literacyBubble, speechspeed);
+    }
+    
+}
+
+// Function to handle click and show alternative text one character at a time
+function literacyClick() {
+    var username = getCookie('username');
+    var altText = "Let's work through the quiz " + username + "! and see how good you are with words!";
+    var j = 0; // Initialize a new counter for the alternative text
+
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("literacyButton").style.display = "none";
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     loadLiteracyQuestion();  // Load the first question when the page is ready
 });
@@ -7,16 +46,16 @@ let literacyCurrentQuestionIndex = 0;
 let literacyScore = 0;
 const literacyQuestions = [
     {
-        literacy_question: "Which of the following words is a synonym for 'happy'?",
-        options: ["Sad", "Content", "Angry", "Confused"],
-        correctAnswer: "Content",
+        literacy_question: "Which of these options is another word for happy?",
+        options: ["Sad", "Joyful", "Angry", "Confused"],
+        correctAnswer: "Joyful",
         feedback: "Correct! 'Content' is a synonym for 'happy'."
     },
     {
-        literacy_question: "What is the opposite of 'light'?",
-        options: ["Dark", "Heavy", "Bright", "Colorful"],
-        correctAnswer: "Heavy",
-        feedback: "Correct! The opposite of 'light' is 'heavy'."
+        literacy_question: "Which of the following sentences is written in the past tense?",
+        options: ["She will sing at the concert.", "She is singing at the concert.", "She sang at the concert.", "She sings at the concert."],
+        correctAnswer: "She sang at the concert.",
+        feedback: "Correct! She sang at the concert."
     },
     {
         literacy_question: "Which word is spelled correctly?",
@@ -24,7 +63,18 @@ const literacyQuestions = [
         correctAnswer: "Receive",
         feedback: "Correct! 'Receive' is the correct spelling."
     },
-    // Add more questions here
+    {
+        literacy_question: "Which of these sentences is a question?",
+        options: ["The dog is playing outside.", "Did you finish your homework?", "I like to read books.", "The sky is blue."],
+        correctAnswer: "Did you finish your homework?",
+        feedback: "Correct! Did you finish your homework?"
+    },
+    {
+        literacy_question: "What does the word 'enthusiastic' mean?",
+        options: ["Boring", "Excited and full of energy", "Sad and quiet", "Angry and upset"],
+        correctAnswer: "Excited and full of energy",
+        feedback: "Correct! Excited and full of energy"
+    }
 ];
 
 const literacyQuestionContainer = document.getElementById('literacy-question');
@@ -76,32 +126,59 @@ function submitLiteracyAnswer() {
     if (userAnswer === correctAnswer) {
         literacyScore++;
         literacyFeedbackContainer.textContent = "Correct!";
+        literacyFeedbackContainer.style.color = "lightgreen";
+        literacyFeedbackContainer.style.fontSize = "2em";
     } else {
         literacyFeedbackContainer.textContent = `Incorrect. The correct answer is ${correctAnswer}.`;
+        literacyFeedbackContainer.style.color = "red";
+        literacyFeedbackContainer.style.fontSize = "2em";
+        literacyFeedbackContainer.style.textAlign = "center";
     }
 
     literacySubmitButton.style.display = 'none'; // Hide submit button
     literacyNextButton.style.display = 'inline-block'; // Show next button
 }
 
+
 function nextLiteracyQuestion() {
     literacyCurrentQuestionIndex++;
 
+    // If there are more questions, load the next question
     if (literacyCurrentQuestionIndex < literacyQuestions.length) {
         loadLiteracyQuestion();
+
+        // Check if it's the last question (assuming there are 5 questions)
+        if (literacyCurrentQuestionIndex == 4) {
+            document.getElementById('literacy-next-btn').textContent = "Finish Quiz";
+        }
     } else {
-        showLiteracyFinalScore();
+        showScore();
     }
 }
 
-function showLiteracyFinalScore() {
-    literacyTotalScoreElement.textContent = `${literacyScore} out of ${literacyQuestions.length}`;
-    literacyScoreContainer.style.display = 'block'; // Show the final score
-    literacyNextButton.style.display = 'none'; // Hide next button at the end
-}
 
-function goToLiteracyMenu() {
-    window.location.href = 'menu.html'; // Assuming the menu is in 'menu.html'
+function showScore() {
+    const questionContainer = document.getElementById('literacy-question-container');
+    const optionsContainer = document.getElementById('literacy-options');
+    const feedbackContainer = document.getElementById('literacy-feedback');
+    const scoreContainer = document.getElementById('literacy-score-container');
+    const totalScore = document.getElementById('literacy-total-score');
+
+    // Clear out the options and feedback
+    optionsContainer.innerHTML = '';
+    feedbackContainer.textContent = '';
+
+    questionContainer.textContent = `Quiz completed! Your score is ${literacyScore} out of ${literacyQuestions.length}.`;
+    questionContainer.style.textAlign = "center";
+
+    // Display the score
+    totalScore.textContent = `${literacyScore} / ${literacyQuestions.length}`;
+
+    // Show the score container
+    scoreContainer.style.display = 'block';
+
+    // Hide "Next Question" button
+    document.getElementById('literacy-next-btn').style.display = 'none';
 }
 
 // Initialize the literacy quiz

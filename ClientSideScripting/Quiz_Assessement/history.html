@@ -28,21 +28,21 @@
              <img class="astro" src="/media/highland.png" alt="Picture of an astronaut">
             </div>
             
-            <div class="bottom">
+            <div class="history_bottom">
                 <!-- History Quiz Section -->
-                <div id="history-quiz">
+                <div id="history-quiz" class="quiz_container">
                     <h1>History Quiz</h1>
-                    <div id="history-question-container"></div> <!-- Where the question will appear -->
+                    <div id="history-question-container" class="text_style"></div> <!-- Where the question will appear -->
                     <div id="history-options-container"></div> <!-- Where options will appear -->
                     <div id="history-feedback"></div> <!-- Feedback for each question -->
                     <div class="button-container">
-                        <button id="history-submit-btn" onclick="submitHistoryAnswer()">Submit Answer</button>
-                        <button id="history-next-btn" onclick="nextHistoryQuestion()" style="display: none;">Next Question</button>
+                        <button id="history-submit-btn" class="submit_button" onclick="submitHistoryAnswer()">Submit Answer</button>
+                        <button id="history-next-btn" onclick="nextHistoryQuestion()" class="next_button" style="display: none;">Next Question</button>
                     </div>
-                    <div id="history-score-container" style="display: none;">
+                    <div id="history-score-container" class="score_container" style="display: none;">
                         <h2>Your Score: <span id="history-total-score"></span></h2>
-                        <button onclick="goToMenu()">Return to Menu</button>
                     </div>
+                    <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
         

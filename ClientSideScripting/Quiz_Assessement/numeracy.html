@@ -30,20 +30,20 @@
         
         
         
-            <div class="bottom">
-                <div id="numeracy-quiz">
+            <div class="numeracy_bottom">
+                <div id="numeracy-quiz" class="quiz_container">
                     <h1>Numeracy Quiz</h1>
-                    <div id="numeracy-question-container"></div> <!-- Question will appear here -->
+                    <div id="numeracy-question-container" class="text_style"></div> <!-- Question will appear here -->
                     <div id="numeracy-options-container"></div> <!-- Answer input will appear here -->
                     <div id="feedback"></div> <!-- Feedback will appear here -->
-                    <div class="button-container">
-                        <button id="numeracy-submit-btn" onclick="submitAnswer()">Submit Answer</button>
-                        <button id="numeracy-next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
-                    </div>
-                    <div id="score-container">
+                    
+                        <button id="numeracy-submit-btn" class="submit_button" onclick="submitAnswer()">Submit Answer</button>
+                        <button id="numeracy-next-btn" onclick="nextQuestion()" class="next_button" style="display: none;">Next Question</button>
+                    
+                    <div id="score-container" class="score_container" style="display: none;">
                         <h2>Your Score: <span id="total-score"></span></h2>
-                        <button onclick="goToMenu()">Return to Menu</button>
                     </div>
+                    <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
             
