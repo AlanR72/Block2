@@ -168,10 +168,12 @@ function submitHealthWellbeingAnswer() {
             healthWellbeingFeedbackContainer.textContent = "Correct!";
             healthWellbeingFeedbackContainer.style.fontSize = "2em";
             healthWellbeingFeedbackContainer.style.color = "lightgreen";
+            healthWellbeingFeedbackContainer.style.padding = "5%";
         } else {
             healthWellbeingFeedbackContainer.textContent = `Incorrect. The correct answers are: ${question.correctAnswer.join(', ')}.`;
             healthWellbeingFeedbackContainer.style.fontSize = "2em";
             healthWellbeingFeedbackContainer.style.color = "red";
+            healthWellbeingFeedbackContainer.style.padding = "5%";
         }
     } else {
         // Compare text answers in a case-insensitive way by converting both to lowercase
@@ -180,10 +182,12 @@ function submitHealthWellbeingAnswer() {
             healthWellbeingFeedbackContainer.textContent = "Correct!";
             healthWellbeingFeedbackContainer.style.fontSize = "2em";
             healthWellbeingFeedbackContainer.style.color = "lightgreen";
+            healthWellbeingFeedbackContainer.style.padding = "5%";
         } else {
             healthWellbeingFeedbackContainer.textContent = `Incorrect. The correct answer is: ${question.correctAnswer}.`;
             healthWellbeingFeedbackContainer.style.fontSize = "2em";
             healthWellbeingFeedbackContainer.style.color = "red";
+            healthWellbeingFeedbackContainer.style.padding = "5%";
         }
     }
 
@@ -191,15 +195,6 @@ function submitHealthWellbeingAnswer() {
     healthWellbeingNextButton.style.display = 'inline-block'; // Show next button
 }
 
-// function nextHealthWellbeingQuestion() {
-//     healthWellbeingCurrentQuestionIndex++;
-
-//     if (healthWellbeingCurrentQuestionIndex < healthWellbeingQuestions.length) {
-//         loadHealthWellbeingQuestion();
-//     } else {
-//         showHealthWellbeingFinalScore();
-//     }
-// }
 function nextHealthWellbeingQuestion() {
     healthWellbeingCurrentQuestionIndex++;
 
@@ -216,11 +211,6 @@ function nextHealthWellbeingQuestion() {
     }
 }
 
-// function showHealthWellbeingFinalScore() {
-//     healthWellbeingTotalScoreElement.textContent = `${healthWellbeingScore} out of ${healthWellbeingQuestions.length}`;
-//     healthWellbeingScoreContainer.style.display = 'block'; // Show the final score
-//     healthWellbeingNextButton.style.display = 'none'; // Hide next button at the end
-// }
 function showHealthWellbeingFinalScore() {
     const questionContainer = document.getElementById('health-wellbeing-question-container');
     const optionsContainer = document.getElementById('health-wellbeing-options-container');
@@ -238,12 +228,57 @@ function showHealthWellbeingFinalScore() {
     // Display the score
     healthWellbeingTotalScoreElement.textContent = `${healthWellbeingScore} / ${healthWellbeingQuestions.length}`;
 
-    // Show the score container
-    scoreContainer.style.display = 'block';
+//Display message
+var username = getCookie('username'); 
+if(healthWellbeingScore > 2){
 
-    // Hide "Next Question" button
-    document.getElementById('health-wellbeing-next-btn').style.display = 'none';
+var altText = "Well done " + username + "! You have passed the Health and Wellbeing Quiz!";
+var j = 0; // Initialize a new counter for the alternative text
+
+// Clear the previous text and start typing the alternative text
+document.getElementById('welcome_txt').innerHTML = '';
+
+// Create a typing effect for the alternative text
+function typeAltText() {
+    if (j < altText.length) {
+        document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+        j++;
+        setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+    }
 }
+
+// Start the typing effect for the alternative text
+typeAltText();
+document.getElementById("wellbeingButton").style.display = "none";
+}else {
+    // This block will run if score <= 2
+    var altText = "Better luck next time " + username + "! Keep practicing the Health and Wellbeing Quiz!";
+    var j = 0; // Initialize a new counter for the alternative text
+
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("wellbeingButton").style.display = "none";
+}
+
+// Show the score container
+scoreContainer.style.display = 'block';
+
+// Hide "Next Question" button
+document.getElementById('health-wellbeing-next-btn').style.display = 'none';
+}
+
 
 
 // Initialize the health and wellbeing quiz

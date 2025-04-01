@@ -48,7 +48,7 @@ const questions = [
     {
         question: "Which of these is a way to help people who don’t have a home?",
         items: [
-            { text: "Be stingy", correct: false },
+            { text: "Spend your pocket money on sweets.", correct: false },
             { text: "Buy expensive jewellery", correct: false },
             { text: "Donate to a Homeless Shelter", correct: true }  // Correct Answer
         ],
@@ -58,19 +58,37 @@ const questions = [
         question: "What is something you can do to help protect the Earth?",
         items: [
             { text: "Plant trees", correct: true },  // Correct Answer
-            { text: "Burn tyres", correct: false },
+            { text: "Buy a diesel car", correct: false },
             { text: "Use more plastic", correct: false }
         ],
-        feedback: "Well done! Planting trees, recycling, and using less plastic are all ways to help protect the Earth."
+        feedback: "Well done! Planting trees helps protect the Earth."
     },
     {
         question: "Which of these is an example of kindness?",
         items: [
-            { text: "Help a friend with homework", correct: false },  // Correct Answer
+            { text: "Be cheeky to your parents.", correct: false },  // Correct Answer
             { text: "Share your toys", correct: true },
             { text: "Be rude to others", correct: false }
         ],
-        feedback: "Awesome! Helping others is always an example of kindness."
+        feedback: "Absolutely! Helping others is always an example of kindness."
+    },
+    {
+        question: "What is the best way to help someone who is feeling sad?",
+        items: [
+            { text: "Ignore them and let them be.", correct: false },  // Correct Answer
+            { text: "Talk to them and ask if they need help", correct: true },
+            { text: "Tell them to stop being sad.", correct: false }
+        ],
+        feedback: "Awesome! Talking to them and asking if they need help."
+    },
+    {
+        question: "What should you do if you see someone being bullied?",
+        items: [
+            { text: "Laugh and join in.", correct: false },  // Correct Answer
+            { text: "Tell a teacher or adult.", correct: true },
+            { text: "Ignore it and walk away.", correct: false }
+        ],
+        feedback: "Yes! Tell a teacher or adult."
     }
 ];
 
@@ -142,11 +160,17 @@ function submitAnswer() {
 
     if (correctItem) {
         score++;
-        document.getElementById('drag-drop-feedback').textContent = "Correct! Well done!";
+        document.getElementById('drag-drop-feedback').textContent = "Correct!";
+        document.getElementById('drag-drop-feedback').style.color = "lightgreen";
+        document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
+        document.getElementById('drag-drop-feedback').style.padding = "5%";
     } else {
         // Find the correct answer and show it
         const correctAnswer = question.items.find(item => item.correct).text;
         document.getElementById('drag-drop-feedback').textContent = `Oops, that's not right. The correct answer is: "${correctAnswer}".`;
+        document.getElementById('drag-drop-feedback').style.color = "red";
+        document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
+        document.getElementById('drag-drop-feedback').style.padding = "5%";
     }
 
     // Hide submit button and show next button
@@ -154,21 +178,87 @@ function submitAnswer() {
     document.getElementById('drag-drop-next-btn').style.display = 'inline-block';
 }
 
-// Go to next question
 function nextQuestion() {
     currentQuestionIndex++;
-    
+
+    // If there are more questions, load the next question
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
+
+        // Check if it's the last question (assuming there are 5 questions)
+        if (currentQuestionIndex == 4) {
+            document.getElementById('drag-drop-next-btn').textContent = "Finish Quiz";
+        }
     } else {
         showFinalScore();
     }
 }
-
-// Show the final score
 function showFinalScore() {
-    document.getElementById('drag-drop-total-score').textContent = `${score} out of ${questions.length}`;
-    document.getElementById('drag-drop-score-container').style.display = 'block';
+    const questionContainer = document.getElementById('drag-drop-question-container');
+    const optionsContainer = document.getElementById('drag-drop-items-container');
+    const feedbackContainer = document.getElementById('drag-drop-feedback');
+    const scoreContainer = document.getElementById('drag-drop-score-container');
+    const totalScore = document.getElementById('total-score');
+
+    // Clear out the options and feedback
+    optionsContainer.innerHTML = '';
+    feedbackContainer.textContent = '';
+
+    questionContainer.textContent = `Quiz completed! Your score is ${score} out of ${questions.length}.`;
+    questionContainer.style.textAlign = "center";
+
+    // Display the score
+    totalScore.textContent = `${score} / ${questions.length}`;
+    //Display message
+    var username = getCookie('username'); 
+    if(score > 2){
+    
+    var altText = "Well done " + username + "! You have passed the Social Awareness Quiz!";
+    var j = 0; // Initialize a new counter for the alternative text
+
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("awarenessButton").style.display = "none";
+    }else {
+        // This block will run if score <= 2
+        var altText = "Better luck next time " + username + "! Keep practicing the Social Awareness Quiz!";
+        var j = 0; // Initialize a new counter for the alternative text
+    
+        // Clear the previous text and start typing the alternative text
+        document.getElementById('welcome_txt').innerHTML = '';
+        
+        // Create a typing effect for the alternative text
+        function typeAltText() {
+            if (j < altText.length) {
+                document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+                j++;
+                setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+            }
+        }
+    
+        // Start the typing effect for the alternative text
+        typeAltText();
+        document.getElementById("awarenessButton").style.display = "none";
+    }
+    
+    // Show the score container
+    scoreContainer.style.display = 'block';
+
+    // Hide "Next Question" button
     document.getElementById('drag-drop-next-btn').style.display = 'none';
+    document.getElementById('drag-drop-dropzone').style.display = 'none';
 }
+
 

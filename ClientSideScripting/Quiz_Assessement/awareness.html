@@ -29,10 +29,10 @@
             </div>
         
             <div class="bottom">
-                <div id="drag-drop-quiz-container">
+                <div id="drag-drop-quiz-container" class="quiz_container">
                     <h1>Social Awareness Quiz</h1>
                     
-                    <div id="drag-drop-question-container">
+                    <div id="drag-drop-question-container" class="text_style">
                         <div id="drag-drop-question"></div>
                     </div>
                     
@@ -44,14 +44,14 @@
                     
                     <div id="drag-drop-feedback"></div>
                     
-                    <button id="drag-drop-submit-btn" onclick="submitAnswer()">Submit Answer</button>
-                    <button id="drag-drop-next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
+                    <button id="drag-drop-submit-btn" onclick="submitAnswer()" class="submit_button">Submit Answer</button>
+                    <button id="drag-drop-next-btn" onclick="nextQuestion()" class="next_button" style="display: none;">Next Question</button>
                     
-                    <div id="drag-drop-score-container" style="display: none;">
-                        <h2>Your Score: <span id="drag-drop-total-score"></span></h2>
+                    <div id="drag-drop-score-container" class="score_container" style="display: none;">
+                        <h2>Your Score: <span id="total-score"></span></h2>
                     </div>
                     
-                    <button id="returnMenu" onclick="returnToMenu()">Return to Menu</button>
+                    <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
             

@@ -231,9 +231,10 @@ h1{
     justify-content: center;
     padding-bottom: 10%;
     font-size: 1.7em;
+    text-align: center;
 }
 .submit_button{
-    
+    margin-top: 5%;
     background-color: #EBE9C3;
     font-size: 1.3em;
     cursor: pointer;
@@ -241,7 +242,6 @@ h1{
     margin-bottom: 5%;
 }
 .next_button{
-    
     background-color: #EBE9C3;
     font-size: 1.3em;
     cursor: pointer;
@@ -256,6 +256,7 @@ h1{
     cursor: pointer;
     padding: 2%;
     margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 .score_container{
@@ -291,8 +292,12 @@ input[type="text"]:focus {
 #literacy-options{
     color:#EBE9C3;
     font-size: 1.5em;
-    
 }
+#literacy-options label{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+} 
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -339,81 +344,29 @@ input[type="checkbox"] {
 /* DRAG AND DROP CSS */
 
 
-
-/* #drag-drop-quiz-container {
-    width: 60%;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-button {
-    margin-top: 20px;
-}
-
-#drag-drop-question {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-#drag-drop-items-container {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-#drag-drop-dropzone {
-    width: 100%;
-    height: 150px;
-    border: 2px dashed #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#drag-drop-feedback {
-    margin-bottom: 20px;
-}
-
 .drag-item {
-    width: 100px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    cursor: grab;
-}
-
-.drag-item:hover {
-    background-color: #e0e0e0;
-}
-
-#drag-drop-submit-btn {
-    margin-top: 20px;
-}
-
-#drag-drop-next-btn {
-    display: none;
-} */
-
-.drag-item {
-    background-color: lightgray;
+    background-color: brown;
+    border:#EBE9C3 solid 3px;
+    color:#EBE9C3;
+    text-align: center;
     padding: 10px;
     margin: 5px;
     cursor: pointer;
     user-select: none;
 }
+#drag-drop-question{
+    width: 80%;
+}
 
 #drag-drop-dropzone {
     height: 150px;
+    width: 60%;
+    background-color: #EBE9C3;
     border: 2px dashed #ccc;
     text-align: center;
     line-height: 150px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 

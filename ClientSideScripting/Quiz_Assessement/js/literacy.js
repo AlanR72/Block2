@@ -128,11 +128,13 @@ function submitLiteracyAnswer() {
         literacyFeedbackContainer.textContent = "Correct!";
         literacyFeedbackContainer.style.color = "lightgreen";
         literacyFeedbackContainer.style.fontSize = "2em";
+        literacyFeedbackContainer.style.padding = "5%";
     } else {
         literacyFeedbackContainer.textContent = `Incorrect. The correct answer is ${correctAnswer}.`;
         literacyFeedbackContainer.style.color = "red";
         literacyFeedbackContainer.style.fontSize = "2em";
         literacyFeedbackContainer.style.textAlign = "center";
+        literacyFeedbackContainer.style.padding = "5%";
     }
 
     literacySubmitButton.style.display = 'none'; // Hide submit button
@@ -173,7 +175,50 @@ function showScore() {
 
     // Display the score
     totalScore.textContent = `${literacyScore} / ${literacyQuestions.length}`;
+    //Display message
+    var username = getCookie('username'); 
+    if(literacyScore > 2){
+    
+    var altText = "Well done " + username + "! You have passed the Literacy Quiz!";
+    var j = 0; // Initialize a new counter for the alternative text
 
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("literacyButton").style.display = "none";
+    }else {
+        // This block will run if score <= 2
+        var altText = "Better luck next time " + username + "! Keep practicing the Literacy Quiz!";
+        var j = 0; // Initialize a new counter for the alternative text
+    
+        // Clear the previous text and start typing the alternative text
+        document.getElementById('welcome_txt').innerHTML = '';
+        
+        // Create a typing effect for the alternative text
+        function typeAltText() {
+            if (j < altText.length) {
+                document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+                j++;
+                setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+            }
+        }
+    
+        // Start the typing effect for the alternative text
+        typeAltText();
+        document.getElementById("literacyButton").style.display = "none";
+    }
+    
     // Show the score container
     scoreContainer.style.display = 'block';
 

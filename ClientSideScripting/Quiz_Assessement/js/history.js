@@ -123,11 +123,13 @@ function submitHistoryAnswer() {
         feedbackContainer.textContent = "Correct!";
         feedbackContainer.style.color = "lightgreen";
         feedbackContainer.style.fontSize = "2em";
+        feedbackContainer.style.padding = "5%";
     } else {
         feedbackContainer.textContent = `Incorrect. The correct answers are: ${currentQuestion.correctAnswers.join(', ')}`;
         feedbackContainer.style.color = "red";
         feedbackContainer.style.fontSize = "2em";
         feedbackContainer.style.textAlign = "center";
+        feedbackContainer.style.padding = "5%";
     }
 
     document.getElementById('history-submit-btn').style.display = 'none';
@@ -163,7 +165,53 @@ function showHistoryScore() {
     questionContainer.textContent = `Quiz completed! Your score is ${historyScore} out of ${historyQuestions.length}.`;
 
     totalScore.textContent = `${historyScore} / ${historyQuestions.length}`;
+    //Display message
+    var username = getCookie('username'); 
+    if(historyScore > 2){
+    
+    var altText = "Well done " + username + "! You have passed the History Quiz!";
+    var j = 0; // Initialize a new counter for the alternative text
 
+    // Clear the previous text and start typing the alternative text
+    document.getElementById('welcome_txt').innerHTML = '';
+    
+    // Create a typing effect for the alternative text
+    function typeAltText() {
+        if (j < altText.length) {
+            document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+            j++;
+            setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+        }
+    }
+
+    // Start the typing effect for the alternative text
+    typeAltText();
+    document.getElementById("historyButton").style.display = "none";
+    }else {
+        // This block will run if score <= 2
+        var altText = "Better luck next time " + username + "! Keep practicing the History Quiz!";
+        var j = 0; // Initialize a new counter for the alternative text
+    
+        // Clear the previous text and start typing the alternative text
+        document.getElementById('welcome_txt').innerHTML = '';
+        
+        // Create a typing effect for the alternative text
+        function typeAltText() {
+            if (j < altText.length) {
+                document.getElementById('welcome_txt').innerHTML += altText.charAt(j);
+                j++;
+                setTimeout(typeAltText, 50); // Adjust the speed of typing if needed
+            }
+        }
+    
+        // Start the typing effect for the alternative text
+        typeAltText();
+        document.getElementById("historyButton").style.display = "none";
+    }
+    
+    // Show the score container
     scoreContainer.style.display = 'block';
+
+    // Hide "Next Question" button
     document.getElementById('history-next-btn').style.display = 'none';
 }
