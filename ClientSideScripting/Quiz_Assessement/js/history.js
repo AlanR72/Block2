@@ -132,6 +132,9 @@ function submitHistoryAnswer() {
         feedbackContainer.style.padding = "5%";
     }
 
+    // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
+    sessionStorage.setItem('historyScore', historyScore);
+
     document.getElementById('history-submit-btn').style.display = 'none';
     document.getElementById('history-next-btn').style.display = 'block';
 }
@@ -157,7 +160,7 @@ function showHistoryScore() {
     const optionsContainer = document.getElementById('history-options-container');
     const feedbackContainer = document.getElementById('history-feedback');
     const scoreContainer = document.getElementById('history-score-container');
-    const totalScore = document.getElementById('history-total-score');
+    const totalScore = document.getElementById('history_score');
 
     optionsContainer.innerHTML = '';
     feedbackContainer.textContent = '';
@@ -215,3 +218,5 @@ function showHistoryScore() {
     // Hide "Next Question" button
     document.getElementById('history-next-btn').style.display = 'none';
 }
+
+

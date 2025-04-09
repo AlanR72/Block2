@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(/media/space-background.jpg);
+    background-position: top;
+    font-size: 1.5em;
+    color: #EBE9C3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.starDate{
+    color: black;
+    width: 60%;
+    background-color: #EBE9C3;
+    border: brown solid 5px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    padding: 1%;
+    font-size: .7em;
+    margin-top: 10%;
+    margin-bottom: 50px;
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.astro{
+    width: 40%;
+    margin-left: 60%;
+    margin-top: -25%;
+}
+h1{
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+div{
+    font-size: 1em;
+}
+h2{
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+.speech_bubble{
+    max-width: 175px;
+    font-size: 1em;
+    background: #EBE9C3;
+    color: black;
+    display: inline-block;
+    position: relative;
+    border-radius: 10px;
+    top: -25%;
+    left: 10%;
+    padding: 3%;
+}
+
+.speech_bubble:before{
+    content: "";
+    position: absolute;
+    bottom: 10px; /* Position the tail below the bubble */
+    left: 100%; /* Adjust to position the tail */
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #EBE9C3;/* Tail color, matching the bubble */
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    transform: rotate(-90deg); /* Rotate the tail -90 degrees */
+    transform-origin: center center;
+    
+}
+.diplomaButton{
+    margin-top: 5%;
+    background-color: brown;
+    color:#EBE9C3;
+    cursor: pointer;
+    border-radius: 3%;
+    padding: 2%;
+    margin-left: 19%
+}
+.missionButton{
+    margin-top: 5%;
+    background-color: brown;
+    color:#EBE9C3;
+    cursor: pointer;
+    border-radius: 3%;
+    padding: 2%;
+    margin-left: 15%
+}

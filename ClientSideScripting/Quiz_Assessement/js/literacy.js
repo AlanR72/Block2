@@ -137,6 +137,9 @@ function submitLiteracyAnswer() {
         literacyFeedbackContainer.style.padding = "5%";
     }
 
+    // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
+    sessionStorage.setItem('literacyScore', literacyScore);
+
     literacySubmitButton.style.display = 'none'; // Hide submit button
     literacyNextButton.style.display = 'inline-block'; // Show next button
 }
@@ -164,7 +167,7 @@ function showScore() {
     const optionsContainer = document.getElementById('literacy-options');
     const feedbackContainer = document.getElementById('literacy-feedback');
     const scoreContainer = document.getElementById('literacy-score-container');
-    const totalScore = document.getElementById('literacy-total-score');
+    const totalScore = document.getElementById('literacy_score');
 
     // Clear out the options and feedback
     optionsContainer.innerHTML = '';
@@ -228,3 +231,5 @@ function showScore() {
 
 // Initialize the literacy quiz
 loadLiteracyQuestion();
+
+

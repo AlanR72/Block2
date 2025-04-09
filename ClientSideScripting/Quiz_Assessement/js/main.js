@@ -59,7 +59,9 @@ function welcomeBubble(){
     
         // Start typing the "Welcome back" message
         typeAltText();
-    } else {
+    }
+
+    else {
         
         // Regular welcome message for first-time visitors
         var defaultText = "Hey There " + username + "! Welcome to the Space Academy!";
@@ -197,4 +199,61 @@ document.addEventListener('DOMContentLoaded', function() {
     updateWelcomeMessage();
 });
 
+function displayPassed(){
 
+    let allPassed = true; // Track if all conditions are met
+
+    // Retrieve the scores from localStorage
+    const numeracyScore = sessionStorage.getItem('numeracyScore') || 0;
+    if(numeracyScore > 2){
+        document.getElementById('numeracyPassed').style.display = "block";
+        document.getElementById('numeracyPassed').style.color = "lightgreen";
+        document.getElementById('numeracyPassed').style.fontSize = "1.5em";
+    }else {
+        allPassed = false;
+    }
+
+    // Retrieve the scores from localStorage
+    const literacyScore = sessionStorage.getItem('literacyScore') || 0;
+    if(literacyScore > 2){
+        document.getElementById('literacyPassed').style.display = "block";
+        document.getElementById('literacyPassed').style.color = "lightgreen";
+        document.getElementById('literacyPassed').style.fontSize = "1.5em";
+    }else {
+        allPassed = false;
+    }
+
+    // Retrieve the scores from localStorage
+    const historyScore = sessionStorage.getItem('historyScore') || 0;
+    if(historyScore > 2){
+        document.getElementById('historyPassed').style.display = "block";
+        document.getElementById('historyPassed').style.color = "lightgreen";
+        document.getElementById('historyPassed').style.fontSize = "1.5em";
+    }else {
+        allPassed = false;
+    }
+    // Retrieve the scores from localStorage
+    const awarenessScore = sessionStorage.getItem('awarenessScore') || 0;
+    if(awarenessScore > 2){
+        document.getElementById('awarenessPassed').style.display = "block";
+        document.getElementById('awarenessPassed').style.color = "lightgreen";
+        document.getElementById('awarenessPassed').style.fontSize = "1.5em";
+    }else {
+        allPassed = false;
+    }
+    // Retrieve the scores from localStorage
+    const healthWellbeingScore = sessionStorage.getItem('healthWellbeingScore') || 0;
+    if(healthWellbeingScore > 2){
+        document.getElementById('wellbeingPassed').style.display = "block";
+        document.getElementById('wellbeingPassed').style.color = "lightgreen";
+        document.getElementById('wellbeingPassed').style.fontSize = "1.5em";
+    }else {
+        allPassed = false;
+    }
+
+    // Store the final result in sessionStorage
+    sessionStorage.setItem('allConditionsPassed', allPassed);
+    return allPassed;
+    
+}
+displayPassed();

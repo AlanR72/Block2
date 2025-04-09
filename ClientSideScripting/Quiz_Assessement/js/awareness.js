@@ -41,7 +41,7 @@ function awarenessClick() {
 
 
 let currentQuestionIndex = 0;
-let score = 0;
+let awarenessScore = 0;
 
 // List of simple social awareness questions and answers
 const questions = [
@@ -159,7 +159,7 @@ function submitAnswer() {
     const correctItem = question.items.find(item => item.text === droppedText && item.correct);
 
     if (correctItem) {
-        score++;
+        awarenessScore++;
         document.getElementById('drag-drop-feedback').textContent = "Correct!";
         document.getElementById('drag-drop-feedback').style.color = "lightgreen";
         document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
@@ -172,6 +172,9 @@ function submitAnswer() {
         document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
         document.getElementById('drag-drop-feedback').style.padding = "5%";
     }
+
+    // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
+    sessionStorage.setItem('awarenessScore', awarenessScore);
 
     // Hide submit button and show next button
     document.getElementById('drag-drop-submit-btn').style.display = 'none';
@@ -198,20 +201,20 @@ function showFinalScore() {
     const optionsContainer = document.getElementById('drag-drop-items-container');
     const feedbackContainer = document.getElementById('drag-drop-feedback');
     const scoreContainer = document.getElementById('drag-drop-score-container');
-    const totalScore = document.getElementById('total-score');
+    const totalScore = document.getElementById('awareness_score');
 
     // Clear out the options and feedback
     optionsContainer.innerHTML = '';
     feedbackContainer.textContent = '';
 
-    questionContainer.textContent = `Quiz completed! Your score is ${score} out of ${questions.length}.`;
+    questionContainer.textContent = `Quiz completed! Your score is ${awarenessScore} out of ${questions.length}.`;
     questionContainer.style.textAlign = "center";
 
     // Display the score
-    totalScore.textContent = `${score} / ${questions.length}`;
+    totalScore.textContent = `${awarenessScore} / ${questions.length}`;
     //Display message
     var username = getCookie('username'); 
-    if(score > 2){
+    if(awarenessScore > 2){
     
     var altText = "Well done " + username + "! You have passed the Social Awareness Quiz!";
     var j = 0; // Initialize a new counter for the alternative text
@@ -260,5 +263,7 @@ function showFinalScore() {
     document.getElementById('drag-drop-next-btn').style.display = 'none';
     document.getElementById('drag-drop-dropzone').style.display = 'none';
 }
+
+
 
 

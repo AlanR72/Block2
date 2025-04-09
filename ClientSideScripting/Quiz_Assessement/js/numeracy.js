@@ -70,7 +70,7 @@ const numeracyQuestions = [
 ];
 
 let currentQuestionIndex = 0;
-let score = 0;
+let numeracyScore = 0;
 
 function loadNumeracyQuestion() {
     const questionContainer = document.getElementById('numeracy-question-container');
@@ -110,7 +110,7 @@ function submitAnswer() {
 
     // Check if the user's answer is correct
     if (userAnswer === currentQuestion.correctAnswer) {
-        score++;
+        numeracyScore++;
         feedbackContainer.textContent = "Correct!";
         feedbackContainer.style.color = "lightgreen";
         feedbackContainer.style.fontSize = "2em";
@@ -124,6 +124,9 @@ function submitAnswer() {
         feedbackContainer.style.textAlign = "center";
         feedbackContainer.style.padding = "5%";
     }
+
+    // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
+    sessionStorage.setItem('numeracyScore', numeracyScore);
 
     // Hide the "Submit Answer" button and show the "Next Question" button
     document.getElementById('numeracy-submit-btn').style.display = 'none';
@@ -151,22 +154,22 @@ function showScore() {
     const optionsContainer = document.getElementById('numeracy-options-container');
     const feedbackContainer = document.getElementById('feedback');
     const scoreContainer = document.getElementById('score-container');
-    const totalScore = document.getElementById('total-score');
+    const totalScore = document.getElementById('numeracy_score');
 
     // Clear out the options and feedback
     optionsContainer.innerHTML = '';
     feedbackContainer.textContent = '';
 
-    questionContainer.textContent = `Quiz completed! Your score is ${score} out of ${numeracyQuestions.length}.`;
+    questionContainer.textContent = `Quiz completed! Your score is ${numeracyScore} out of ${numeracyQuestions.length}.`;
     questionContainer.style.textAlign = "center";
 
     // Display the score
-    totalScore.textContent = `${score} / ${numeracyQuestions.length}`;
+    totalScore.textContent = `${numeracyScore} / ${numeracyQuestions.length}`;
     //Display message 
     var username = getCookie('username');
-    if(score > 2){
+    if(numeracyScore > 2){
     
-    var altText = "Well done " + username + "! You have passed the Numeracy Quiz!";
+    var altText = "Well done " + username + "! You have passed the Numeracy Quiz! Click the Return to Menu button and complete the next Quiz!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -184,9 +187,13 @@ function showScore() {
     // Start the typing effect for the alternative text
     typeAltText();
     document.getElementById("numeracyButton").style.display = "none";
+
+
+
+
     }else {
         // This block will run if score <= 2
-        var altText = "Better luck next time " + username + "! Keep practicing the Numeracy Quiz!";
+        var altText = "Better luck next time " + username + "! Click Return to Menu to do the Numeracy quiz again or try a different quiz!";
         var j = 0; // Initialize a new counter for the alternative text
     
         // Clear the previous text and start typing the alternative text
@@ -212,4 +219,9 @@ function showScore() {
     // Hide "Next Question" button
     document.getElementById('numeracy-next-btn').style.display = 'none';
 }
+
+
+
+
+
 

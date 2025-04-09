@@ -191,6 +191,9 @@ function submitHealthWellbeingAnswer() {
         }
     }
 
+    // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
+    sessionStorage.setItem('healthWellbeingScore', healthWellbeingScore);
+
     healthWellbeingSubmitButton.style.display = 'none'; // Hide submit button
     healthWellbeingNextButton.style.display = 'inline-block'; // Show next button
 }
@@ -206,17 +209,19 @@ function nextHealthWellbeingQuestion() {
         if (healthWellbeingCurrentQuestionIndex == 4) {
             document.getElementById('health-wellbeing-next-btn').textContent = "Finish Quiz";
         }
-    } else {
+    }
+    else {
         showHealthWellbeingFinalScore();
     }
 }
+
 
 function showHealthWellbeingFinalScore() {
     const questionContainer = document.getElementById('health-wellbeing-question-container');
     const optionsContainer = document.getElementById('health-wellbeing-options-container');
     const feedbackContainer = document.getElementById('health-wellbeing-feedback');
     const scoreContainer = document.getElementById('health-wellbeing-score-container');
-    const totalScore = document.getElementById('health-wellbeing-total-score');
+    const totalScore = document.getElementById('health_wellbeing_score');
 
     // Clear out the options and feedback
     optionsContainer.innerHTML = '';
@@ -227,6 +232,8 @@ function showHealthWellbeingFinalScore() {
 
     // Display the score
     healthWellbeingTotalScoreElement.textContent = `${healthWellbeingScore} / ${healthWellbeingQuestions.length}`;
+
+   
 
 //Display message
 var username = getCookie('username'); 
@@ -270,16 +277,14 @@ document.getElementById("wellbeingButton").style.display = "none";
     // Start the typing effect for the alternative text
     typeAltText();
     document.getElementById("wellbeingButton").style.display = "none";
+    }
+
+    // Show the score container
+    scoreContainer.style.display = 'block';
+
+    // Hide "Next Question" button
+    document.getElementById("health-wellbeing-next-btn").style.display = 'none';
 }
 
-// Show the score container
-scoreContainer.style.display = 'block';
-
-// Hide "Next Question" button
-document.getElementById('health-wellbeing-next-btn').style.display = 'none';
-}
 
 
-
-// Initialize the health and wellbeing quiz
-loadHealthWellbeingQuestion();
