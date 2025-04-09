@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/diploma.css">
 </head>
 <body>
-    Hello!
+    <main class="diplomaContainer">
+        <h2>Space Academy Graduation Certificate</h2>
+        <p>***This certifies that***</p>
+        <div id="graduateName"></div>
+        <p>has sucessfully completed</p>
+        <p>the Space Academy Cadet Training Program</p>
+        <p>and is hereby promoted to Full Astronaut!</p>
+        <p>Date of Graduation: <span id="gradDate"></span></p>
+        <img class="rocket" src="/media/ridingrocket.png" alt="Rocket icon">
+        <div class="diplomaBottom">
+        <div class="admiralSig">
+        <p class="signature">Admiral Nova</p>
+        <p>Signed By: Admiral Nova</p>
+        <p>Principal of Space Academy</p>
+        
+        </div>
+        <div class="stampContainer">
+        <img class="stamp"src="/media/academystamp.png" alt="Academy Seal">
+        </div>
+        </div>
+        
+
+    </main>
+    <button id="printDiploma" onclick="enhancedPrint()">Print Diploma</button>
+    <img class="planet1" src="/media/saturn.png" alt="image of a planet">
+    <img class="planet2" src="/media/planet2.png" alt="image of a planet">
+    <script src="/js/diploma.js"></script>
 </body>
 </html>

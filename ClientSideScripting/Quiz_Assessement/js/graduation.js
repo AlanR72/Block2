@@ -1,41 +1,4 @@
 
-//  var i = 0; // Initialize the counter variable
-
-//     function graduationBubble() {
-//         var username = getCookie('username');
-//         const allConditionsPassed = sessionStorage.getItem('allConditionsPassed');
-//         if(allConditionsPassed === 'true'){
-        
-//         document.getElementById('welcome_txt').style.fontSize = ".8em";
-//         var txt = "Congratulations " + username + "! You are now a fully fledged astronaut! You can click below to receive a printable Graduation diploma or go on your first mission!";
-//         var speechspeed = 50;
-    
-//         // Display text letter by letter
-//         if(i < txt.length){
-//             document.getElementById('welcome_txt').innerHTML += txt.charAt(i);
-//             i++;
-//             setTimeout(graduationBubble, speechspeed);
-//             }
-//     }else {
-        
-//         // Regular welcome message for first-time visitors
-//         var defaultText = "Hey There " + username + "You still have some unfinished quizzes!";
-//         var j = 0;
-//         // Display text letter by letter for default message
-//         function typeDefaultText() {
-//             if (j < defaultText.length) {
-//                 welcomeTxtElement.innerHTML += defaultText.charAt(j);
-//                 j++;
-//                 setTimeout(typeDefaultText, speechspeed); // Adjust speed of typing
-//             }
-//         }
-    
-//         // Start typing the default message
-//         typeDefaultText();
-        
-//     }
-
-// };
     
 var i = 0; // Initialize the counter variable for graduation message
 var j = 0; // Initialize the counter variable for default message
@@ -61,12 +24,15 @@ function graduationBubble() {
                 setTimeout(typeGraduationText, speechspeed);
             }
         }
+        document.getElementById('gradButton').style.display = "block";        
+        document.getElementById('missionButton').style.display = "block";
+        document.getElementById('returnMenu').style.display = "none";
 
         // Start typing the graduation message
         typeGraduationText();
 
     } else {
-        var defaultText = "Hey There " + username + ", You still have some unfinished quizzes!";
+        var defaultText = "Hey There " + username + ", You still have some unfinished quizzes! Let's return to the main menu and finish any incomplete quizzes! ";
         var speechspeed = 50;
 
         // Clear the content of the element before starting to type default text
@@ -80,7 +46,7 @@ function graduationBubble() {
                 setTimeout(typeDefaultText, speechspeed); // Adjust speed of typing
             }
         }
-
+        
         // Start typing the default message
         typeDefaultText();
     }

@@ -106,6 +106,7 @@ function welcomeClick() {
 }
 
 
+
 function validateLogin() {
     document.getElementById('nameError').textContent = "";
     document.getElementById('emailError').textContent = "";
@@ -257,3 +258,4 @@ function displayPassed(){
     
 }
 displayPassed();
+
