@@ -51,3 +51,6 @@ updateDateandTime();
 function enhancedPrint(){
     window.print();
 }
+function missionClick(){
+    window.location.href = "mission.html";
+}

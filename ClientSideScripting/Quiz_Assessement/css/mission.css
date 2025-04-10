@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevents horizontal scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/media/skylaunchmobile.png') no-repeat center center/cover;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+#countdown-container {
+    position: absolute;
+    top: 30%; /* Position countdown in the center */
+    text-align: center;
+  }
+  
+#countdown {
+    font-size: 6rem; /* Size of the countdown text */
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+#rocket {
+    position: absolute;
+    bottom: -700px; /* Start rocket below the screen */
+    width: 350px; /* Adjust rocket size */
+    transition: transform 15s ease-in-out; /* Smooth transition for launch */
+  }

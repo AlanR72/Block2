@@ -71,7 +71,17 @@ p{
     padding: 2%;
     margin-bottom: 5%;
     margin-top: 5%;
-    width: 30%;
+    width: 40%;
+}
+.missionButton{
+    margin-top: 3%;
+    background-color: brown;
+    color:#EBE9C3;
+    cursor: pointer;
+    border-radius: 3%;
+    padding: 2%;
+    width: 45%;
+    font-size: 1.2em;
 }
 
  /* Hide all elements on the page except the main content when printing */
