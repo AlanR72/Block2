@@ -15,7 +15,41 @@ body {
     color: white;
     font-family: Arial, sans-serif;
   }
+.astro{
+  width: 75%;
+  margin-top: 90%;
+  transition: transform 15s ease-in-out;
+}
+.speech_bubble{
+  max-width: 200px; 
+  font-size: 1em;
+  background: #EBE9C3;
+  color: black;
+  display: inline-block;
+  position: relative;
+  border-radius: 10px;
+  top: 20%;
+  left: -15%;
+  padding: 3%;
   
+}
+
+.speech_bubble:before{
+  content: "";
+  position: absolute;
+  bottom: 10px; /* Position the tail below the bubble */
+  left: -8%; /* Adjust to position the tail */
+  margin-left: -5px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #EBE9C3;/* Tail color, matching the bubble */
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  transform: rotate(90deg); /* Rotate the tail -90 degrees */
+  transform-origin: center center;
+  
+}
+
 #countdown-container {
     position: absolute;
     top: 30%; /* Position countdown in the center */
