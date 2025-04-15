@@ -43,8 +43,8 @@ function welcomeBubble(){
     var j = 0;
     var username = getCookie('username');
     if (localStorage.getItem('hasReturned') === 'true') {
-        var altText = "Welcome back to the Main menu, " + username +"!";
-        
+        var altText = "Welcome back to the Main menu, " + username +"! You can check your progress at any point at the bottom of the Menu Page!";
+        document.getElementById('welcomeButton').style.display = "none";
         localStorage.removeItem('hasReturned');  // Clear the flag after use
 
         // Display text letter by letter
@@ -64,7 +64,7 @@ function welcomeBubble(){
     else {
         
         // Regular welcome message for first-time visitors
-        var defaultText = "Hey There " + username + "! Welcome to the Space Academy!";
+        var defaultText = "Hey There " + username + "! Welcome to the Space Academy! Click the below button for quiz instructions.";
         var j = 0;
         // Display text letter by letter for default message
         function typeDefaultText() {
@@ -85,7 +85,7 @@ function welcomeBubble(){
 // Function to handle click and show alternative text one character at a time
 function welcomeClick() {
     var username = getCookie('username');
-    var altText = "Let's continue your training " + username + " by clicking a subject from the list!";
+    var altText = "Let's start your training " + username + " by clicking a subject from the list!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text

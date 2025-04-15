@@ -10,7 +10,7 @@ function graduationBubble() {
     
     if (allConditionsPassed === 'true') {
         welcomeTxtElement.style.fontSize = ".8em";
-        var txt = "Congratulations " + username + "! You are now a fully fledged astronaut! You can click below to receive a printable Graduation diploma or go on your first mission!";
+        var txt = "Congratulations " + username + "! You are now a fully fledged astronaut! You can click below to view your Graduation Diploma or skip to your first space mission!";
         var speechspeed = 50;
 
         // Clear the content of the element before starting to type new text
@@ -32,7 +32,7 @@ function graduationBubble() {
         typeGraduationText();
 
     } else {
-        var defaultText = "Hey There " + username + ", You still have some unfinished quizzes! Let's return to the main menu and finish any incomplete quizzes! ";
+        var defaultText = "Hey There " + username + ", You still have some training incomplete! Completed and passed quizzes have a green tick! You need to score 3 or more in any quizzes with a red X to complete your training..Let's go to the Main Menu.";
         var speechspeed = 50;
 
         // Clear the content of the element before starting to type default text
@@ -76,12 +76,37 @@ function displayFinalScores() {
                        parseInt(awarenessScore) + parseInt(healthWellbeingScore);
 
     // Display the scores for each quiz
-    document.getElementById('numeracy-score').textContent = `Numeracy Score: ${numeracyScore}`;
-    document.getElementById('literacy-score').textContent = `Literacy Score: ${literacyScore}`;
-    document.getElementById('history-score').textContent = `History Score: ${historyScore}`;
-    document.getElementById('awareness-score').textContent = `Social Awareness Score: ${awarenessScore}`;
-    document.getElementById('healthWellbeing-score').textContent = `Health and Wellbeing Score: ${healthWellbeingScore}`;
-
+    if(numeracyScore < 3){
+        document.getElementById('numeracy-score').innerHTML = `Numeracy Score: ${numeracyScore} <span class="cross">\u2717</span>`;
+    }
+    else{
+        document.getElementById('numeracy-score').innerHTML = `Numeracy Score: ${numeracyScore} <span class="tick">\u2713</span>`;
+    }
+    if(literacyScore < 3){
+        document.getElementById('literacy-score').innerHTML = `Literacy Score: ${literacyScore} <span class="cross">\u2717</span>`;
+    }
+    else{
+        document.getElementById('literacy-score').innerHTML = `Literacy Score: ${literacyScore} <span class="tick">\u2713</span>`;
+    }
+    if(historyScore < 3){
+        document.getElementById('history-score').innerHTML = `History Score: ${historyScore} <span class="cross">\u2717</span>`;
+    }
+    else{
+        document.getElementById('history-score').innerHTML = `History Score: ${historyScore} <span class="tick">\u2713</span>`;
+    }
+    if(awarenessScore < 3){
+        document.getElementById('awareness-score').innerHTML = `Social Awareness Score: ${awarenessScore} <span class="cross">\u2717</span>`;
+    }
+    else{
+        document.getElementById('awareness-score').innerHTML = `Social Awareness Score: ${awarenessScore} <span class="tick">\u2713</span>`;
+    }
+    if(healthWellbeingScore < 3){
+        document.getElementById('healthWellbeing-score').innerHTML = `Health and Wellbeing Score: ${healthWellbeingScore} <span class="cross">\u2717</span>`;
+    }
+    else{
+        document.getElementById('healthWellbeing-score').innerHTML = `Health and Wellbeing Score: ${healthWellbeingScore} <span class="tick">\u2713</span>`;
+ 
+    }
     // Display the total score
     document.getElementById('total-score').textContent = `Total Score: ${totalScore}`;
 };

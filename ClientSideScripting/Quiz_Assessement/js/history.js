@@ -4,7 +4,7 @@ var i = 0; // Initialize the counter variable
 
 function historyBubble() {
     var username = getCookie('username');
-    var txt = "Och aye the noo " + username + "! How's your knowledge of my fair homeland of Scotland!";
+    var txt = "Och aye the noo " + username + "! How's your knowledge of my fair homeland of Scotland! Click below for instructions on how to complete the quiz!";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -19,7 +19,7 @@ function historyBubble() {
 // Function to handle click and show alternative text one character at a time
 function historyClick() {
     var username = getCookie('username');
-    var altText = "Ok " + username + "! Take yer time wi these noo as there might be more than one right answer!";
+    var altText = "Ok " + username + "! Take yer time wi these noo as there might be more than one right answer! Just tick the boxes with the correct answers and click Submit Answer! If you click the wrong box just click it again to remove the tick.";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -112,10 +112,51 @@ function loadHistoryQuestion() {
     submitButton.style.display = 'block';
 }
 
+// function submitHistoryAnswer() {
+//     const selectedOptions = [...document.querySelectorAll('.history-option:checked')].map(checkbox => checkbox.value);
+//     const currentQuestion = historyQuestions[currentHistoryQuestionIndex];
+//     const feedbackContainer = document.getElementById('history-feedback');
+
+//     // Check if selected options match the correct answers
+//     if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(currentQuestion.correctAnswers.sort())) {
+//         historyScore++;
+//         feedbackContainer.textContent = "Correct!";
+//         feedbackContainer.style.color = "lightgreen";
+//         feedbackContainer.style.fontSize = "2em";
+//         feedbackContainer.style.padding = "5%";
+//     }
+//     else if (!selectedOptions) {
+//         feedbackContainer.textContent = 'Please provide an answer!';
+//         feedbackContainer.style.color = 'red';
+//         feedbackContainer.style.fontSize = '1.7em';
+//         return;
+//     } 
+//     else {
+//         feedbackContainer.textContent = `Incorrect. The correct answers are: ${currentQuestion.correctAnswers.join(', ')}`;
+//         feedbackContainer.style.color = "red";
+//         feedbackContainer.style.fontSize = "2em";
+//         feedbackContainer.style.textAlign = "center";
+//         feedbackContainer.style.padding = "5%";
+//     }
+
+//     // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
+//     sessionStorage.setItem('historyScore', historyScore);
+
+//     document.getElementById('history-submit-btn').style.display = 'none';
+//     document.getElementById('history-next-btn').style.display = 'block';
+// }
 function submitHistoryAnswer() {
     const selectedOptions = [...document.querySelectorAll('.history-option:checked')].map(checkbox => checkbox.value);
     const currentQuestion = historyQuestions[currentHistoryQuestionIndex];
     const feedbackContainer = document.getElementById('history-feedback');
+
+    // Check if no options were selected
+    if (selectedOptions.length === 0) {
+        feedbackContainer.textContent = 'Please provide an answer!';
+        feedbackContainer.style.color = 'red';
+        feedbackContainer.style.fontSize = '1.7em';
+        return;
+    }
 
     // Check if selected options match the correct answers
     if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(currentQuestion.correctAnswers.sort())) {
@@ -132,9 +173,7 @@ function submitHistoryAnswer() {
         feedbackContainer.style.padding = "5%";
     }
 
-    // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
     sessionStorage.setItem('historyScore', historyScore);
-
     document.getElementById('history-submit-btn').style.display = 'none';
     document.getElementById('history-next-btn').style.display = 'block';
 }
@@ -172,7 +211,7 @@ function showHistoryScore() {
     var username = getCookie('username'); 
     if(historyScore > 2){
     
-    var altText = "Well done " + username + "! You have passed the History Quiz!";
+    var altText = "Well done " + username + "! You have passed the History Quiz! Let's go back to the Main Menu and try another Quiz!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -217,6 +256,7 @@ function showHistoryScore() {
 
     // Hide "Next Question" button
     document.getElementById('history-next-btn').style.display = 'none';
+    document.getElementById('history_bottom').style.height = "40vh";
 }
 
 

@@ -1,51 +1,4 @@
-// const countdownEl = document.getElementById('countdown');
-// const rocketEl = document.getElementById('rocket');
 
-// let count = 10;
-
-// function updateCountdown() {
-//   countdownEl.textContent = count;
-//   if (count === 0) {
-//     countdownEl.textContent = 'Liftoff!'; // Display Liftoff when countdown hits zero
-//     setTimeout(() => {
-//       countdownEl.style.opacity = '0'; // Fade out the 'Liftoff!' message
-//       rocketEl.style.transform = 'translateY(-200vh)'; // Move rocket off-screen
-//     }, 1000); // Wait for 1 second before fading the message and starting the rocket
-//   } else {
-//     count--;
-//     setTimeout(updateCountdown, 1000); // Continue countdown every second
-//   }
-// }
-
-// updateCountdown();
-
-// const astroEl = document.querySelector('.astro');
-
-// function floatAstro() {
-//   // Moves image up by 100vh while keeping it centered horizontally
-//   astroEl.style.transform = 'translate(-50%, -100vh)';
-// }
-
-// window.onload = () => {
-//   setTimeout(floatAstro, 1000);
-// };
-
-// var i = 0; // Initialize the counter variable
-
-// // Function to handle typing text
-// function launchBubble() {
-//     var username = getCookie('username');
-//     var txt = "Hey There " + username +"! Let's test your counting skills";
-//     var speechspeed = 50;
-
-//     // Display text letter by letter
-//     if(i < txt.length){
-//         document.getElementById('launch_txt').innerHTML += txt.charAt(i);
-//         i++;
-//         setTimeout(launchBubble, speechspeed);
-//     }
-    
-// }
 const countdownEl = document.getElementById('countdown');
 const rocketEl = document.getElementById('rocket');
 const astroEl = document.querySelector('.astro');
@@ -101,7 +54,7 @@ function updateCountdown() {
   }
 
   if (count === 0) {
-    countdownEl.textContent = 'Liftoff!';
+    countdownEl.textContent = 'Lift-off!';
     setTimeout(() => {
       countdownEl.style.opacity = '0';
       rocketEl.style.transform = 'translateY(-200vh)';

@@ -4,7 +4,7 @@ var i = 0; // Initialize the counter variable
 
 function literacyBubble() {
     var username = getCookie('username');
-    var txt = "Oops! Sorry " + username + "! I was at an exciting bit of my book there!";
+    var txt = "Oops! Sorry " + username + "! I was at an exciting bit of my book there! Welcome to your Literacy training. Click below for the Quiz Instructions.";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -19,7 +19,7 @@ function literacyBubble() {
 // Function to handle click and show alternative text one character at a time
 function literacyClick() {
     var username = getCookie('username');
-    var altText = "Let's work through the quiz " + username + "! and see how good you are with words!";
+    var altText = "Let's work through the quiz " + username + "! and see how good you are with words! There is only one correct answer to each question. Click the circle next to the correct answer then Submit Answer.";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -129,7 +129,14 @@ function submitLiteracyAnswer() {
         literacyFeedbackContainer.style.color = "lightgreen";
         literacyFeedbackContainer.style.fontSize = "2em";
         literacyFeedbackContainer.style.padding = "5%";
-    } else {
+    }
+    else if (!userAnswer) {
+        literacyFeedbackContainer.textContent = 'Please provide an answer!';
+        literacyFeedbackContainer.style.color = 'red';
+        literacyFeedbackContainer.style.fontSize = '1.7em';
+        return;
+    } 
+    else {
         literacyFeedbackContainer.textContent = `Incorrect. The correct answer is ${correctAnswer}.`;
         literacyFeedbackContainer.style.color = "red";
         literacyFeedbackContainer.style.fontSize = "2em";
@@ -182,7 +189,7 @@ function showScore() {
     var username = getCookie('username'); 
     if(literacyScore > 2){
     
-    var altText = "Well done " + username + "! You have passed the Literacy Quiz!";
+    var altText = "Well done " + username + "! You have passed the Literacy Quiz! Let's return to the Main Menu and complete another quiz!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text

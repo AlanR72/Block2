@@ -4,7 +4,7 @@ var i = 0; // Initialize the counter variable
 
 function wellbeingBubble() {
     var username = getCookie('username');
-    var txt = "Hey There " + username + "I am Astronaut Hercules. Let's see how Healthy you are!";
+    var txt = "Hey There " + username + " I am Astronaut Hercules. Let's see how Healthy you are! Click below for Quiz Instructions.";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -19,7 +19,7 @@ function wellbeingBubble() {
 // Function to handle click and show alternative text one character at a time
 function wellbeingClick() {
     username = getCookie('username');
-    var altText = "Ok " + username + "! Drag the correct answers across to the correct box!";
+    var altText = "Ok " + username + "! This quiz combines a few different quiz types that you have already encountered. Good Luck!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -48,7 +48,7 @@ let healthWellbeingScore = 0;
 
 const healthWellbeingQuestions = [
     {
-        healthWellbeing_question: "What helps you stay hyrdated?",
+        healthWellbeing_question: "What helps you stay hydrated?",
         type: "text", // Text input
         correctAnswer: "Water",
         feedback: "Correct! Water helps you stay hydrated."
@@ -76,7 +76,7 @@ const healthWellbeingQuestions = [
     {
         healthWellbeing_question: "Which of these is bad for your health? (Choose all that apply)",
         type: "checkbox",
-        options: ["Eating junk food", "Sleeping to little", "Too many fizzy drinks", "All of the above."],
+        options: ["Eating junk food", "Sleeping too little", "Too many fizzy drinks", "All of the above."],
         correctAnswer: "All of the above.",
         feedback: "Correct! All of the above."
     }
@@ -99,6 +99,7 @@ function loadHealthWellbeingQuestion() {
         const input = document.createElement('input');
         input.type = "text";
         input.id = "health-wellbeing-answer";
+        input.placeholder = 'Type your answer here...';
         healthWellbeingOptionsContainer.appendChild(input);
     } else if (question.type === "radio") {
         question.options.forEach(option => {
@@ -221,7 +222,7 @@ function showHealthWellbeingFinalScore() {
     const optionsContainer = document.getElementById('health-wellbeing-options-container');
     const feedbackContainer = document.getElementById('health-wellbeing-feedback');
     const scoreContainer = document.getElementById('health-wellbeing-score-container');
-    const totalScore = document.getElementById('health_wellbeing_score');
+    const healthWellbeingTotalScore = document.getElementById('health_wellbeing_score');
 
     // Clear out the options and feedback
     optionsContainer.innerHTML = '';
@@ -231,7 +232,7 @@ function showHealthWellbeingFinalScore() {
     questionContainer.style.textAlign = "center";
 
     // Display the score
-    healthWellbeingTotalScoreElement.textContent = `${healthWellbeingScore} / ${healthWellbeingQuestions.length}`;
+    healthWellbeingTotalScore.textContent = `${healthWellbeingScore} / ${healthWellbeingQuestions.length}`;
 
    
 
@@ -257,7 +258,10 @@ function typeAltText() {
 // Start the typing effect for the alternative text
 typeAltText();
 document.getElementById("wellbeingButton").style.display = "none";
-}else {
+
+}
+
+else {
     // This block will run if score <= 2
     var altText = "Better luck next time " + username + "! Keep practicing the Health and Wellbeing Quiz!";
     var j = 0; // Initialize a new counter for the alternative text
@@ -281,9 +285,9 @@ document.getElementById("wellbeingButton").style.display = "none";
 
     // Show the score container
     scoreContainer.style.display = 'block';
-
+    
     // Hide "Next Question" button
-    document.getElementById("health-wellbeing-next-btn").style.display = 'none';
+    document.getElementById('health-wellbeing-next-btn').style.display = 'none';
 }
 
 

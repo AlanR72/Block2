@@ -4,7 +4,7 @@ var i = 0; // Initialize the counter variable
 
 function awarenessBubble() {
     var username = getCookie('username');
-    var txt = "Let's find out how Socially Aware you are " + username + "!";
+    var txt = "Let's find out how Socially Aware you are " + username + "! Click below for instructions for the Social Awareness Quiz.";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -19,7 +19,7 @@ function awarenessBubble() {
 // Function to handle click and show alternative text one character at a time
 function awarenessClick() {
     var username = getCookie('username');
-    var altText = "Life lessons are important lessons for everyone to learn " + username + "! Every day's a school day!";
+    var altText = "Life lessons are important lessons for everyone to learn " + username + "! Every day's a school day! Drag an answer into the Drop Zone and press Submit Answer.";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -120,7 +120,7 @@ function loadQuestion() {
     
     // Reset drop zone
     const dropzone = document.getElementById('drag-drop-dropzone');
-    dropzone.innerHTML = '<h3>Drop here:</h3>';
+    dropzone.innerHTML = '<h3>Drag and Drop here:</h3>';
     
     // Reset feedback and buttons
     document.getElementById('drag-drop-feedback').textContent = '';
@@ -148,9 +148,13 @@ dropzone.addEventListener('drop', (e) => {
 // Submit the answer
 function submitAnswer() {
     const droppedText = dropzone.querySelector('h3')?.textContent;
+    console.log('Dropped text:', `"${droppedText}"`);
 
-    if (!droppedText) {
-        document.getElementById('drag-drop-feedback').textContent = 'Please drag an item to the drop zone!';
+    if (!droppedText || droppedText.trim() === '' || droppedText === 'Drag and Drop here:') {
+        document.getElementById('drag-drop-feedback').textContent = 'Please provide an answer!';
+        document.getElementById('drag-drop-feedback').style.color = "red";
+        document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
+        document.getElementById('drag-drop-feedback').style.padding = "5%";
         return;
     }
 
@@ -171,6 +175,7 @@ function submitAnswer() {
         document.getElementById('drag-drop-feedback').style.color = "red";
         document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
         document.getElementById('drag-drop-feedback').style.padding = "5%";
+        document.getElementById('drag-drop-feedback').style.textAlign = "center";
     }
 
     // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)

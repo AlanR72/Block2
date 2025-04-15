@@ -3,7 +3,7 @@ var i = 0; // Initialize the counter variable
 // Function to handle typing text
 function numeracyBubble() {
     var username = getCookie('username');
-    var txt = "Hey There " + username +"! Let's test your counting skills";
+    var txt = "Hey There " + username +"! Let's test your counting skills. Click the below button for the Numeracy Quiz instructions.";
     var speechspeed = 50;
 
     // Display text letter by letter
@@ -18,7 +18,7 @@ function numeracyBubble() {
 // Function to handle click and show alternative text one character at a time
 function numeracyClick() {
     var username = getCookie('username');
-    var altText = "Start the quiz by working your way through the questions below " + username + "!";
+    var altText = "Start the quiz by working your way through the questions below " + username + "! Once you have submitted an answer click on Next Question.";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text
@@ -97,6 +97,7 @@ function loadNumeracyQuestion() {
     const inputBox = document.createElement('input');
     inputBox.type = 'text';
     inputBox.id = 'user-answer';
+    inputBox.placeholder = 'Type your answer here...';
     optionsContainer.appendChild(inputBox);
 
     // Show the "Submit Answer" button
@@ -117,7 +118,14 @@ function submitAnswer() {
         feedbackContainer.style.padding = "5%";
         
 
-    } else {
+    } 
+    else if (!userAnswer) {
+        feedbackContainer.textContent = 'Please provide an answer!';
+        feedbackContainer.style.color = 'red';
+        feedbackContainer.style.fontSize = '1.7em';
+        return;
+    }
+    else {
         feedbackContainer.textContent = `Incorrect. The correct answer is ${currentQuestion.correctAnswer}!`;
         feedbackContainer.style.color = "red";
         feedbackContainer.style.fontSize = "2em";
