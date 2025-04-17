@@ -32,7 +32,7 @@ function graduationBubble() {
         typeGraduationText();
 
     } else {
-        var defaultText = "Hey There " + username + ", You still have some training incomplete! Completed and passed quizzes have a green tick! You need to score 3 or more in any quizzes with a red X to complete your training..Let's go to the Main Menu.";
+        var defaultText = "Hey There " + username + "!, You still have some training incomplete! Completed and passed quizzes have a green tick! You need to score 3 or more in any quizzes with a red X to complete your training..Let's go to the Main Menu.";
         var speechspeed = 50;
 
         // Clear the content of the element before starting to type default text

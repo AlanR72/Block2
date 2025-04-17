@@ -98,53 +98,59 @@ function loadHistoryQuestion() {
     // Create checkboxes for options
     currentQuestion.options.forEach(option => {
         const label = document.createElement('label');
-        label.textContent = option;
+        label.classList.add('history-option-label'); // Add class for styling
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.value = option;
-        checkbox.classList.add('history-option');
+        checkbox.classList.add('history-option'); // Add class for styling
+
+        // Append checkbox first, then text
         label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(option));
 
         optionsContainer.appendChild(label);
     });
 
     submitButton.style.display = 'block';
 }
-
-// function submitHistoryAnswer() {
-//     const selectedOptions = [...document.querySelectorAll('.history-option:checked')].map(checkbox => checkbox.value);
-//     const currentQuestion = historyQuestions[currentHistoryQuestionIndex];
+// function loadHistoryQuestion() {
+//     const questionContainer = document.getElementById('history-question-container');
+//     const optionsContainer = document.getElementById('history-options-container');
+//     const submitButton = document.getElementById('history-submit-btn');
 //     const feedbackContainer = document.getElementById('history-feedback');
 
-//     // Check if selected options match the correct answers
-//     if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(currentQuestion.correctAnswers.sort())) {
-//         historyScore++;
-//         feedbackContainer.textContent = "Correct!";
-//         feedbackContainer.style.color = "lightgreen";
-//         feedbackContainer.style.fontSize = "2em";
-//         feedbackContainer.style.padding = "5%";
-//     }
-//     else if (!selectedOptions) {
-//         feedbackContainer.textContent = 'Please provide an answer!';
-//         feedbackContainer.style.color = 'red';
-//         feedbackContainer.style.fontSize = '1.7em';
-//         return;
-//     } 
-//     else {
-//         feedbackContainer.textContent = `Incorrect. The correct answers are: ${currentQuestion.correctAnswers.join(', ')}`;
-//         feedbackContainer.style.color = "red";
-//         feedbackContainer.style.fontSize = "2em";
-//         feedbackContainer.style.textAlign = "center";
-//         feedbackContainer.style.padding = "5%";
-//     }
+//     // Clear previous feedback
+//     feedbackContainer.textContent = "";
 
-//     // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
-//     sessionStorage.setItem('historyScore', historyScore);
+//     // Reset "Next Question" button
+//     document.getElementById('history-next-btn').style.display = 'none';
 
-//     document.getElementById('history-submit-btn').style.display = 'none';
-//     document.getElementById('history-next-btn').style.display = 'block';
+//     // Clear previous options
+//     optionsContainer.innerHTML = '';
+
+//     const currentQuestion = historyQuestions[currentHistoryQuestionIndex];
+
+//     // Display the question
+//     questionContainer.textContent = currentQuestion.question;
+
+//     // Create checkboxes for options
+//     currentQuestion.options.forEach(option => {
+//         const label = document.createElement('label');
+//         label.textContent = option;
+
+//         const checkbox = document.createElement('input');
+//         checkbox.type = 'checkbox';
+//         checkbox.value = option;
+//         checkbox.classList.add('history-option');
+//         label.appendChild(checkbox);
+
+//         optionsContainer.appendChild(label);
+//     });
+
+//     submitButton.style.display = 'block';
 // }
+
 function submitHistoryAnswer() {
     const selectedOptions = [...document.querySelectorAll('.history-option:checked')].map(checkbox => checkbox.value);
     const currentQuestion = historyQuestions[currentHistoryQuestionIndex];

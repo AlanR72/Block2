@@ -3,10 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 body{
     background-image: url(/media/space-background.png);
-    background-position: center;
+    background-position: top;
     font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 main{
     display: flex;
@@ -18,10 +26,6 @@ main{
     font-size: 1.7em;
     color: #EBE9C3;
     margin-top: 1%;
-    /* position: relative;
-    animation-name: message;
-    animation-duration: 1s;
-    animation-timing-function: linear; */
 }
 .heading_para{
     font-size: .8em;
@@ -50,7 +54,51 @@ main{
     height: 40vh;
     display: flex;
 }
+.numeracy_top{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+}
+.wellbeing_top{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+}
+.literacy_top{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+}
+.history_top{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+}
+.awareness_top{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+}
 .bottom{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+.literacy_bottom{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -89,11 +137,34 @@ main{
     opacity: 0;
     animation: fadeIn 3s forwards;
 }
-.astro{
+.awareness_bottom{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 3s forwards; 
+}
+.literacy_astro{
+    width: 60%;
+}
+.numeracy_astro{
     width: 70%;
     margin-right: -10%;
 }
-
+.history_astro{
+    width: 70%;
+    margin-right: -10%;
+}
+.wellbeing_astro{
+    width: 70%;
+    margin-right: -10%;
+}
+.awareness_astro{
+    width: 70%;
+    margin-right: -10%;  
+}
 @keyframes message{
     from{left:50px;}
     to{left:0px}
@@ -103,7 +174,7 @@ main{
     100%{opacity:1;}
 }
 .speech_bubble{
-    max-width: 150px; 
+    max-width: 200px; 
     background: #EBE9C3;
     color: black;
     display: inline-block;
@@ -152,63 +223,7 @@ a:hover {
     color: #EBE9C3;
 }
 
-@media only screen and (min-width: 740px){
-    .starDate{
-        width: 30%;
-        margin-right: 11%;
-    }
-    section{
-        display: flex;
-        flex-direction: row;
-    }
-    .top{
-        width: 50%;
-        height: 100vh;
-        
-    }
-    .bottom{
-        display: flex;
-        flex-direction: column;
-       
-        height: 100vh;
-        justify-content: center;
-        padding-top: 5%;
-        border: red solid 5px;
-    }
-    .welcome_back_message{
-        margin-left: 5%;
-        font-size: 3em;
-        color: #EBE9C3;
-        margin-top: 1%;
-        /* position: relative;
-        animation-name: message;
-        animation-duration: 1s;
-        animation-timing-function: linear; */
-    }
-    .menu_heading{
-        font-size: 3em;
-    }
-    a{
-        font-size: 2em;
-    }
-    .astro{
-        width: 70%;
-    }
-    .speech_bubble{
-        max-width: 300px; 
-        font-size: 2em;
-        top: -30%;
-        left: 10%;
-    }
-    .bubblebutton{
-        height: 20%;
-    }
-    .returnMenu{
-        font-size: 1.4em;
-        width: 60%;
-        height: 20%;
-    }
-}
+
 
 /* START OF QUESTIONS Styling */
 
@@ -234,19 +249,19 @@ h1{
     text-align: center;
 }
 .submit_button{
-    margin-top: 5%;
+    margin-top: 2%;
     background-color: #EBE9C3;
     font-size: 1.3em;
     cursor: pointer;
     padding: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 .next_button{
     background-color: #EBE9C3;
     font-size: 1.3em;
     cursor: pointer;
     padding: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 .return_button{
     
@@ -255,8 +270,8 @@ h1{
     font-size: 1.3em;
     cursor: pointer;
     padding: 2%;
-    margin-bottom: 5%;
-    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 
 .score_container{
@@ -425,6 +440,140 @@ input[type="checkbox"] {
 
 #health-wellbeing-feedback {
     margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 740px){
+    body{
+        font-size: 2em;
+        
+    }
+    .starDate{
+        width: 30%;
+        margin-right: 11%;
+        border: solid red 10px;
+        font-size: .7em;
+        margin-bottom: 5%;
+        margin-top: -10%;
+    }
+    
+    
+    .welcome_back_message h3{
+        font-size: 2em;
+    }
+    .heading_para{
+        font-size: 1.5em;
+        width: 50%;
+    }
+    section{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    
+    .welcome_back_message{
+        margin-left: 5%;
+        font-size: 3em;
+        color: #EBE9C3;
+        margin-top: 1%;
+    }
+    .menu_heading{
+        font-size: 3em;
+    }
+    a{
+        font-size: 2em;
+    }
+    .speech_bubble{
+        max-width: 600px;
+        font-size: 2em;
+        top: -70%;
+    }
+    
+    .speech_bubble:before{
+        
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid #EBE9C3; /* Wider, flatter tail */
+        transform: none; /* No rotation needed */
+        margin-left: -10px;
+    }
+    .bubblebutton{
+        height: 20%;
+    }
+    .returnMenu{
+        font-size: 1.4em;
+        width: 60%;
+        height: 20%;
+    }
+    .numeracy_top{
+        margin-top: 10%;
+    }
+    .numeracy_bottom{
+        font-size: 2em;
+    }
+    .history_top{
+        margin-top: 15%;
+    }
+    .history_bottom{
+        font-size: 2em;
+        margin-top: 5%;
+    }
+    #history-options-container input[type="checkbox"] {
+        margin-right: 10%;
+        zoom: 6;
+    }
+    #history-options-container{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    #history-options-container label {
+        display: flex;
+        align-items: center;
+        gap: 100px; /* space between checkbox and text */
+        width: 100%;
+        white-space: nowrap;
+      }
+    .literacy_top{
+        margin-top: 15%;
+    }
+    .literacy_astro{
+        width: 70%;
+    }
+    .literacy_bottom{
+        font-size: 2em;
+    }
+    .wellbeing_top{
+        margin-top: 20%;
+    }
+    .wellbeing_bottom{
+        font-size: 1.8em;
+    }
+    #health-wellbeing-answer{
+        font-size: 1em;
+        margin-bottom: 300px;
+    }
+    #health-wellbeing-feedback{
+        margin-top: 5%;
+    }
+    #health-wellbeing-options-container {
+        margin-bottom: -10%;
+    }
+    .awareness_top{
+        margin-top: 15%;
+    }
+    .awareness_bottom{
+        font-size: 2em;
+    }
+    
+    input[type="radio"] {
+        zoom: 6;
+      }
+   input[type="checkbox"] {
+        zoom: 6!important;
+   }
+    #user-answer{
+        font-size: 1.5em;
+    }
 }
 
 

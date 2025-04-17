@@ -18,7 +18,7 @@ function numeracyBubble() {
 // Function to handle click and show alternative text one character at a time
 function numeracyClick() {
     var username = getCookie('username');
-    var altText = "Start the quiz by working your way through the questions below " + username + "! Once you have submitted an answer click on Next Question.";
+    var altText = "Start the quiz by working your way through the questions " + username + "! Once you have submitted an answer click on Next Question.";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text

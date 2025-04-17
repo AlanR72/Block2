@@ -7,6 +7,8 @@ body{
     background-image: url(/media/space-background.png);
     background-position: top;
     font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 main{
     display: flex;
@@ -178,11 +180,26 @@ button{
 .welcome_txt{
     margin-bottom: 50px;
 } 
-@media only screen and (min-width: 740px){
+@media only screen and (min-width: 910px){
+    body{
+        font-size: 2em;
+    }
+    
     .starDate{
         width: 30%;
         margin-right: 11%;
+        border: solid red 10px;
+        font-size: .7em;
+        margin-top: -5%;
     }
+    .welcome_back_message h3{
+        font-size: 2em;
+    }
+    .heading_para{
+        font-size: 1.5em;
+        width: 50%;
+    }
+   
     section{
         display: flex;
         flex-direction: row;
@@ -196,38 +213,41 @@ button{
         display: flex;
         flex-direction: column;
         width: 50%;
-        height: 100vh;
+        height: 75vh;
         justify-content: start;
         padding-top: 5%;
-        border: red solid 5px;
+        
     }
     .welcome_back_message{
         margin-left: 5%;
         font-size: 3em;
         color: #EBE9C3;
         margin-top: 1%;
-        /* position: relative;
-        animation-name: message;
-        animation-duration: 1s;
-        animation-timing-function: linear; */
+        
     }
     .menu_heading{
-        font-size: 3em;
+        font-size: 4em;
     }
     a{
         font-size: 2em;
     }
     .astro{
-        width: 50%;
+        width: 45%;
     }
     .speech_bubble{
-        max-width: 250px; 
+        max-width: 600px; 
         font-size: 2em;
         top: -30%;
         left: -5%;
+        border-radius: 30px;
+    }
+    .speech_bubble:before{
         
-        
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid #EBE9C3; /* Wider, flatter tail */
+        transform: none; /* No rotation needed */
+        margin-left: -10px;
     }
 }
 
-/* https://www.freepik.com/vectors/cosmonaut */

@@ -5,6 +5,8 @@
 }
 body{
     background-image: url(/media/space-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: top;
     font-size: 1.5em;
     color: #EBE9C3;
@@ -119,4 +121,42 @@ h2{
     color: red;
     font-weight: bold;
     font-size: 1.2em;
+}
+@media only screen and (min-width: 910px){
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 5em;
+    }
+    .starDate{
+        width: 20%;
+        border: solid red 10px;
+        font-size: .7em;
+    }
+    .speech_bubble{
+        max-width: 600px; 
+        font-size: .7em;
+        top: 10%;
+        left: 60%;
+        border-radius: 30px;
+    }
+    .astro{
+        width: 60%;
+        margin-left: 120%;
+    }
+    .speech_bubble:before{
+        
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid #EBE9C3; /* Wider, flatter tail */
+        transform: none; /* No rotation needed */
+        margin-left: -10px;
+    }
+    .bottom{
+        position: absolute;
+        left: 50%;
+        top: 30%;
+    }
 }

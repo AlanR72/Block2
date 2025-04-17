@@ -19,7 +19,7 @@ let formattedTime = `${hours}:${minutes}:${seconds}`;
 
 
 document.getElementById('starDate').innerHTML = 
-`<h3>STARDATE:</h3>
+`<h2>STARDATE:</h2>
 <p>Date: ${formattedDate}</p>
 <p>Time: ${formattedTime}</p>`;
 }
