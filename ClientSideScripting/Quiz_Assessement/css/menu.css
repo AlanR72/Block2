@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 body{
     background-image: url(/media/space-background.png);
     background-position: top;
@@ -184,7 +190,13 @@ button{
     body{
         font-size: 2em;
     }
+    #numeracyPassed, #literacyPassed, #historyPassed, #awarenessPassed, #wellbeingPassed{
+        height: 5%;
+        padding: 2%;
+        font-size: 5em;
+    }
     
+
     .starDate{
         width: 30%;
         margin-right: 11%;

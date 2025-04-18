@@ -85,7 +85,7 @@ function welcomeBubble(){
 // Function to handle click and show alternative text one character at a time
 function welcomeClick() {
     var username = getCookie('username');
-    var altText = "Let's start your training " + username + " by clicking a subject from the list!";
+    var altText = "Let's start your training " + username + " by clicking a Quiz Subject from the list!";
     var j = 0; // Initialize a new counter for the alternative text
 
     // Clear the previous text and start typing the alternative text

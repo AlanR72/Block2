@@ -114,42 +114,7 @@ function loadHistoryQuestion() {
 
     submitButton.style.display = 'block';
 }
-// function loadHistoryQuestion() {
-//     const questionContainer = document.getElementById('history-question-container');
-//     const optionsContainer = document.getElementById('history-options-container');
-//     const submitButton = document.getElementById('history-submit-btn');
-//     const feedbackContainer = document.getElementById('history-feedback');
 
-//     // Clear previous feedback
-//     feedbackContainer.textContent = "";
-
-//     // Reset "Next Question" button
-//     document.getElementById('history-next-btn').style.display = 'none';
-
-//     // Clear previous options
-//     optionsContainer.innerHTML = '';
-
-//     const currentQuestion = historyQuestions[currentHistoryQuestionIndex];
-
-//     // Display the question
-//     questionContainer.textContent = currentQuestion.question;
-
-//     // Create checkboxes for options
-//     currentQuestion.options.forEach(option => {
-//         const label = document.createElement('label');
-//         label.textContent = option;
-
-//         const checkbox = document.createElement('input');
-//         checkbox.type = 'checkbox';
-//         checkbox.value = option;
-//         checkbox.classList.add('history-option');
-//         label.appendChild(checkbox);
-
-//         optionsContainer.appendChild(label);
-//     });
-
-//     submitButton.style.display = 'block';
-// }
 
 function submitHistoryAnswer() {
     const selectedOptions = [...document.querySelectorAll('.history-option:checked')].map(checkbox => checkbox.value);

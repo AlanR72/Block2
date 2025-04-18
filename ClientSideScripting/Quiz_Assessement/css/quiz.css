@@ -256,6 +256,7 @@ h1{
     padding: 2%;
     margin-bottom: 2%;
 }
+
 .next_button{
     background-color: #EBE9C3;
     font-size: 1.3em;
@@ -455,7 +456,17 @@ input[type="checkbox"] {
         margin-bottom: 5%;
         margin-top: -10%;
     }
-    
+    #history-submit-btn{
+        width: 118%;
+        margin-left: -9%;
+        height: 90%;
+        margin-bottom: 5%;
+    }
+    #history-next-btn{
+        width: 125%;
+        height: 110%;
+        margin-left: -13%;
+    }
     
     .welcome_back_message h3{
         font-size: 2em;
@@ -468,7 +479,6 @@ input[type="checkbox"] {
         display: flex;
         flex-direction: row;
     }
-    
     
     .welcome_back_message{
         margin-left: 5%;
@@ -509,6 +519,9 @@ input[type="checkbox"] {
     }
     .numeracy_bottom{
         font-size: 2em;
+    }
+    #numeracy-quiz h1{
+        margin-top: 10%;
     }
     .history_top{
         margin-top: 15%;
@@ -564,7 +577,18 @@ input[type="checkbox"] {
     .awareness_bottom{
         font-size: 2em;
     }
-    
+    #drag-drop-dropzone{
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .drag-item{
+        margin-bottom: 7%;
+        padding: 3%;
+        font-size: 1.5em; 
+    }
     input[type="radio"] {
         zoom: 6;
       }

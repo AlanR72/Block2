@@ -80,6 +80,5 @@ function floatAstro() {
 function showGoodbye() {
   goodbyeEl.style.transition = 'opacity 2s'; // Smooth fade-in
   goodbyeEl.style.opacity = '1'; // Make the Goodbye message visible
-  goodbyeEl.style.fontSize = '2em'; // Make the Goodbye message visible
   goodbyeEl.innerHTML = 'Goodbye! See you on your next mission!'; // Set the Goodbye message text
 }
