@@ -97,6 +97,37 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Load the current question and items to drag
+// function loadQuestion() {
+//     const question = questions[currentQuestionIndex];
+    
+//     // Display the question
+//     const questionContainer = document.getElementById('drag-drop-question');
+//     questionContainer.textContent = question.question;
+    
+//     // Clear previous items
+//     const itemsContainer = document.getElementById('drag-drop-items-container');
+//     itemsContainer.innerHTML = '';
+    
+//     // Add draggable items
+//     question.items.forEach(item => {
+//         const div = document.createElement('div');
+//         div.textContent = item.text;
+//         div.classList.add('drag-item');
+//         div.setAttribute('draggable', 'true');
+//         div.addEventListener('dragstart', onDragStart);
+//         itemsContainer.appendChild(div);
+//     });
+    
+//     // Reset drop zone
+//     const dropzone = document.getElementById('drag-drop-dropzone');
+//     dropzone.innerHTML = '<h3>Drag and Drop here:</h3>';
+    
+//     // Reset feedback and buttons
+//     document.getElementById('drag-drop-feedback').textContent = '';
+//     document.getElementById('drag-drop-submit-btn').style.display = 'inline-block';
+//     document.getElementById('drag-drop-next-btn').style.display = 'none';
+// }
+
 function loadQuestion() {
     const question = questions[currentQuestionIndex];
     
@@ -114,7 +145,14 @@ function loadQuestion() {
         div.textContent = item.text;
         div.classList.add('drag-item');
         div.setAttribute('draggable', 'true');
+        
+        // Desktop drag-and-drop
         div.addEventListener('dragstart', onDragStart);
+        
+        // Mobile touch support
+        div.addEventListener('touchstart', onTouchStart);
+        div.addEventListener('touchend', onTouchEnd);
+
         itemsContainer.appendChild(div);
     });
     
@@ -131,6 +169,34 @@ function loadQuestion() {
 // Handle when dragging starts
 function onDragStart(event) {
     event.dataTransfer.setData("text", event.target.textContent);
+}
+
+let touchedItemText = '';
+let touchedElement = null;
+
+function onTouchStart(event) {
+    touchedElement = event.target;
+    touchedItemText = touchedElement.textContent;
+    touchedElement.style.opacity = '0.6'; // Optional feedback
+}
+
+function onTouchEnd(event) {
+    if (!touchedItemText) return;
+
+    const touch = event.changedTouches[0];
+    const dropzone = document.getElementById('drag-drop-dropzone');
+    const targetElem = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    if (targetElem && (targetElem.id === 'drag-drop-dropzone' || targetElem.closest('#drag-drop-dropzone'))) {
+        dropzone.innerHTML = `<h3>${touchedItemText}</h3>`;
+    }
+
+    if (touchedElement) {
+        touchedElement.style.opacity = '1';
+    }
+
+    touchedItemText = '';
+    touchedElement = null;
 }
 
 // Allow dropping in the dropzone
