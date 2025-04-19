@@ -254,8 +254,60 @@ function displayPassed(){
 
     // Store the final result in sessionStorage
     sessionStorage.setItem('allConditionsPassed', allPassed);
+
+    // Call passedAstro() ONLY if allPassed is true
+    if (allPassed) {
+        passedAstro();
+    }
     return allPassed;
     
 }
 displayPassed();
 
+
+
+
+
+function passedAstro(){
+    var username = getCookie('username')
+    const allConditionsPassed = sessionStorage.getItem('allConditionsPassed');
+    const passedTxtElement = document.getElementById('passedTxt');
+
+    if (allConditionsPassed === 'true') {
+        passedTxtElement.style.fontSize = ".9em";
+        var txt = "WOO HOO!! Congratulations " + username + "! You have passed all the Quizzes! Click below to proceed to the Graduation Page!";
+        var speechspeed = 50;
+        var i = 0;
+
+        // Clear the content of the element before starting to type new text
+        passedTxtElement.innerHTML = '';
+
+        // Display text letter by letter for graduation message
+        function typeAllPassedText() {
+            if (i < txt.length) {
+                passedTxtElement.innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeAllPassedText, speechspeed);
+            }
+        }
+               
+        document.getElementById('welcome_txt').style.display = "none";
+        document.getElementById('passedTxt').style.display = "block";
+        document.getElementById('welcomeButton').style.display = "none";
+        document.getElementById('mainAstro').style.display = "none";
+        document.getElementById('partyAstro').style.display = "block";
+        document.getElementById('speech_bubble').style.marginLeft = "5%";
+        document.getElementById('passedButton').style.display = "block";
+        
+        
+        
+        
+        
+
+        // Start typing the All Passed message
+        typeAllPassedText();
+    }
+}
+function passedClick() {
+    window.location.href = "graduation_page.html";
+}

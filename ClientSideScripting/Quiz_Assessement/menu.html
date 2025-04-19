@@ -19,13 +19,14 @@
             </div>
         <section>
             <div class="top">
-                <div class="speech_bubble">
+                <div id="speech_bubble" class="speech_bubble">
                        <p id="welcome_txt"></p>
-                       
+                       <p id="passedTxt" style="display:none;"></p>
                        <button id="welcomeButton" class="bubbleButton" onclick="welcomeClick()">Quiz Instructions.</button>
+                       <button id="passedButton" class="passedButton" onclick = "passedClick()" style="display:none;">Click Here!</button>
                 </div>
-                <img class="astro" src="/media/astronaut2.png" alt="Picture of an astronaut">
-            
+                <img id="mainAstro" class="astro" src="/media/astronaut2.png" alt="Picture of an astronaut">
+                <img id="partyAstro" class="partyAstro" src="/media/partyboxastronaut.png" alt="Astronaut with box" style="display: none;">
             </div>
         
         

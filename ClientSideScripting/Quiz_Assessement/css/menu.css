@@ -105,9 +105,17 @@ main{
 .astro{
     width: 40%;
     margin-right: -10%;
-    
 }
+.partyAstro{
+    width: 40%;
+}
+.passedButton{
+    background-color: lightgreen;
+    font-size: 1em;
+    padding: 3%;
+    margin-top: 5%;
 
+}
 ul{
     list-style: none;
     text-align: center;
@@ -195,8 +203,6 @@ button{
         padding: 2%;
         font-size: 5em;
     }
-    
-
     .starDate{
         width: 30%;
         margin-right: 11%;
@@ -245,6 +251,9 @@ button{
     }
     .astro{
         width: 45%;
+    }
+    .partyAstro{
+        width: 60%;
     }
     .speech_bubble{
         max-width: 600px; 

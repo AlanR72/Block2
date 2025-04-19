@@ -1,14 +1,19 @@
+/* Stylesheet for diploma Page */
+
+/* Reset */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+/* Styling to ensure full page coverage */
 html, body{
     height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+/* Body  background styling  */
 body{
     background-image: url(/media/space-background.png);
     background-position: right;
@@ -23,6 +28,7 @@ h2{
     text-align: center;
     margin-top: 5%;
 }
+/* Main comtainer styling */
 .diplomaContainer{
     border: gold 5px solid;
     background-color: blueviolet;
@@ -34,48 +40,57 @@ h2{
     height: auto;
     margin-top: 10%;
 }
-.diplomaBottom{
-    margin-top: 10%;
-    margin-bottom: 10%;
-}
+
+/* Increase size and underline user name */
 #graduateName{
     text-decoration: underline;
     font-size: 1.5em;
 }
+/* Paragraph styling */
 p{
     margin-top: 3%;
     margin-bottom: 3%;
 }
+/* Sizing for rocket image */
 .rocket{
     width: 20%;
 }
+/* Display flex for bottom div */
 .diplomaBottom{
     display: flex;
     flex-direction: row;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
+/* Container for signature and Principle Titleid0 */
 .admiralSig{
     margin-left: 10%;
 }
+/* Font suitable to recreate signature */
 .signature{
     font-family: "Great Vibes", cursive;
     font-weight: 400;
     font-style: normal;
 }
+/* Style for Space Academy stamp */
 .stamp{
     width: 40%;
     margin-left: 55%;
     margin-top: 10%;
 }
+/* Small image for bottomof diploma */
 .planet1{
     width: 40%;
     margin-left: 80%;
     margin-top: -10%;
 }
+/* Small image for bottom of diploma */
 .planet2{
     width: 30%;
     margin-left: -60%;
     margin-top: -20%;
 }
+/* Style for print button */
 #printDiploma{
     background-color: brown;
     color:#EBE9C3;
@@ -86,6 +101,7 @@ p{
     margin-top: 5%;
     width: 40%;
 }
+/* Style for mission button */
 .missionButton{
     margin-top: 3%;
     background-color: brown;
@@ -115,7 +131,7 @@ p{
         margin-top: -3%;
     }
 }
-
+/*Media query to control responsive design for larger device*/
 @media only screen and (min-width: 910px){
     .diplomaContainer{
         height: 170vh;

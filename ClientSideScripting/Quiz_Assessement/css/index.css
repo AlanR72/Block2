@@ -1,3 +1,5 @@
+/* Stylesheet for Login Page */
+
 *{
     margin: 0;
     padding: 0;
@@ -57,6 +59,8 @@ button{
 h1{
     margin-bottom: 5%;
 }
+
+/* Styling for larger device */
 @media only screen and (min-width: 740px){
     .starDate{
         width: 30%;
