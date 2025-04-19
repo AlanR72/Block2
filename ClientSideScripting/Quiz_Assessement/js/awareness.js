@@ -49,8 +49,8 @@ const questions = [
         question: "Which of these is a way to help people who don’t have a home?",
         items: [
             { text: "Spend your pocket money on sweets.", correct: false },
-            { text: "Buy expensive jewellery", correct: false },
-            { text: "Donate to a Homeless Shelter", correct: true }  // Correct Answer
+            { text: "Buy expensive jewellery.", correct: false },
+            { text: "Donate to a homeless shelter.", correct: true }  // Correct Answer
         ],
         feedback: "Great job! Donating to a Homeless Shelter is a great way to help people without a home."
     },
@@ -97,36 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Load the current question and items to drag
-// function loadQuestion() {
-//     const question = questions[currentQuestionIndex];
-    
-//     // Display the question
-//     const questionContainer = document.getElementById('drag-drop-question');
-//     questionContainer.textContent = question.question;
-    
-//     // Clear previous items
-//     const itemsContainer = document.getElementById('drag-drop-items-container');
-//     itemsContainer.innerHTML = '';
-    
-//     // Add draggable items
-//     question.items.forEach(item => {
-//         const div = document.createElement('div');
-//         div.textContent = item.text;
-//         div.classList.add('drag-item');
-//         div.setAttribute('draggable', 'true');
-//         div.addEventListener('dragstart', onDragStart);
-//         itemsContainer.appendChild(div);
-//     });
-    
-//     // Reset drop zone
-//     const dropzone = document.getElementById('drag-drop-dropzone');
-//     dropzone.innerHTML = '<h3>Drag and Drop here:</h3>';
-    
-//     // Reset feedback and buttons
-//     document.getElementById('drag-drop-feedback').textContent = '';
-//     document.getElementById('drag-drop-submit-btn').style.display = 'inline-block';
-//     document.getElementById('drag-drop-next-btn').style.display = 'none';
-// }
 
 function loadQuestion() {
     const question = questions[currentQuestionIndex];
@@ -170,6 +140,8 @@ function loadQuestion() {
 function onDragStart(event) {
     event.dataTransfer.setData("text", event.target.textContent);
 }
+
+// function enabling drag ability for touchscreens
 
 let touchedItemText = '';
 let touchedElement = null;

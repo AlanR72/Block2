@@ -194,7 +194,7 @@ button{
 .welcome_txt{
     margin-bottom: 50px;
 } 
-@media only screen and (min-width: 910px){
+@media only screen and (min-width: 768px){
     body{
         font-size: 2em;
     }

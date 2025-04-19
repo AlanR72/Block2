@@ -52,11 +52,11 @@ const numeracyQuestions = [
         correctAnswer: "10"
     },
     {
-        question: "What is 7 * 6?",
+        question: "What is 7 x 6?",
         correctAnswer: "42"
     },
     {
-        question: "What is 12 / 4?",
+        question: "What is 12 \u00F7 4?",
         correctAnswer: "3"
     },
     {

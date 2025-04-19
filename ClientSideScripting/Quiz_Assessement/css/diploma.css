@@ -132,7 +132,7 @@ p{
     }
 }
 /*Media query to control responsive design for larger device*/
-@media only screen and (min-width: 910px){
+@media only screen and (min-width: 768px){
     .diplomaContainer{
         height: 170vh;
         width: 60%;

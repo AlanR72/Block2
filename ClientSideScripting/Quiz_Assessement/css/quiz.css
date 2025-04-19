@@ -378,22 +378,40 @@ input[type="checkbox"] {
     text-align: center;
     padding: 10px;
     margin: 5px;
-    cursor: pointer;
+    cursor: grab;
     user-select: none;
+    touch-action: manipulation;
 }
 #drag-drop-question{
     width: 80%;
 }
 
 #drag-drop-dropzone {
-    height: 150px;
+    height: auto; /* Let height grow with content */
+    min-height: 150px; /* Set a minimum height instead */
     width: 60%;
     background-color: #EBE9C3;
-    border: 2px dashed #ccc;
     text-align: center;
-    line-height: 150px;
     margin-top: 5%;
     margin-bottom: 5%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+    font-size: 1em;
+    padding: 10px; /* Add padding for breathing room */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    text-wrap: wrap;
+}
+#drag-drop-dropzone h3 {
+    margin: 0;
+    font-size: 1.1em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal; /* Allow line breaks */
 }
 
 
@@ -443,7 +461,7 @@ input[type="checkbox"] {
     margin-bottom: 20px;
 }
 
-@media only screen and (min-width: 740px){
+@media only screen and (min-width: 768px){
     body{
         font-size: 2em;
         

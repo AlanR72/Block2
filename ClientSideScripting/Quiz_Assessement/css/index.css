@@ -66,7 +66,7 @@ h1{
 }
 
 /* Styling for larger device */
-@media only screen and (min-width: 740px){
+@media only screen and (min-width: 768px){
     .starDate{
         width: 30%;
         font-size: 1em;

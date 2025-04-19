@@ -4,7 +4,7 @@ var i = 0; // Initialize the counter variable
 
 function historyBubble() {
     var username = getCookie('username');
-    var txt = "Och aye the noo " + username + "! How's your knowledge of my fair homeland of Scotland! Click below for instructions on how to complete the quiz!";
+    var txt = "Och aye the noo " + username + "! How's your knowledge of my fair homeland of Scotland? Click below for instructions on how to complete the quiz!";
     var speechspeed = 50;
 
     // Display text letter by letter

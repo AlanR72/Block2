@@ -34,7 +34,8 @@ function returnMenu() {
         window.location.href = 'menu.html';  // Navigate to the menu page
     });
 }
-
+// Make sure the function runs after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', returnMenu);
 
 var speechspeed = 50;
 function welcomeBubble(){
@@ -43,7 +44,7 @@ function welcomeBubble(){
     var j = 0;
     var username = getCookie('username');
     if (localStorage.getItem('hasReturned') === 'true') {
-        var altText = "Welcome back to the Main menu, " + username +"! You can check your progress at any point at the bottom of the Menu Page!";
+        var altText = "Welcome back to the Main Menu, " + username +"! You can check your progress at any point at the bottom of the Menu Page!";
         document.getElementById('welcomeButton').style.display = "none";
         localStorage.removeItem('hasReturned');  // Clear the flag after use
 
@@ -64,7 +65,7 @@ function welcomeBubble(){
     else {
         
         // Regular welcome message for first-time visitors
-        var defaultText = "Hey There " + username + "! Welcome to the Space Academy! Click the below button for quiz instructions.";
+        var defaultText = "Hey There " + username + "! Welcome to the Space Academy! Click the button below for quiz instructions.";
         var j = 0;
         // Display text letter by letter for default message
         function typeDefaultText() {
@@ -275,7 +276,7 @@ function passedAstro(){
 
     if (allConditionsPassed === 'true') {
         passedTxtElement.style.fontSize = ".9em";
-        var txt = "WOO HOO!! Congratulations " + username + "! You have passed all the Quizzes! Click below to proceed to the Graduation Page!";
+        var txt = "WOO HOO!! Congratulations " + username + "! You have passed all the quizzes! Click below to proceed to the Graduation Page!";
         var speechspeed = 50;
         var i = 0;
 
