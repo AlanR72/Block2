@@ -1,30 +1,34 @@
-function updateDateandTime(){
 
-let currentDateTime = new Date();
+// Create the container ONCE
+function initializeStarDate() {
+    const container = document.getElementById('starDate');
+    container.innerHTML = `
+      <h2>STARDATE:</h2>
+      <p id="dateLine"></p>
+      <p id="timeLine"></p>
+    `;
+  }
 
-let day = currentDateTime.getDate();
-let month = currentDateTime.getMonth() +1;
-let year = currentDateTime.getFullYear();
-let hours = currentDateTime.getHours();
-let minutes = currentDateTime.getMinutes();
-let seconds = currentDateTime.getSeconds();
+  // Update just the text
+function updateDateandTime() {
+    const now = new Date();
+  
+    const day = now.getDate();
+    const month = now.getMonth() + 1;
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+  
+    document.getElementById('dateLine').textContent = `Date: ${day}/${month}/${year}`;
+    document.getElementById('timeLine').textContent = `Time: ${hours}:${minutes}:${seconds}`;
+  }
+  
+  // Set it up
+  initializeStarDate();
+  updateDateandTime(); // Show right away
+  setInterval(updateDateandTime, 1000);
 
-hours = String(hours).padStart(2, '0');
-minutes = String(minutes).padStart(2, '0');
-seconds = String(seconds).padStart(2, '0');
-
-let formattedDate = `${day}/${month}/${year}`;
-let formattedTime = `${hours}:${minutes}:${seconds}`;
-
-
-
-document.getElementById('starDate').innerHTML = 
-`<h2>STARDATE:</h2>
-<p>Date: ${formattedDate}</p>
-<p>Time: ${formattedTime}</p>`;
-}
-
-setInterval(updateDateandTime, 1000);
 
 //function to display alt message when returning to menu page
 
@@ -174,8 +178,8 @@ function updateWelcomeMessage() {
     if (loginNameElement) {
         const username = getCookie('username');
         if (username) {
-            loginNameElement.innerText = `Welcome ${username}!`;
-        } else {
+            loginNameElement.innerText = `Welcome Cadet ${username}!`;
+        }else {
             loginNameElement.innerText = 'Welcome Guest!';
         }
     }
@@ -266,17 +270,25 @@ function displayPassed(){
 displayPassed();
 
 
-
-
-
 function passedAstro(){
     var username = getCookie('username')
     const allConditionsPassed = sessionStorage.getItem('allConditionsPassed');
     const passedTxtElement = document.getElementById('passedTxt');
-
+    
     if (allConditionsPassed === 'true') {
+        let passedMessage = document.getElementById('passedMessage');
+        let passedPara = document.getElementById('passedPara');
+
+        passedMessage.innerHTML = "CONGRATULATIONS Astronaut " + username + "!";
+        passedPara.innerHTML = "You have successfully completed your training!";
+        document.getElementById('loginName').style.display = "none";
+        document.getElementById('loginPara').style.display = "none";
+        passedMessage.style.display = "block"; // Show the passedMessage
+        passedPara.style.display = "block";
+
         passedTxtElement.style.fontSize = ".9em";
         var txt = "WOO HOO!! Congratulations " + username + "! You have passed all the quizzes! Click below to proceed to the Graduation Page!";
+        
         var speechspeed = 50;
         var i = 0;
 
@@ -309,6 +321,7 @@ function passedAstro(){
         typeAllPassedText();
     }
 }
+
 function passedClick() {
     window.location.href = "graduation_page.html";
 }

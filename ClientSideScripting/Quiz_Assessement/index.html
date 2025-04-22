@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link for Date and Time font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <title>Welcome Log In Page</title>
+    <!-- Link to stylesheet -->
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <main>
+    <!-- Date and Time container -->
     <div class="starDate" id="starDate"></div>
+    
+    <!-- Form to request username and email -->
     <form action="" id="loginForm" onsubmit="return validateLogin()">
         <h1>Welcome Quizzers</h1>
         <p>Enter your first name and email to proceed..</p>
         <label for="userName">First Name:</label>
+        <!-- Username input used for cookie -->
         <input type="text" id="userName" name="userName" placeholder="Please enter your name">
+        <!-- Feedback error message if no name entered -->
         <span id="nameError" class="error"></span>
         <label for="userEmail">Email:</label>
+        <!-- Input for email -->
         <input type="text" id="userEmail" placeholder="Please enter your email">
+        <!-- Feedback if invalid email address -->
         <span id="emailError" class="error"></span>
-        
+        <!-- Submit button -->
         <button type="submit">Submit</button>
     </form>
     </main>
-    
+    <!-- Link for Javascript -->
     <script src="/js/main.js"></script>
 </body>
 

@@ -10,15 +10,21 @@
     <link rel="stylesheet" href="/css/diploma.css">
 </head>
 <body>
+    <!-- Container for diploma -->
     <main class="diplomaContainer">
         <h2>Space Academy Graduation Certificate</h2>
         <p>***This certifies that***</p>
+        <!-- Gets cookie to display user name -->
         <div id="graduateName"></div>
         <p>has sucessfully completed</p>
         <p>The Space Academy Cadet Training Program</p>
         <p>and is hereby promoted to Full Astronaut!</p>
+        <!-- Displays current date -->
         <p>Date of Graduation: <span id="gradDate"></span></p>
+        <!-- Image of rocket -->
         <img class="rocket" src="/media/ridingrocket.png" alt="Rocket icon">
+
+        <!-- Bottom section of diploma containing Space Academy stamp and Admiral signature -->
         <div class="diplomaBottom">
         <div class="admiralSig">
         <p class="signature">Admiral Nova</p>
@@ -27,16 +33,21 @@
         
         </div>
         <div class="stampContainer">
+        <!-- Stamp image -->
         <img class="stamp"src="/media/academystamp.png" alt="Academy Seal">
         </div>
         </div>
-        
-
     </main>
+
+    <!-- Print button -->
     <button id="printDiploma" onclick="enhancedPrint()">Print Diploma</button>
+    <!-- Button redirecting to mission page -->
     <button id="missionButton" class="missionButton" onclick="missionClick()">Mission Launch</button>
+    <!-- Images of planets -->
     <img class="planet1" src="/media/saturn.png" alt="image of a planet">
     <img class="planet2" src="/media/planet2.png" alt="image of a planet">
+
+    <!-- Link to javascript -->
     <script src="/js/diploma.js"></script>
 </body>
 </html>

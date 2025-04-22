@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/graduation.css">
 </head>
 <body onload="graduationBubble()">
+    <!-- Date and Time display -->
     <div class="starDate" id="starDate"></div>
    
     <div class="top">
@@ -30,7 +31,8 @@
             <button id="gradButton" class="diplomaButton" onclick="gradClick()" style="display: none;">View Diploma</button>
             <button id="missionButton" class="missionButton" onclick="missionClick()" style="display: none;">Mission Launch</button>
         </div>
-     <img class="astro" src="/media/astronaut2.png" alt="Picture of an astronaut">
+     <img id="mainAstro" class="astro" src="/media/astronaut2.png" alt="Picture of an astronaut">
+     <img id="gradAstro" src="/media/graduationastronaut.png" alt="Picture of an astronaut" style="display:none;">
     </div>
     
     <script src="/js/main.js"></script>

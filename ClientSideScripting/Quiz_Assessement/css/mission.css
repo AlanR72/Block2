@@ -1,25 +1,30 @@
+/* CSS for Mission Page */
+
+/* CSS reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
+}
+/* Styling for background ensusing full coverage */
 body {
     height: 100%;
     width: 100%;
-    overflow: hidden; /* Prevents horizontal scrolling */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     background: url('/media/skylaunchmobile.png') no-repeat center center/cover;
     color: white;
     font-family: Arial, sans-serif;
-  }
+}
+/* Styling and positioning for astronaut */
 .astro{
   width: 75%;
   margin-top: 90%;
   transition: transform 15s ease-in-out;
 }
+/* Styling and positioning for speech bubble */
 .speech_bubble{
   max-width: 200px; 
   font-size: 1em;
@@ -33,7 +38,7 @@ body {
   padding: 3%;
   
 }
-
+/* Styling to apply tail to bubble to replicate speech */
 .speech_bubble:before{
   content: "";
   position: absolute;
@@ -49,37 +54,39 @@ body {
   transform-origin: center center;
   
 }
-
+/* Countdown centered in middle of page */
 #countdown-container {
     position: absolute;
-    top: 30%; /* Position countdown in the center */
+    top: 30%;
     text-align: center;
   }
-  
+/* Sizing and animation for countdown */
 #countdown {
-    font-size: 6rem; /* Size of the countdown text */
+    font-size: 6rem; 
     opacity: 1;
     transition: opacity 0.6s ease-in-out;
-  }
-  
+}
+/*Sizing, positioning and animation for rocket  */
 #rocket {
     position: absolute;
     bottom: -700px; /* Start rocket below the screen */
     width: 350px; /* Adjust rocket size */
     transition: transform 15s ease-in-out; /* Smooth transition for launch */
   }
+  /*Positioning, animation and sizing for goodbye message */
   #goodbye{
     opacity: 0; 
     position: absolute; 
     top: 50%; 
     left: 50%; 
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%); /*Positions message*/ 
     font-size: 24px; 
     color: #fff; 
     text-align: center;
   }
 
-  @media only screen and (min-width: 768px){
+/* Styling for larger devices */
+@media only screen and (min-width: 768px){
     .astro{
       margin-top: 10%;
       width: 40%;

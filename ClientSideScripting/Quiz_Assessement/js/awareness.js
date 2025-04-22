@@ -55,13 +55,13 @@ const questions = [
         feedback: "Great job! Donating to a Homeless Shelter is a great way to help people without a home."
     },
     {
-        question: "What is something you can do to help protect the Earth?",
+        question: "What is something you can do to help protect Planet Earth?",
         items: [
             { text: "Plant trees", correct: true },  // Correct Answer
             { text: "Buy a diesel car", correct: false },
             { text: "Use more plastic", correct: false }
         ],
-        feedback: "Well done! Planting trees helps protect the Earth."
+        feedback: "Well done! Planting trees helps protect Planet Earth."
     },
     {
         question: "Which of these is an example of kindness?",
@@ -143,21 +143,73 @@ function onDragStart(event) {
 
 // function enabling drag ability for touchscreens
 
+
 let touchedItemText = '';
 let touchedElement = null;
+let dragGhost = null;
 
 function onTouchStart(event) {
     touchedElement = event.target;
     touchedItemText = touchedElement.textContent;
-    touchedElement.style.opacity = '0.6'; // Optional feedback
+    touchedElement.style.opacity = '0.6';
+
+    const touch = event.touches[0];
+
+// Create ghost element
+dragGhost = document.createElement('div');
+dragGhost.textContent = touchedItemText;
+dragGhost.style.position = 'fixed';
+dragGhost.style.top = touch.clientY + 'px';
+dragGhost.style.left = touch.clientX + 'px';
+dragGhost.style.transform = 'translate(-50%, -50%)';
+
+dragGhost.style.backgroundColor = 'brown';
+dragGhost.style.border = '#EBE9C3 solid 3px';
+dragGhost.style.color = '#EBE9C3';
+dragGhost.style.textAlign = 'center';
+dragGhost.style.padding = '10px';
+dragGhost.style.margin = '5px';
+dragGhost.style.cursor = 'grab';
+dragGhost.style.opacity = '0.6';
+dragGhost.style.width = touchedElement.offsetWidth + 'px';
+dragGhost.style.boxSizing = 'border-box';
+
+// ✅ Feathered glow using soft box-shadow
+dragGhost.style.boxShadow = '0 0 20px 10px rgba(235, 233, 195, 0.5)';
+
+dragGhost.style.zIndex = '1000';
+dragGhost.style.pointerEvents = 'none';
+
+document.body.appendChild(dragGhost)
+
+    // Track finger movement
+    document.addEventListener('touchmove', onTouchMove);
+}
+
+function onTouchMove(event) {
+    if (!dragGhost) return;
+
+    const touch = event.touches[0];
+    dragGhost.style.top = touch.clientY + 'px';
+    dragGhost.style.left = touch.clientX + 'px';
 }
 
 function onTouchEnd(event) {
     if (!touchedItemText) return;
 
+    // Remove ghost
+    if (dragGhost) {
+        dragGhost.remove();
+        dragGhost = null;
+    }
+
+    document.removeEventListener('touchmove', onTouchMove);
+
     const touch = event.changedTouches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+    const targetElem = document.elementFromPoint(x, y);
     const dropzone = document.getElementById('drag-drop-dropzone');
-    const targetElem = document.elementFromPoint(touch.clientX, touch.clientY);
 
     if (targetElem && (targetElem.id === 'drag-drop-dropzone' || targetElem.closest('#drag-drop-dropzone'))) {
         dropzone.innerHTML = `<h3>${touchedItemText}</h3>`;
@@ -206,6 +258,7 @@ function submitAnswer() {
         document.getElementById('drag-drop-feedback').style.color = "lightgreen";
         document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
         document.getElementById('drag-drop-feedback').style.padding = "5%";
+        document.getElementById('drag-drop-feedback').style.marginTop = "-8%";
     } else {
         // Find the correct answer and show it
         const correctAnswer = question.items.find(item => item.correct).text;
@@ -214,6 +267,7 @@ function submitAnswer() {
         document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
         document.getElementById('drag-drop-feedback').style.padding = "5%";
         document.getElementById('drag-drop-feedback').style.textAlign = "center";
+        document.getElementById('drag-drop-feedback').style.marginTop = "-8%";
     }
 
     // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)

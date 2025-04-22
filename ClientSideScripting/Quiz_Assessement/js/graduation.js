@@ -9,6 +9,8 @@ function graduationBubble() {
     const welcomeTxtElement = document.getElementById('welcome_txt'); // Declare the element reference
     
     if (allConditionsPassed === 'true') {
+        document.getElementById('mainAstro').style.display = "none";
+        document.getElementById('gradAstro').style.display = "block";
         welcomeTxtElement.style.fontSize = ".8em";
         var txt = "Congratulations " + username + "! You are now a fully fledged astronaut! You can click below to view your Graduation Diploma or skip to your first space mission!";
         var speechspeed = 50;

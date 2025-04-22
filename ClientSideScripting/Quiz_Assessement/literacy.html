@@ -14,48 +14,56 @@
         
             <div class="welcome_back_message">
                 <h3 id="loginName">Hello Guest!</h3>
-                <p class="heading_para">Astronaut Joseph will guide you through the Literacy Quiz! </p>
+                <p class="heading_para">Astronaut Joseph will guide you through the Literacy Quiz!</p>
+                <!-- Date and Time display -->
                 <div class="starDate" id="starDate"></div>
             </div>
-            
+        <!-- Section controlling flex -->   
         <section>
             <div class="literacy_top">
                 <div class="speech_bubble">
                     <p id="welcome_txt"></p>
-                    
+                    <!-- Alternative text button with quiz instructions on click -->
                     <button id="literacyButton" class="bubbleButton" onclick="literacyClick()">Quiz Instructions</button>
                 </div>
-             <img class="literacy_astro" src="/media/literacy.png" alt="Picture of an astronaut">
+            <!-- Astronaut image -->
+            <img class="literacy_astro" src="/media/literacy.png" alt="Picture of an astronaut">
             </div>
             
+            <!-- Container for quiz questions becomes right div for larger devices -->
             <div class="literacy_bottom">
                 <div id="literacy-quiz-container" class="quiz_container">
                     <h1>Literacy Quiz</h1>
             
                     <div id="literacy-question-container" class="text_style">
-                        <!-- Question will fade in here -->
+                        <!-- Question will appear in here -->
                         <div id="literacy-question"></div>
                     </div>
             
                     <div id="literacy-options">
                         <!-- Multiple choice options will be inserted here -->
                     </div>
-            
-                    <div id="literacy-feedback"></div>
-            
+                    
+                    <div id="literacy-feedback"></div><!-- Feedback will appear here -->
+                    
+                    <!-- Submit answer button hidden when Next question button visible-->
                     <button id="literacy-submit-btn" class="submit_button" onclick="submitLiteracyAnswer()">Submit Answer</button>
+                    <!-- Next question button toggles between visible and hidden by javascript -->
                     <button id="literacy-next-btn" onclick="nextLiteracyQuestion()" class="next_button" style="display: none;">Next Question</button>
-            
+                    
+                    <!-- Div hidden until quiz complete that displays score -->
                     <div id="literacy-score-container" class="score_container" style="display: none;">
                         <h2>Total Score: <span id="literacy_score"></span></h2>
                     
                     </div>
+                    <!-- Return to Menu page button -->
                     <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
         </section>
         
     </main>
+    <!-- Links to javascript -->
     <script src="/js/main.js"></script>
     <script src="/js/literacy.js"></script>
     

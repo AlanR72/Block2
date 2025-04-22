@@ -14,34 +14,44 @@
         
             <div class="welcome_back_message">
                 <h3 id="loginName">Hello Guest!</h3>
-                <p class="heading_para">Astronaut Hamish McTartan will guide you through the Scottish History Quiz! </p>
+                <p class="heading_para">Astronaut Hamish McTartan will guide you through the Scottish History Quiz!</p>
+                <!-- Date and Time display -->
                 <div class="starDate" id="starDate"></div>
             </div>
-            
+        <!-- Section controlling flex -->  
         <section>
+            <!-- Container for astronaut picture and speech bubble -->
             <div class="history_top">
                 <div class="speech_bubble">
                     <p id="welcome_txt"></p>
-                    
+                    <!-- Alternative text button with quiz instructions on click -->
                     <button id="historyButton" class="bubbleButton" onclick="historyClick()">Quiz Instructions</button>
                 </div>
-             <img class="history_astro" src="/media/highland.png" alt="Picture of an astronaut">
+            <!-- Astronaut image -->
+            <img class="history_astro" src="/media/highland.png" alt="Picture of an astronaut">
             </div>
             
+            <!-- Container for quiz questions becomes right div for larger devices -->
             <div class="history_bottom" id="history_bottom">
                 <!-- History Quiz Section -->
                 <div id="history-quiz" class="quiz_container">
                     <h1>History Quiz</h1>
-                    <div id="history-question-container" class="text_style"></div> <!-- Where the question will appear -->
-                    <div id="history-options-container"></div> <!-- Where options will appear -->
-                    <div id="history-feedback"></div> <!-- Feedback for each question -->
-                    <div class="button-container">
+                    <div id="history-question-container" class="text_style"></div><!-- Question will appear here -->
+                    <div id="history-options-container"></div> <!-- Answer options will appear here -->
+                    <div id="history-feedback"></div> <!-- Feedback will appear here -->
+                    
+
+                        <!-- Submit answer button hidden when Next question button visible-->
                         <button id="history-submit-btn" class="submit_button" onclick="submitHistoryAnswer()">Submit Answer</button>
+                        <!-- Next question button toggles between visible and hidden by javascript -->
                         <button id="history-next-btn" onclick="nextHistoryQuestion()" class="next_button" style="display: none;">Next Question</button>
-                    </div>
+                    
+
+                    <!-- Div hidden until quiz complete that displays score -->
                     <div id="history-score-container" class="score_container" style="display: none;">
                         <h2>Total Score: <span id="history_score"></span></h2>
                     </div>
+                    <!-- Return to Menu page button -->
                     <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
@@ -49,6 +59,7 @@
         </section>
         
     </main>
+    <!-- Links to javascript -->
     <script src="/js/main.js"></script>
     <script src="/js/history.js"></script>
 </body>

@@ -1,14 +1,19 @@
+/* CSS for Menu Page */
+
+/* CSS reset */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+/* Ensures full background coverage */
 html,body{
     height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+/* Background styling */
 body{
     background-image: url(/media/space-background.png);
     background-position: top;
@@ -16,11 +21,12 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+/* Main content container*/
 main{
     display: flex;
     flex-direction: column;
 }
-
+/* Main heading styling and animation */
 .welcome_back_message{
     margin-left: 5%;
     font-size: 1.7em;
@@ -39,7 +45,6 @@ main{
 .menu_heading{
     color: #EBE9C3;
     animation: fadeIn 1s;
-    
 }
 .numeracy_heading{
     animation: fadeIn 2s;
@@ -62,12 +67,15 @@ main{
     background-color: brown;
     color:#EBE9C3;
 }
+/* Margin below last quiz heading */
 #wellbeingPassed{
     margin-bottom: 5%;
 }
+/* Styling for passed box below quiz headings */
 .passedMessage{
     background-color: green;
 }
+/* Styling and animation for date and time display */
 .starDate{
     color: black;
     width: 50%;
@@ -83,7 +91,10 @@ main{
     text-align: center;
     padding: 1%;
     font-size: .4em;
+    animation: fadeIn 3s;
+    
 }
+/* Top div which becomes left div for larger devices */
 .top{
     align-items: center;
     justify-content: center;
@@ -91,7 +102,7 @@ main{
     height: 35vh;
     display: flex;
 }
-
+/* Bottom div which becomes right div for larger devices */
 .bottom{
     display: flex;
     flex-direction: column;
@@ -101,21 +112,24 @@ main{
     justify-content: center;
     
 }
-
+/* Astronaut image sizing and position */
 .astro{
     width: 40%;
     margin-right: -10%;
 }
+/* Alt astronaut when allPassed */
 .partyAstro{
     width: 40%;
 }
+/* Alt button when allPassed */
 .passedButton{
-    background-color: lightgreen;
+    background-color: greenyellow;
     font-size: 1em;
     padding: 3%;
     margin-top: 5%;
 
 }
+/* Styling for quiz menu */
 ul{
     list-style: none;
     text-align: center;
@@ -132,7 +146,6 @@ a{
     text-decoration: none;
 }
 a:visited{
-    color: blue;
     text-decoration: none;
 }
 a:hover li{
@@ -147,15 +160,18 @@ button{
     border-radius: 5%;
     cursor: pointer;
 }
+/* Heading animation */
 @keyframes message{
     from{left:50px;}
     to{left:0px}
 }
+/* Menu animation */
 @keyframes fadeIn{
     0%{opacity:0;}
     100%{opacity:1;}
 }
 
+/* Styling and positioning for speech bubble */
 .speech_bubble{
     max-width: 150px; 
     font-size: 1em;
@@ -169,7 +185,7 @@ button{
     padding: 3%;
     
 }
-
+/* Styling to apply tail to bubble to replicate speech */
 .speech_bubble:before{
     content: "";
     position: absolute;
@@ -185,15 +201,20 @@ button{
     transform-origin: center center;
     
 }
+/* Button within speech bubble */
 .bubbleButton{
     margin-top: 5%;
     background-color: greenyellow;
     color:black;
     cursor: pointer;
 }
+/* Para within speech bubble */
 .welcome_txt{
     margin-bottom: 50px;
 } 
+
+/* Styling for larger devices */
+
 @media only screen and (min-width: 768px){
     body{
         font-size: 2em;
@@ -263,11 +284,10 @@ button{
         border-radius: 30px;
     }
     .speech_bubble:before{
-        
         border-top: 60px solid transparent;
         border-bottom: 60px solid transparent;
         border-left: 60px solid #EBE9C3; /* Wider, flatter tail */
-        transform: none; /* No rotation needed */
+        transform: none; 
         margin-left: -10px;
     }
 }

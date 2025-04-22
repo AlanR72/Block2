@@ -7,29 +7,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <title>Numeracy Quiz Page</title>
+    <!-- Link to quiz stylesheet -->
     <link rel="stylesheet" href="/css/quiz.css">
 </head>
+<!-- Function to display specific speech bubble triggered by page load -->
 <body onload="numeracyBubble()">
     
     <main>
-        
+            <!-- Div container for top heading  -->
             <div class="welcome_back_message">
+                <!-- Calls cookie captured from index page -->
                 <h3 id="loginName">Hello Guest!</h3>
                 <p class="heading_para">Science Officer Bella will guide you through this quiz.</p>
+                <!-- Date and Time display -->
                 <div class="starDate" id="starDate"></div>
             </div>
+        <!-- Section controlling flex -->
         <section>
+            <!-- Container for astronaut picture and speech bubble -->
             <div class="numeracy_top">
                 <div class="speech_bubble">
                     <p id="welcome_txt"></p>
-                    
+                    <!-- Alternative text button with quiz instructions on click -->
                     <button id="numeracyButton" class="bubbleButton" onclick="numeracyClick()">Quiz Instructions</button>
                 </div>
-             <img class="numeracy_astro" src="/media/kungfuastronaut.png" alt="Picture of an astronaut">
+            <!-- Astronaut image -->
+            <img class="numeracy_astro" src="/media/kungfuastronaut.png" alt="Picture of an astronaut">
             </div>
         
         
-        
+            <!-- Container for quiz questions becomes right div for larger devices -->
             <div class="numeracy_bottom">
                 <div id="numeracy-quiz" class="quiz_container">
                     <h1>Numeracy Quiz</h1>
@@ -37,13 +44,16 @@
                     <div id="numeracy-options-container"></div> <!-- Answer input will appear here -->
                     <div id="feedback"></div> <!-- Feedback will appear here -->
                     
-                    
+                        <!-- Submit answer button hidden when Next question button visible-->
                         <button id="numeracy-submit-btn" class="submit_button" onclick="submitAnswer()">Submit Answer</button>
+                        <!-- Next question button toggles between visible and hidden by javascript -->
                         <button id="numeracy-next-btn" onclick="nextQuestion()" class="next_button" style="display: none;">Next Question</button>
                     
+                    <!-- Div hidden until quiz complete that displays score -->
                     <div id="score-container" class="score_container" style="display: none;">
                         <h2>Total Score: <span id="numeracy_score"></span></h2>
                     </div>
+                    <!-- Return to Menu page button -->
                     <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
@@ -51,6 +61,7 @@
         </section>
        
     </main>
+    <!-- Links to javascript -->
     <script src="/js/main.js"></script>
     <script src="/js/numeracy.js"></script>
     

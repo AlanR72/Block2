@@ -1,14 +1,19 @@
+/* CSS for all quiz pages */
+
+/* CSS reset */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+/* Styling ensuring full  background coverage */
 html, body{
     height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+/* Styling for background ensuring full coverage */
 body{
     background-image: url(/media/space-background.png);
     background-position: top;
@@ -16,21 +21,24 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+/* Main container applying flex */
 main{
     display: flex;
     flex-direction: column;
 }
-
+/* Styling for main heading */
 .welcome_back_message{
     margin-left: 5%;
     font-size: 1.7em;
     color: #EBE9C3;
     margin-top: 1%;
 }
+/* Main heading paragraph */
 .heading_para{
     font-size: .8em;
     margin-right: 10%;
 }
+/* Styling and animation for date and time */
 .starDate{
     color: black;
     width: 50%;
@@ -46,7 +54,9 @@ main{
     text-align: center;
     padding: 1%;
     font-size: .4em;
+    animation: fadeIn 3s;
 }
+/* Top div which becomes left div on large devices */
 .top{
     align-items: center;
     justify-content: center;
@@ -54,6 +64,7 @@ main{
     height: 40vh;
     display: flex;
 }
+/* Top div for Numeracy Quiz */
 .numeracy_top{
     align-items: center;
     justify-content: center;
@@ -61,6 +72,7 @@ main{
     height: 40vh;
     display: flex;
 }
+/* Top div for Health and Wellbeing Quiz */
 .wellbeing_top{
     align-items: center;
     justify-content: center;
@@ -68,6 +80,7 @@ main{
     height: 40vh;
     display: flex;
 }
+/* Top div for Literacy Quiz */
 .literacy_top{
     align-items: center;
     justify-content: center;
@@ -75,6 +88,7 @@ main{
     height: 40vh;
     display: flex;
 }
+/* Top div for History Quiz */
 .history_top{
     align-items: center;
     justify-content: center;
@@ -82,6 +96,7 @@ main{
     height: 40vh;
     display: flex;
 }
+/* Top div for Social Awareness Quiz */
 .awareness_top{
     align-items: center;
     justify-content: center;
@@ -89,15 +104,7 @@ main{
     height: 40vh;
     display: flex;
 }
-.bottom{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeIn 3s forwards;
-}
+/* Bottom div for Literacy Quiz which becomes right div on larger devices */
 .literacy_bottom{
     display: flex;
     flex-direction: column;
@@ -107,6 +114,7 @@ main{
     opacity: 0;
     animation: fadeIn 3s forwards;
 }
+/* Bottom div for Numeracy Quiz */
 .numeracy_bottom{
     display: flex;
     flex-direction: column;
@@ -117,6 +125,7 @@ main{
     opacity: 0;
     animation: fadeIn 3s forwards;
 }
+/* Bottom div for History Quiz */
 .history_bottom{
     display: flex;
     flex-direction: column;
@@ -127,6 +136,7 @@ main{
     opacity: 0;
     animation: fadeIn 3s forwards;
 }
+/* Bottom div for Health and Wellbeing Quiz */
 .wellbeing_bottom{
     display: flex;
     flex-direction: column;
@@ -136,7 +146,10 @@ main{
     justify-content: center;
     opacity: 0;
     animation: fadeIn 3s forwards;
+    font-size: 0.8em;
+    margin-top: -15%;
 }
+/* Bottom div for Social Awareness Quiz */
 .awareness_bottom{
     display: flex;
     flex-direction: column;
@@ -146,33 +159,41 @@ main{
     opacity: 0;
     animation: fadeIn 3s forwards; 
 }
+/* Literacy Quiz astronaut */
 .literacy_astro{
     width: 60%;
 }
+/* Numeracy Quiz astronaut */
 .numeracy_astro{
     width: 70%;
     margin-right: -10%;
 }
+/* History Quiz astronaut */
 .history_astro{
     width: 70%;
     margin-right: -10%;
 }
+/* Health and Wellbeing Quiz astronaut */
 .wellbeing_astro{
     width: 70%;
     margin-right: -10%;
 }
+/* Social Awareness Quiz astronaut */
 .awareness_astro{
     width: 70%;
     margin-right: -10%;  
 }
+/* Animation for main heading */
 @keyframes message{
     from{left:50px;}
     to{left:0px}
 }
+/* Fade in for date and time */
 @keyframes fadeIn{
     0%{opacity:0;}
     100%{opacity:1;}
 }
+/* Styling for speech bubble */
 .speech_bubble{
     max-width: 200px; 
     background: #EBE9C3;
@@ -183,9 +204,8 @@ main{
     top: -25%;
     left: 4%;
     padding: 3%;
-    
 }
-
+/* Styling for speech bubble tail to recreate speech */
 .speech_bubble:before{
     content: "";
     position: absolute;
@@ -201,6 +221,7 @@ main{
     transform-origin: center center;
     
 }
+/* Speech bubble button styling */
 .bubbleButton{
     width: 90%;
     font-size: .7em;
@@ -210,14 +231,16 @@ main{
     cursor: pointer;
     padding: 3%;
 }
-
+/* Remove decoration */
 a{
     text-decoration: none;
 }
+/* Remove decoration */
 a:visited{
     color:#EBE9C3;
     text-decoration: none;
 }
+/* Hover effect for hyperlinks */
 a:hover {
     background-color: brown;
     color: #EBE9C3;
@@ -227,7 +250,7 @@ a:hover {
 
 /* START OF QUESTIONS Styling */
 
-
+/* Styling for quiz content */
 .quiz_container{
     display: flex;
     flex-direction: column;
@@ -240,6 +263,7 @@ h1{
     font-size: 2em;
     padding-bottom: 10%;
 }
+/* Styling for questions font */
 .text_style{
     color:#EBE9C3;
     display: flex;
@@ -248,6 +272,7 @@ h1{
     font-size: 1.7em;
     text-align: center;
 }
+/* Questions submit button */
 .submit_button{
     margin-top: 2%;
     background-color: #EBE9C3;
@@ -256,7 +281,7 @@ h1{
     padding: 2%;
     margin-bottom: 2%;
 }
-
+/* Questions next button */
 .next_button{
     background-color: #EBE9C3;
     font-size: 1.3em;
@@ -264,8 +289,8 @@ h1{
     padding: 2%;
     margin-bottom: 2%;
 }
+/* Return to Menu Page button */
 .return_button{
-    
     background-color: brown;
     color:#EBE9C3;
     font-size: 1.3em;
@@ -274,30 +299,27 @@ h1{
     margin-bottom: 2%;
     margin-top: 2%;
 }
-
+/* Font colour for displayed score */
 .score_container{
     color:#EBE9C3;
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* Quiz text input styling */
 input[type="text"] {
     width: 100%;
-    padding: 10px;
+    padding: 3%;
     margin-top: 10px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ddd;
 }
-
+/* Small black border when input box selected */
 input[type="text"]:focus {
-    border-color: #4CAF50;
+    border-color: black;
     outline: none;
 }
 
-/* LITERACY CSS */
+
+/* LITERACY QUIZ CSS */
 
 #literacy-question {
     opacity: 0;
@@ -314,17 +336,11 @@ input[type="text"]:focus {
     display: flex;
     gap: 10px;
 } 
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 input[type="radio"] {
     margin-right: 10px;
 }
 
-/* CSS for history */
+/* HISTORY QUIZ CSS */
 
 #history-question-container {
     opacity: 0;
@@ -344,32 +360,15 @@ input[type="radio"] {
     gap: 20px; /* Adds space between the checkbox and label */
     padding: 5%;
 }
-#history-submit-btn{
-    width: 110%;
-    margin-left: -5%;
-    margin-top: 20px;
-    padding: 5%;
-}
-#history-next-btn{
-    width: 110%;
-    margin-left: -5%;
-    padding: 5%;
-}
 #history-options-container input[type="checkbox"] {
     margin-right: 10%;
     transform: scale(1.5);
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 input[type="checkbox"] {
     margin-right: 10px;
 }
 
-/* DRAG AND DROP CSS */
-
+/* SOCIAL AWARENESS QUIZ CSS */
 
 .drag-item {
     background-color: brown;
@@ -381,6 +380,7 @@ input[type="checkbox"] {
     cursor: grab;
     user-select: none;
     touch-action: manipulation;
+    touch-action: none;
 }
 #drag-drop-question{
     width: 80%;
@@ -418,7 +418,6 @@ input[type="checkbox"] {
 /* HEALTH AND WELLBEING QUIZ CSS */
 
 
-
 #health-wellbeing-quiz-container {
     display: flex;
     flex-direction: column;
@@ -428,19 +427,15 @@ input[type="checkbox"] {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 4%;
 }
-
-
+.dragging {
+    opacity: 0.5;
+}
 #health-wellbeing-question {
     opacity: 0;
     animation: fadeIn 1s forwards;
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 #health-wellbeing-options-container {
     color:#EBE9C3;
     font-size: 1.5em;
@@ -452,19 +447,29 @@ input[type="checkbox"] {
 #health-wellbeing-options-container label {
     color:#EBE9C3;
     font-size: 1.2em; 
-    display:flex; /* Use flexbox to arrange the checkbox and label horizontally */
-    gap: 20px; /* Adds space between the checkbox and label */
-
+    display:flex; 
+    gap: 20px; 
 }
-
+.draggable-choice{
+    background-color: brown;
+    border:#EBE9C3 solid 3px;
+    color:#EBE9C3;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
 #health-wellbeing-feedback {
     margin-bottom: 20px;
 }
 
+/* MEDIA QUERY FOR LARGER DEVICES */
+
 @media only screen and (min-width: 768px){
     body{
         font-size: 2em;
-        
     }
     .starDate{
         width: 30%;
@@ -474,18 +479,13 @@ input[type="checkbox"] {
         margin-bottom: 5%;
         margin-top: -10%;
     }
-    #history-submit-btn{
-        width: 118%;
-        margin-left: -9%;
-        height: 90%;
-        margin-bottom: 5%;
-    }
-    #history-next-btn{
-        width: 125%;
-        height: 110%;
-        margin-left: -13%;
-    }
-    
+    .awareness_bottom{
+        font-size: 1.7em !important;
+     }
+     .wellbeing_bottom{
+        font-size: 1.7em !important;
+        margin-top: 0;
+     }
     .welcome_back_message h3{
         font-size: 2em;
     }
@@ -497,7 +497,6 @@ input[type="checkbox"] {
         display: flex;
         flex-direction: row;
     }
-    
     .welcome_back_message{
         margin-left: 5%;
         font-size: 3em;
@@ -517,11 +516,10 @@ input[type="checkbox"] {
     }
     
     .speech_bubble:before{
-        
         border-top: 60px solid transparent;
         border-bottom: 60px solid transparent;
         border-left: 60px solid #EBE9C3; /* Wider, flatter tail */
-        transform: none; /* No rotation needed */
+        transform: none; 
         margin-left: -10px;
     }
     .bubblebutton{
@@ -560,7 +558,7 @@ input[type="checkbox"] {
     #history-options-container label {
         display: flex;
         align-items: center;
-        gap: 100px; /* space between checkbox and text */
+        gap: 100px; 
         width: 100%;
         white-space: nowrap;
       }
@@ -574,7 +572,7 @@ input[type="checkbox"] {
         font-size: 2em;
     }
     .wellbeing_top{
-        margin-top: 20%;
+        margin-top: 10%;
     }
     .wellbeing_bottom{
         font-size: 1.8em;
@@ -584,10 +582,37 @@ input[type="checkbox"] {
         margin-bottom: 300px;
     }
     #health-wellbeing-feedback{
-        margin-top: 5%;
+        margin-top: 7%;
+
     }
     #health-wellbeing-options-container {
         margin-bottom: -10%;
+    }
+    #health-drag-drop-zone{
+        width: 150%;
+        height: 30%;
+        margin-left: -25%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .draggable-choice{
+        background-color: brown;
+        border:#EBE9C3 solid 3px;
+        color:#EBE9C3;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+        cursor: grab;
+        user-select: none;
+        touch-action: manipulation;
+        margin-bottom: 7%;
+        padding: 3%;
+        font-size: 1.5em;
+        width: 1000px;
+    }
+    #health-drag-drop-zone{
+        margin-bottom: 30%;
     }
     .awareness_top{
         margin-top: 15%;
@@ -600,7 +625,6 @@ input[type="checkbox"] {
         display: flex;
         align-items: center;
         justify-content: center;
-
     }
     .drag-item{
         margin-bottom: 7%;
@@ -610,9 +634,9 @@ input[type="checkbox"] {
     input[type="radio"] {
         zoom: 6;
       }
-   input[type="checkbox"] {
+    input[type="checkbox"] {
         zoom: 6!important;
-   }
+    }
     #user-answer{
         font-size: 1.5em;
     }

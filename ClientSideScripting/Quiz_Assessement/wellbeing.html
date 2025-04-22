@@ -15,19 +15,23 @@
             <div class="welcome_back_message">
                 <h3 id="loginName">Hello Guest!</h3>
                 <p class="heading_para">Finally the Health and Wellbeing Quiz! </p>
+                <!-- Date and Time display -->
                 <div class="starDate" id="starDate"></div>
             </div>
-            
+        <!-- Section controlling flex -->   
         <section>
+            <!-- Container for astronaut picture and speech bubble -->
             <div class="wellbeing_top">
                 <div class="speech_bubble">
                     <p id="welcome_txt"></p>
-                    
+                    <!-- Alternative text button with quiz instructions on click -->
                     <button id="wellbeingButton" class="bubbleButton" onclick="wellbeingClick()">Quiz Insrtuctions</button>
                 </div>
-             <img class="wellbeing_astro" src="/media/healthyastronaut.png" alt="Picture of an astronaut">
+            <!-- Astronaut image -->
+            <img class="wellbeing_astro" src="/media/healthyastronaut.png" alt="Picture of an astronaut">
             </div>
             
+            <!-- Container for quiz questions becomes right div for larger devices -->
             <div class="wellbeing_bottom">
                 <div id="health-wellbeing-quiz-container" class="quiz_container">
                     <h1 class="wellbeing_heading">Health and Wellbeing Quiz</h1>
@@ -41,15 +45,19 @@
                         <!-- Options will be inserted here -->
                     </div>
             
-                    <div id="health-wellbeing-feedback"></div>
-            
+                    <div id="health-wellbeing-feedback"></div><!-- Feedback will appear here -->
+
+                    <!-- Submit answer button hidden when Next question button visible-->
                     <button id="health-wellbeing-submit-btn" class="submit_button" onclick="submitHealthWellbeingAnswer()">Submit Answer</button>
+                    <!-- Next question button toggles between visible and hidden by javascript -->
                     <button id="health-wellbeing-next-btn" onclick="nextHealthWellbeingQuestion()" class="next_button" style="display: none;">Next Question</button>
-            
+                    
+                    <!-- Div hidden until quiz complete that displays score -->
                     <div id="health-wellbeing-score-container" class="score_container" style="display: none;">
                         <h2>Total Score: <span id="health_wellbeing_score"></span></h2>
                         
                     </div>
+                    <!-- Return to Menu page button -->
                     <button id="returnMenu" onclick="returnMenu()" class="return_button">Return to Menu</button>
                 </div>
             </div>
@@ -57,6 +65,7 @@
         </section>
         
     </main>
+    <!-- Links to javascript -->
     <script src="/js/main.js"></script>
     <script src="/js/wellbeing.js"></script>
 </body>
