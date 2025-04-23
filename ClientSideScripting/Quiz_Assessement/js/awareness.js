@@ -70,7 +70,7 @@ const questions = [
             { text: "Share your toys", correct: true },
             { text: "Be rude to others", correct: false }
         ],
-        feedback: "Absolutely! Helping others is always an example of kindness."
+        feedback: "Absolutely! Sharing with others is always an example of kindness."
     },
     {
         question: "What is the best way to help someone who is feeling sad?",
@@ -174,7 +174,7 @@ dragGhost.style.opacity = '0.6';
 dragGhost.style.width = touchedElement.offsetWidth + 'px';
 dragGhost.style.boxSizing = 'border-box';
 
-// ✅ Feathered glow using soft box-shadow
+//Styling for drag item
 dragGhost.style.boxShadow = '0 0 20px 10px rgba(235, 233, 195, 0.5)';
 
 dragGhost.style.zIndex = '1000';
@@ -271,7 +271,7 @@ function submitAnswer() {
         document.getElementById('drag-drop-feedback').style.marginTop = "-8%";
     }
 
-    // Save the score to localStorage (here we are saving numeracyScore for the numeracy quiz)
+    // Save the score to localStorage 
     sessionStorage.setItem('awarenessScore', awarenessScore);
 
     // Hide submit button and show next button

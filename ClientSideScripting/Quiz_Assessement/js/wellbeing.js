@@ -56,11 +56,11 @@ const healthWellbeingQuestions = [
         feedback: "Correct! Water helps you stay hydrated."
     },
     {
-        healthWellbeing_question: "Which of these is a healthy snack?(Select all that apply)",
-        type: "checkbox", // Multiple correct answers
-        options: ["Chocolate", "Fruit", "Crisps", "Porridge"],
-        correctAnswer: ["Fruit", "Porridge"],
-        feedback: "Correct! Fruit and Porridge."
+        healthWellbeing_question: "Getting plenty of sleep helps you stay healthy and feeling good during the day.(True or False?)",
+        type: "radio", // True or False multiple choice
+        options: ["True", "False"],
+        correctAnswer: ["True"],
+        feedback: "Correct! Plenty of sleep is good for you."
     },
     {
         healthWellbeing_question: "What is the best way to stay healthy?",
@@ -70,7 +70,7 @@ const healthWellbeingQuestions = [
         feedback: "Correct! Drink water and exercise regularly."
     },
     {healthWellbeing_question: "Complete the phrase: An _____ a day keeps the doctor away.",
-    type: "dragdrop", // new type
+    type: "dragdrop", // Drag and Drop
     items: [
         { text: "cake", correct: false },
         { text: "chocolate", correct: false },
@@ -82,7 +82,7 @@ const healthWellbeingQuestions = [
     },
     {
         healthWellbeing_question: "Which of these is bad for your health? (Choose all that apply)",
-        type: "checkbox",
+        type: "checkbox",//Checkbox
         options: ["Eating junk food", "Sleeping too little", "Too many fizzy drinks", "All of the above."],
         correctAnswer: "All of the above.",
         feedback: "Correct! All of the above."
@@ -98,13 +98,13 @@ const healthWellbeingTotalScoreElement = document.getElementById('health-wellbei
 const healthWellbeingScoreContainer = document.getElementById('health-wellbeing-score-container');
 
 
-
+//Function to load questions dynamically
 
 function loadHealthWellbeingQuestion() {
     const question = healthWellbeingQuestions[healthWellbeingCurrentQuestionIndex];
     healthWellbeingQuestionContainer.textContent = question.healthWellbeing_question;
     healthWellbeingOptionsContainer.innerHTML = ''; // Clear previous options
-
+    //Text box question
     if (question.type === "text") {
         const input = document.createElement('input');
         input.type = "text";
@@ -112,7 +112,9 @@ function loadHealthWellbeingQuestion() {
         input.style.padding = "5%";
         input.placeholder = 'Type your answer here...';
         healthWellbeingOptionsContainer.appendChild(input);
-    } else if (question.type === "radio") {
+    } 
+    //Radio button question
+    else if (question.type === "radio") {
         question.options.forEach(option => {
             const label = document.createElement('label');
             const input = document.createElement('input');
@@ -124,7 +126,9 @@ function loadHealthWellbeingQuestion() {
             healthWellbeingOptionsContainer.appendChild(label);
             healthWellbeingOptionsContainer.appendChild(document.createElement('br'));
         });
-    } else if (question.type === "dragdrop") {
+    } 
+    //Drag and Drop question
+    else if (question.type === "dragdrop") {
         let touchedElement = null;
         let touchedItemText = '';
         let dragGhost = null;
@@ -212,7 +216,7 @@ function loadHealthWellbeingQuestion() {
 
             healthWellbeingOptionsContainer.appendChild(option);
         });
-
+        //Styling for Drop Zone
         const dropzone = document.createElement('div');
         dropzone.id = 'health-drag-drop-zone';
         dropzone.innerHTML = '<h3>Drag and drop here:</h3>';
@@ -236,7 +240,9 @@ function loadHealthWellbeingQuestion() {
         });
 
         healthWellbeingOptionsContainer.appendChild(dropzone);
-    } else if (question.type === "checkbox") {
+    } 
+    //Checkbox question
+    else if (question.type === "checkbox") {
         question.options.forEach(option => {
             const label = document.createElement('label');
             const input = document.createElement('input');
@@ -258,7 +264,7 @@ function loadHealthWellbeingQuestion() {
     healthWellbeingSubmitButton.style.display = 'inline-block';
     healthWellbeingNextButton.style.display = 'none';
 }
-
+//Function to handle answer submittion
 function submitHealthWellbeingAnswer() {
     const question = healthWellbeingQuestions[healthWellbeingCurrentQuestionIndex];
     let userAnswer = '';
@@ -321,7 +327,7 @@ function submitHealthWellbeingAnswer() {
     }
 
     sessionStorage.setItem('healthWellbeingScore', healthWellbeingScore);
-
+    //Hide submit button and display next button
     healthWellbeingSubmitButton.style.display = 'none';
     healthWellbeingNextButton.style.display = 'inline-block';
 }
@@ -343,7 +349,7 @@ function nextHealthWellbeingQuestion() {
     }
 }
 
-
+//Function to display final score
 function showHealthWellbeingFinalScore() {
     const questionContainer = document.getElementById('health-wellbeing-question-container');
     const optionsContainer = document.getElementById('health-wellbeing-options-container');
@@ -363,7 +369,7 @@ function showHealthWellbeingFinalScore() {
 
    
 
-//Display message
+//Display message in speech bubble
 var username = getCookie('username'); 
 if(healthWellbeingScore > 2){
 
