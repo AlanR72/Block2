@@ -1,3 +1,5 @@
+//JAVASCRIPT for Numeracy Quiz
+
 var i = 0; // Initialize the counter variable
 
 // Function to handle typing text
@@ -46,32 +48,40 @@ document.addEventListener('DOMContentLoaded', function() {
     loadNumeracyQuestion();  // Load the first question when the page is ready
 });
 
+//Global array of quiz questions and correct answers
 const numeracyQuestions = [
     {
         question: "What is 5 + 5?",
-        correctAnswer: "10"
+        correctAnswer: "10",
+        feedback: "Correct! The answer is 10."
     },
     {
         question: "What is 7 x 6?",
-        correctAnswer: "42"
+        correctAnswer: "42",
+        feedback: "Correct! The answer is 42."
     },
     {
         question: "What is 12 \u00F7 4?",
-        correctAnswer: "3"
+        correctAnswer: "3",
+        feedback: "Correct! The answer is 3."
     },
     {
         question: "What is 15 - 8?",
-        correctAnswer: "7"
+        correctAnswer: "7",
+        feedback: "Correct! The answer is 7."
     },
     {
         question: "What is 9 + 7?",
-        correctAnswer: "16"
+        correctAnswer: "16",
+        feedback: "Correct! The answer is 16."
     }
 ];
 
+//Initialise variables globally
 let currentQuestionIndex = 0;
 let numeracyScore = 0;
 
+//Function which dynamically loads questions on page
 function loadNumeracyQuestion() {
     const questionContainer = document.getElementById('numeracy-question-container');
     const optionsContainer = document.getElementById('numeracy-options-container');
@@ -98,6 +108,7 @@ function loadNumeracyQuestion() {
     inputBox.type = 'text';
     inputBox.id = 'user-answer';
     inputBox.placeholder = 'Type your answer here...';
+    //add input box to parent HTML element
     optionsContainer.appendChild(inputBox);
 
     // Show the "Submit Answer" button
@@ -112,9 +123,10 @@ function submitAnswer() {
     // Check if the user's answer is correct
     if (userAnswer === currentQuestion.correctAnswer) {
         numeracyScore++;
-        feedbackContainer.textContent = "Correct!";
+        feedbackContainer.textContent = numeracyQuestions[currentQuestionIndex].feedback;
         feedbackContainer.style.color = "lightgreen";
-        feedbackContainer.style.fontSize = "2em";
+        feedbackContainer.style.textAlign = "center";
+        feedbackContainer.style.fontSize = "1.7em";
         feedbackContainer.style.padding = "5%";
         
 
@@ -128,7 +140,7 @@ function submitAnswer() {
     else {
         feedbackContainer.textContent = `Incorrect. The correct answer is ${currentQuestion.correctAnswer}!`;
         feedbackContainer.style.color = "red";
-        feedbackContainer.style.fontSize = "2em";
+        feedbackContainer.style.fontSize = "1.7em";
         feedbackContainer.style.textAlign = "center";
         feedbackContainer.style.padding = "5%";
     }

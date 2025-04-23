@@ -42,14 +42,17 @@ function literacyClick() {
 document.addEventListener('DOMContentLoaded', function() {
     loadLiteracyQuestion();  // Load the first question when the page is ready
 });
+
+//Initialise Global variables
 let literacyCurrentQuestionIndex = 0;
 let literacyScore = 0;
+//Array of questions, possible answers, correct answers and 
 const literacyQuestions = [
     {
         literacy_question: "Which of these options is another word for happy?",
         options: ["Sad", "Joyful", "Angry", "Confused"],
         correctAnswer: "Joyful",
-        feedback: "Correct! 'Content' is a synonym for 'happy'."
+        feedback: "Correct! 'Joyful' is a synonym for 'happy'."
     },
     {
         literacy_question: "Which of the following sentences is written in the past tense?",
@@ -125,9 +128,10 @@ function submitLiteracyAnswer() {
 
     if (userAnswer === correctAnswer) {
         literacyScore++;
-        literacyFeedbackContainer.textContent = "Correct!";
+        literacyFeedbackContainer.textContent = literacyQuestions[literacyCurrentQuestionIndex].feedback;
         literacyFeedbackContainer.style.color = "lightgreen";
-        literacyFeedbackContainer.style.fontSize = "2em";
+        literacyFeedbackContainer.style.textAlign = "center";
+        literacyFeedbackContainer.style.fontSize = "1.7em";
         literacyFeedbackContainer.style.padding = "5%";
     }
     else if (!userAnswer) {
@@ -139,7 +143,7 @@ function submitLiteracyAnswer() {
     else {
         literacyFeedbackContainer.textContent = `Incorrect. The correct answer is ${correctAnswer}.`;
         literacyFeedbackContainer.style.color = "red";
-        literacyFeedbackContainer.style.fontSize = "2em";
+        literacyFeedbackContainer.style.fontSize = "1.7em";
         literacyFeedbackContainer.style.textAlign = "center";
         literacyFeedbackContainer.style.padding = "5%";
     }

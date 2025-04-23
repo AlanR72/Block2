@@ -553,7 +553,9 @@ input[type="checkbox"] {
     #history-options-container{
         display: flex;
         flex-direction: column;
-        
+    }
+    #history-feedback{
+        font-size: 2em !important;
     }
     #history-options-container label {
         display: flex;
@@ -576,6 +578,9 @@ input[type="checkbox"] {
     }
     .wellbeing_bottom{
         font-size: 1.8em;
+    }
+    #drag-drop-feedback{
+        font-size: 2em !important;
     }
     #health-wellbeing-answer{
         font-size: 1em;

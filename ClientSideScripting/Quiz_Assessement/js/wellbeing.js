@@ -294,7 +294,7 @@ function submitHealthWellbeingAnswer() {
 
         if (sortedUserAnswer === sortedCorrectAnswer) {
             healthWellbeingScore++;
-            healthWellbeingFeedbackContainer.textContent = "Correct!";
+            healthWellbeingFeedbackContainer.textContent = healthWellbeingQuestions[healthWellbeingCurrentQuestionIndex].feedback;
             healthWellbeingFeedbackContainer.style.fontSize = "2em";
             healthWellbeingFeedbackContainer.style.color = "lightgreen";
             healthWellbeingFeedbackContainer.style.padding = "5%";
@@ -308,7 +308,7 @@ function submitHealthWellbeingAnswer() {
     } else {
         if (userAnswer.toLowerCase() === question.correctAnswer.toLowerCase()) {
             healthWellbeingScore++;
-            healthWellbeingFeedbackContainer.textContent = "Correct!";
+            healthWellbeingFeedbackContainer.textContent = healthWellbeingQuestions[healthWellbeingCurrentQuestionIndex].feedback;
             healthWellbeingFeedbackContainer.style.fontSize = "2em";
             healthWellbeingFeedbackContainer.style.color = "lightgreen";
             healthWellbeingFeedbackContainer.style.padding = "5%";

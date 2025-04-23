@@ -254,11 +254,12 @@ function submitAnswer() {
 
     if (correctItem) {
         awarenessScore++;
-        document.getElementById('drag-drop-feedback').textContent = "Correct!";
+        document.getElementById('drag-drop-feedback').textContent = questions[currentQuestionIndex].feedback;
         document.getElementById('drag-drop-feedback').style.color = "lightgreen";
         document.getElementById('drag-drop-feedback').style.fontSize = "1.7em";
         document.getElementById('drag-drop-feedback').style.padding = "5%";
         document.getElementById('drag-drop-feedback').style.marginTop = "-8%";
+        document.getElementById('drag-drop-feedback').style.textAlign = "center";
     } else {
         // Find the correct answer and show it
         const correctAnswer = question.items.find(item => item.correct).text;

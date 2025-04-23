@@ -1,7 +1,9 @@
+//MAIN javascript containing code for all pages
 
-// Create the container ONCE
+// Create the container as date/time was loading unsmoothly
 function initializeStarDate() {
     const container = document.getElementById('starDate');
+    //Template literal `` allows multi line strings
     container.innerHTML = `
       <h2>STARDATE:</h2>
       <p id="dateLine"></p>
@@ -9,17 +11,19 @@ function initializeStarDate() {
     `;
   }
 
-  // Update just the text
+  // Update just the text as container already loaded allowing for smooth transition
 function updateDateandTime() {
     const now = new Date();
   
     const day = now.getDate();
     const month = now.getMonth() + 1;
     const year = now.getFullYear();
+    //Padstart must be a string and below creates 2 digits starting with 0 for recognisable time format i.e 01:02:03
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
-  
+    
+    //Displays date and time in 'stardate' element as 'template literal' ie allows variables and expressions embedded in strings
     document.getElementById('dateLine').textContent = `Date: ${day}/${month}/${year}`;
     document.getElementById('timeLine').textContent = `Time: ${hours}:${minutes}:${seconds}`;
   }
@@ -27,12 +31,14 @@ function updateDateandTime() {
   // Set it up
   initializeStarDate();
   updateDateandTime(); // Show right away
+  //set interval makes time update every second
   setInterval(updateDateandTime, 1000);
 
 
 //function to display alt message when returning to menu page
 
 function returnMenu() {
+    //function listens for click of returnMenu button and creates small data file called hasReturned in local storage
     document.getElementById('returnMenu').addEventListener('click', function(event) {
         localStorage.setItem('hasReturned', 'true');  // Store flag indicating user has returned
         window.location.href = 'menu.html';  // Navigate to the menu page
@@ -107,12 +113,14 @@ function welcomeClick() {
 
     // Start the typing effect for the alternative text
     typeAltText();
+    //Hide welcome button
     document.getElementById("welcomeButton").style.display = "none";
 }
 
 
-
+//Function that uses regular expressions to validate authentic email address and name present
 function validateLogin() {
+    //Accesses span elements in HTML page to display error if incorrect
     document.getElementById('nameError').textContent = "";
     document.getElementById('emailError').textContent = "";
 
@@ -140,10 +148,10 @@ function validateLogin() {
     setCookie('username', name, 7);  // Cookie expires in 7 days
     updateWelcomeMessage();          // Update the welcome message
 
-    // Redirect to another page after validation
+    // Redirect to another page after validation using anonymous function
     setTimeout(() => {
         window.location.href = 'menu.html';
-    }, 1500);
+    }, 1000);
 
     return false;  // Prevent form submission
 }
@@ -185,7 +193,7 @@ function updateWelcomeMessage() {
     }
 }
 
-// Wrap everything inside DOMContentLoaded as loginForm was throwing error when loading
+// Wrapped everything inside DOMContentLoaded as loginForm was throwing error when loading
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure the form is available before adding the onsubmit event
     const form = document.getElementById('loginForm');
@@ -209,7 +217,7 @@ function displayPassed(){
 
     let allPassed = true; // Track if all conditions are met
 
-    // Retrieve the scores from localStorage
+    // Retrieve the scores from localStorage. Logical OR ensures variable returns a score OR 0 so value is always returned
     const numeracyScore = sessionStorage.getItem('numeracyScore') || 0;
     if(numeracyScore > 2){
         document.getElementById('numeracyPassed').style.display = "block";
@@ -269,18 +277,21 @@ function displayPassed(){
 }
 displayPassed();
 
-
+//Function to display alternative astronaut image and welcome message if all quizzes are passed
 function passedAstro(){
     var username = getCookie('username')
     const allConditionsPassed = sessionStorage.getItem('allConditionsPassed');
+    //Alternative message for speech bubble
     const passedTxtElement = document.getElementById('passedTxt');
     
     if (allConditionsPassed === 'true') {
         let passedMessage = document.getElementById('passedMessage');
         let passedPara = document.getElementById('passedPara');
 
+        //New welcome message hidden before allPassed
         passedMessage.innerHTML = "CONGRATULATIONS Astronaut " + username + "!";
         passedPara.innerHTML = "You have successfully completed your training!";
+        //Hide original welcome message
         document.getElementById('loginName').style.display = "none";
         document.getElementById('loginPara').style.display = "none";
         passedMessage.style.display = "block"; // Show the passedMessage
@@ -303,7 +314,8 @@ function passedAstro(){
                 setTimeout(typeAllPassedText, speechspeed);
             }
         }
-               
+        
+        //Hide original elements and display passed elements
         document.getElementById('welcome_txt').style.display = "none";
         document.getElementById('passedTxt').style.display = "block";
         document.getElementById('welcomeButton').style.display = "none";

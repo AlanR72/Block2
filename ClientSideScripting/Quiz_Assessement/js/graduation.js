@@ -1,4 +1,4 @@
-
+//JAVASCRIPT for Graduation Page
     
 var i = 0; // Initialize the counter variable for graduation message
 var j = 0; // Initialize the counter variable for default message
@@ -8,10 +8,13 @@ function graduationBubble() {
     const allConditionsPassed = sessionStorage.getItem('allConditionsPassed');
     const welcomeTxtElement = document.getElementById('welcome_txt'); // Declare the element reference
     
+    //Message if all Quizzes passed
     if (allConditionsPassed === 'true') {
+        //Change astronaut if all Quizzes passed
         document.getElementById('mainAstro').style.display = "none";
         document.getElementById('gradAstro').style.display = "block";
         welcomeTxtElement.style.fontSize = ".8em";
+        //Alt text if all Quizzes passed
         var txt = "Congratulations " + username + "! You are now a fully fledged astronaut! You can click below to view your Graduation Diploma or skip to your first space mission!";
         var speechspeed = 50;
 
@@ -26,6 +29,7 @@ function graduationBubble() {
                 setTimeout(typeGraduationText, speechspeed);
             }
         }
+        //Display buttons redirecting to diploma page or mission page if all Quizzes passed
         document.getElementById('gradButton').style.display = "block";        
         document.getElementById('missionButton').style.display = "block";
         document.getElementById('returnMenu').style.display = "none";
@@ -33,7 +37,9 @@ function graduationBubble() {
         // Start typing the graduation message
         typeGraduationText();
 
-    } else {
+    } 
+    //Alternative text if all Quizzes NOT passed
+    else {
         var defaultText = "Hey There " + username + "!, You still have some training incomplete! Completed and passed quizzes have a green tick! You need to score 3 or more in any quizzes with a red X to complete your training..Let's go to the Main Menu.";
         var speechspeed = 50;
 
@@ -54,10 +60,12 @@ function graduationBubble() {
     }
 }
     
-    // Function to handle click and show alternative text one character at a time
+    // Function linking button to diploma page
     function gradClick() {
         window.location.href = "diploma.html";
     }
+
+    //Function linking button to mission page
     function missionClick(){
         window.location.href = "mission.html";
     }
@@ -66,18 +74,18 @@ function graduationBubble() {
 
 
 function displayFinalScores() {
-    // Retrieve the scores from localStorage
+    // Retrieve the scores from localStorage and ensures at least has value of zero and NOT null
     const numeracyScore = sessionStorage.getItem('numeracyScore') || 0;
     const literacyScore = sessionStorage.getItem('literacyScore') || 0;
     const historyScore = sessionStorage.getItem('historyScore') || 0;
     const awarenessScore = sessionStorage.getItem('awarenessScore') || 0;
     const healthWellbeingScore = sessionStorage.getItem('healthWellbeingScore') || 0;
 
-    // Calculate the total score
+    // Calculate the total score converting sessionStorage 'string' to an integer for calculation
     const totalScore = parseInt(numeracyScore) + parseInt(literacyScore) + parseInt(historyScore) + 
                        parseInt(awarenessScore) + parseInt(healthWellbeingScore);
 
-    // Display the scores for each quiz
+    // Display the scores for each quiz and tick or cross dependant on score
     if(numeracyScore < 3){
         document.getElementById('numeracy-score').innerHTML = `Numeracy Score: ${numeracyScore} <span class="cross">\u2717</span>`;
     }

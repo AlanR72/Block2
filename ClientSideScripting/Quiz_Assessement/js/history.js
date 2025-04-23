@@ -48,27 +48,32 @@ const historyQuestions = [
     {
         question: "Which of the following are popular Scottish sports? (Choose all that apply)",
         options: ["Golf", "Rugby", "Baseball", "Shinty"],
-        correctAnswers: ["Golf", "Rugby", "Shinty"]
+        correctAnswers: ["Golf", "Rugby", "Shinty"],
+        feedback: "Correct! The answers are Golf, Rugby and Shinty."
     },
     {
         question: "Which of these are Scottish symbols?(Choose all that apply)",
         options: ["Rose", "Thistle", "Leek", "Saltire"],
-        correctAnswers: ["Thistle", "Saltire"]
+        correctAnswers: ["Thistle", "Saltire"],
+        feedback: "Correct! The answers are Thistle and Saltire."
     },
     {
         question: "Which of these are famous Scottish animals?(Choose all that apply)",
         options: ["Red Deer", "Kangaroo", "Highland Cow", "Elephant"],
-        correctAnswers: ["Red Deer", "Highland Cow"]
+        correctAnswers: ["Red Deer", "Highland Cow"],
+        feedback: "Correct! The answers are Red Deer and Highland Cow."
     },
     {
         question: "Which of these are Scottish inventions? (Choose all that apply)",
         options: ["The television", "The telephone", "The lightbulb", "Penicilin"],
-        correctAnswers: ["The television", "The telephone", "Penicilin"]
+        correctAnswers: ["The television", "The telephone", "Penicilin"],
+        feedback: "Correct! The television, The telephone and Penicilin."
     },
     {
         question: "Which of these are Scottish festivals? (Choose all that apply)",
-        options: ["Hogmanay", "Oktoberfest", "Burns Night", "Mardi Gras"],
-        correctAnswers: ["Hogmanay", "Burns Night"]
+        options: ["Hogmanay", "Oktoberfest", "Burns Supper", "Mardi Gras"],
+        correctAnswers: ["Hogmanay", "Burns Supper"],
+        feedback: "Correct! The answers are Hogmanay and Burns Supper."
     }
 ];
 
@@ -125,21 +130,22 @@ function submitHistoryAnswer() {
     if (selectedOptions.length === 0) {
         feedbackContainer.textContent = 'Please provide an answer!';
         feedbackContainer.style.color = 'red';
-        feedbackContainer.style.fontSize = '1.7em';
+        feedbackContainer.style.fontSize = '1.5em';
         return;
     }
 
     // Check if selected options match the correct answers
     if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(currentQuestion.correctAnswers.sort())) {
         historyScore++;
-        feedbackContainer.textContent = "Correct!";
+        feedbackContainer.textContent = historyQuestions[currentHistoryQuestionIndex].feedback;
         feedbackContainer.style.color = "lightgreen";
-        feedbackContainer.style.fontSize = "2em";
+        feedbackContainer.style.textAlign = "center";
+        feedbackContainer.style.fontSize = "1.3em";
         feedbackContainer.style.padding = "5%";
     } else {
         feedbackContainer.textContent = `Incorrect. The correct answers are: ${currentQuestion.correctAnswers.join(', ')}`;
         feedbackContainer.style.color = "red";
-        feedbackContainer.style.fontSize = "2em";
+        feedbackContainer.style.fontSize = "1.5em";
         feedbackContainer.style.textAlign = "center";
         feedbackContainer.style.padding = "5%";
     }

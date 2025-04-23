@@ -1,4 +1,4 @@
-
+// JAVASCRIPT for diploma page
 
  // Function to get a cookie by name
  function getCookie(name) {
@@ -47,10 +47,11 @@ function updateDateandTime(){
 }
 updateDateandTime();
 
-//function linked to print button 
+//function linked to print diploma button 
 function enhancedPrint(){
     window.print();
 }
+//Function directing to mission page
 function missionClick(){
     window.location.href = "mission.html";
 }
