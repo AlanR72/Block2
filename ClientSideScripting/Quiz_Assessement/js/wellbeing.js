@@ -226,7 +226,7 @@ function loadHealthWellbeingQuestion() {
         dropzone.style.marginTop = "30px";
         dropzone.style.minHeight = "40px";
         dropzone.style.textAlign = "center";
-        dropzone.style.backgroundColor = "#f9f9f9";
+        dropzone.style.backgroundColor = "#EBE9C3";
         dropzone.style.border = "2px dashed #ccc";
         dropzone.style.borderRadius = "10px";
         dropzone.style.fontSize = ".7em";
