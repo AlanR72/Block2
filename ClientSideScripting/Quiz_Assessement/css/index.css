@@ -42,7 +42,7 @@ main{
     text-align: center;
     padding: 1%;
     font-size: .7em;
-    margin-top: 100px;
+    margin-top: 5%;
     margin-bottom: 50px;
     animation: fadeIn 3s;
 }
@@ -75,6 +75,9 @@ button{
 h1{
     margin-bottom: 5%;
 }
+.travelAstro{
+    width: 60%;
+}
 
 /* Animation style to fade in time display */
 @keyframes fadeIn{
@@ -88,6 +91,9 @@ h1{
         width: 30%;
         font-size: 1em;
         border: red solid 10px;
+    }
+    .travelAstro{
+        width: 20%;
     }
     body{
         font-size: 5em;
