@@ -55,3 +55,19 @@ function enhancedPrint(){
 function missionClick(){
     window.location.href = "mission.html";
 }
+var i = 0; // Initialize the counter variable
+
+// Function to handle typing text
+function speechBubble() {
+    var username = getCookie('username');
+    var txt = 'Say "Cheese" Astronaut ' + username +"!! Well Done! Print your diploma or start your first mission..";
+    var speechspeed = 50;
+
+    // Display text letter by letter
+    if(i < txt.length){
+        document.getElementById('welcome_txt').innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(speechBubble, speechspeed);
+    }
+    
+}

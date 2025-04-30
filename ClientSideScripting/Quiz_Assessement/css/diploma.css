@@ -112,6 +112,52 @@ p{
     width: 45%;
     font-size: 1.2em;
 }
+.photoAstro{
+    position: fixed;
+    width: 50%;
+    right: -10%;
+    top: 65%;
+    animation: fadeOut 10s forwards;
+    animation-delay: 10s;
+}
+
+/* Fade out for astronaut and speech bubble */
+@keyframes fadeOut{
+    0%{opacity:1;}
+    100%{opacity:0;}
+}
+/* Speech bubble container */
+.speechBubble {
+    max-width: 100px;
+    background: #EBE9C3;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    display: inline-block;
+    position: absolute; /* Changed from fixed */
+    border-radius: 5%;
+    bottom: 25%; /* Anchored from the bottom */
+    right: 30%;
+    padding: 3%;
+    animation: fadeOut 10s forwards;
+    animation-delay: 10s;
+    box-sizing: border-box;
+}
+
+/* Speech bubble tail (unchanged — stays on right side) */
+.speechBubble:before {
+    content: "";
+    position: absolute;
+    bottom: 10px; /* Same position as before */
+    left: 100%; /* Tail on the right edge */
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #EBE9C3;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    transform: rotate(-90deg);
+    transform-origin: center center;
+}
 
  /* Hide all elements on the page except the main content when printing */
  @media print {
@@ -138,6 +184,23 @@ p{
         width: 60%;
         font-size: 5em;
         border: gold solid 20px;
+    }
+    .photoAstro{
+        position: fixed;
+        width: 25%;
+        right: 5%;
+    }
+    .speechBubble{
+        max-width: 800px;
+        bottom:20%;
+        right: 25%;
+    }
+    .speechBubble:before{
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid #EBE9C3; /* Wider, flatter tail */
+        transform: none; 
+        margin-left: -10px;
     }
     h2{
         margin-top: 15%;

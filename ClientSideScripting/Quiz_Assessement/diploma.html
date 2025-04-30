@@ -9,7 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/diploma.css">
 </head>
-<body>
+<body onload="speechBubble()">
     <!-- Container for diploma -->
     <main class="diplomaContainer">
         <h2>Space Academy Graduation Certificate</h2>
@@ -19,6 +19,13 @@
         <p>has sucessfully completed</p>
         <p>The Space Academy Cadet Training Program</p>
         <p>and is hereby promoted to Full Astronaut!</p>
+        <!-- Speech bubble -->
+        <div id="speechBubble" class="speechBubble">
+            <p id="welcome_txt"></p>
+        </div>
+        <!-- Astronaut image -->
+        <img class="photoAstro" src="/media/socialskillsastronaut.png" alt="Astronaut with camera">
+
         <!-- Displays current date -->
         <p>Date of Graduation: <span id="gradDate"></span></p>
         <!-- Image of rocket -->
@@ -38,7 +45,6 @@
         </div>
         </div>
     </main>
-
     <!-- Print button -->
     <button id="printDiploma" onclick="enhancedPrint()">Print Diploma</button>
     <!-- Button redirecting to mission page -->
