@@ -1,3 +1,7 @@
+//Mission Page Javascript
+
+//Author: Alan Robb
+//Date: 06/05/2025
 
 const countdownEl = document.getElementById('countdown');
 const rocketEl = document.getElementById('rocket');

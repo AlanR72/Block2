@@ -1,5 +1,8 @@
 //JAVASCRIPT for Numeracy Quiz
 
+//Author: Alan Robb
+//Date: 06/05/2025
+
 var i = 0; // Initialize the counter variable
 
 // Function to handle typing text

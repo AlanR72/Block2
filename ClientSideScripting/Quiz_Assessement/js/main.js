@@ -1,5 +1,8 @@
 //MAIN javascript containing code for all pages
 
+//Author: Alan Robb
+//Date: 06/05/2025
+
 // Create the container as date/time was loading unsmoothly
 function initializeStarDate() {
     const container = document.getElementById('starDate');
@@ -324,12 +327,7 @@ function passedAstro(){
         document.getElementById('speech_bubble').style.marginLeft = "5%";
         document.getElementById('passedButton').style.display = "block";
         
-        
-        
-        
-        
-
-        // Start typing the All Passed message
+    // Start typing the All Passed message
         typeAllPassedText();
     }
 }

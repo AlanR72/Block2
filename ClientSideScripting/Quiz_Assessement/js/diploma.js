@@ -1,5 +1,8 @@
 // JAVASCRIPT for diploma page
 
+//Author: Alan Robb
+//Date: 06/05/2025
+
  // Function to get a cookie by name
  function getCookie(name) {
     let cookieArr = document.cookie.split(';');

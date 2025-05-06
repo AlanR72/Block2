@@ -1,4 +1,7 @@
 //JAVASCRIPT for Graduation Page
+
+//Author: Alan Robb
+//Date: 06/05/2025
     
 var i = 0; // Initialize the counter variable for graduation message
 var j = 0; // Initialize the counter variable for default message

@@ -1,5 +1,8 @@
 // Health and Wellbeing Quiz JavaScript
 
+//Author: Alan Robb
+//Date: 06/05/2025
+
 var i = 0; // Initialize the counter variable
 
 function wellbeingBubble() {
